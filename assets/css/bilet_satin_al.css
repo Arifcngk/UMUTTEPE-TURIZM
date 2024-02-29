@@ -1,0 +1,68 @@
+/* Formun Ortalanması */
+.submit-form {
+  width: 80%; /* Formun genişliğini ayarlayın */
+  margin: auto; /* Formu yatayda ortala */
+  padding: 20px;
+  background-color: #fff; /* Kart arkaplan rengi */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Gölgeli efekt */
+}
+
+/* Form Elemanları Stilleri */
+fieldset {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Radio buton ve etiketler */
+.radio-select label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.radio-select input[type="radio"] {
+  display: none;
+}
+
+.radio-select input[type="radio"] + label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.radio-select input[type="radio"]:checked + label {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Buton Stilleri */
+.btn-bilet-al {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+ 
+  text-align: center;
+}
+
+.btn-bilet-al:hover {
+  background-color: #0056b3;
+}
