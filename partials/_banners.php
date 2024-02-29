@@ -1,4 +1,4 @@
- <!-- ======= Hemen Üyel Ol ======= -->
+ <!-- ======= Hemen Üye Ol ======= -->
  <section id="cta" class="cta">
             <div class="container">
                 <div class="text-center">
@@ -8,4 +8,4 @@
                 </div>
             </div>
         </section>
-        <!-- Hemen Üyel Ol - Son -->
+        <!-- Hemen Üye Ol - Son -->
