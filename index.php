@@ -4,7 +4,7 @@ require "libs/funtions.php";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <!-- head başlangıc -->
 <head>
@@ -19,24 +19,28 @@ require "libs/funtions.php";
     <!-- navbar başlangıç -->
 
     <!-- ======= Hero Section ======= -->
-    <?php include "partials/_hero_section.php" ?>
+    <?php include "partials/_hero.php" ?>
+    <!-- End Hero -->
+
+    <!-- ======= Hero Section ======= -->
+    <?php include "partials/_login_popup.php" ?>
     <!-- End Hero -->
 
     <main id="main">
         <!-- ======= Bilet Satın Alma Ekranı ======= -->
-        <?php include "partials/_bilet_satin_al.php"?>
+        <?php include "partials/_buy_ticket.php"?>
         <!-- Bilet Satın Alma Ekranı Kapanış -->
 
         <!-- ======= Servislerimiz ======= -->
-        <?php include "partials/_servislerimiz.php"?>
+        <?php include "partials/_services.php"?>
         <!-- Servislerimiz-Son -->
 
         <!-- ======= Hızlı Satın Alma  ======= -->
-        <?php include "partials/_hizli_satin_al.php"?>
+        <?php include "partials/_buy_fast.php"?>
         <!-- Hızlı Satın Alma Son -->
 
         <!-- ======= Hemen Üyel Ol ======= -->
-        <?php include "partials/_banners.php"?>
+        <?php include "partials/_banner.php"?>
         <!-- Hemen Üyel Ol - Son -->
 
         <!-- ======= Sıkça Sorulan Sorular Kısmı ======= -->
@@ -44,7 +48,7 @@ require "libs/funtions.php";
         <!-- Sıkça Sorulan Sorular Kısmı- Son -->
 
         <!-- ======= İletişim Alanı ======= -->
-       <?php include "partials/_iletisim.php"?>
+       <?php include "partials/_contact.php"?>
         <!-- İletişim Alanı Son -->
     </main>
     <!-- End #main -->

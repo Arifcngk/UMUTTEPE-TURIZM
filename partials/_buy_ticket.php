@@ -15,7 +15,7 @@
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="nereden">Nereden:</label>
-                                  <select required name='nereden'>
+                                  <select required name='nereden' id="nereden">
                                       <option value="">Şehir Seçiniz:</option>
                                       <option value="">Kocaeli Otogar</option>
                                       <option value="">Gebze Otogar (Kocaeli)</option>
@@ -32,7 +32,7 @@
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="nereye">Nereye:</label>
-                                  <select required name='nereye'>
+                                  <select required name='nereye' id="nereye">
                                       <option value="">Şehir Seçiniz:</option>
                                       <option value="">Kocaeli Otogar</option>
                                       <option value="">Gebze Otogar (Kocaeli)</option>
@@ -48,7 +48,7 @@
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="departure">Gidiş Tarihi:</label>
-                                  <input name="deparure" type="date" class="form-control date" id="deparure"
+                                  <input name="deparure" type="date" class="form-control date" id="departure"
                                       placeholder="Gidiş Tarihi...">
                               </fieldset>
                           </div>

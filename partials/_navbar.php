@@ -26,7 +26,7 @@
 
 
                 <li><a href="#" id="show-login">Giriş</a></li>
-                <li><a href="kayit_ol.php">Kayıt Ol</a></li>
+                <li><a href="sign_up.php">Kayıt Ol</a></li>
 
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

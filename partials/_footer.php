@@ -65,7 +65,8 @@
                          Abone Ol
                      </p>
                      <form action="" method="post">
-                         <input type="email" name="email" /><input type="submit" value="Abone Ol" />
+                         <input type="email" name="email"  autocomplete="off"/>
+                         <input type="submit" value="Abone Ol"/>
                      </form>
                  </div>
              </div>
