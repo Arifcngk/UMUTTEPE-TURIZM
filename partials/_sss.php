@@ -9,14 +9,12 @@
                 <ul class="faq-list">
                     <li>
                         <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">
-                            Umuttepe Turizm Güvenli Mi?
+                            Hangi ödeme yöntemlerini kabul ediyorsunuz?
                             <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i>
                         </div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id
-                                volutpat lacus laoreet non curabitur gravida. Venenatis lectus
-                                magna fringilla urna porttitor rhoncus dolor purus non.
+                            Kredi kartı ve online ödeme gibi çeşitli ödeme seçenekleri sunuyoruz. Detaylı bilgi için bizimle iletişime geçebilirsiniz.
                             </p>
                         </div>
                     </li>
@@ -28,11 +26,7 @@
                         </div>
                         <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque
-                                habitant morbi. Id interdum velit laoreet id donec ultrices.
-                                Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris
-                                ultrices eros in cursus turpis massa tincidunt dui.
+                            Rezervasyon iptali için lütfen müşteri hizmetlerimizle iletişime geçin. İptal politikaları ve iade süreçleri hakkında size yardımcı olacaklar.
                             </p>
                         </div>
                     </li>
@@ -44,12 +38,7 @@
                         </div>
                         <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices
-                                sagittis orci. Faucibus pulvinar elementum integer enim. Sem
-                                nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
-                                pellentesque eu tincidunt. Lectus urna duis convallis
-                                convallis tellus. Urna molestie at elementum eu facilisis sed
-                                odio morbi quis
+                                İndirimlerden, gerekli koşulları sağladığnınız koşulda istediğiniz şekilde faydalanabilirsiniz. Dilerseniz sitemizde tanımladığımız avantajlar bölümünden güncel indirimlere ulaşabilirsiniz.
                             </p>
                         </div>
                     </li>
@@ -61,11 +50,7 @@
                         </div>
                         <div id="faq4" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque
-                                habitant morbi. Id interdum velit laoreet id donec ultrices.
-                                Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris
-                                ultrices eros in cursus turpis massa tincidunt dui.
+                            Koltuk rezervasyonu, seyahat edeceğiniz araçta veya taşıma aracında belirli bir koltuğun sizin için ayrılmasıdır. Özellikle uzun yolculuklarda veya yoğun seyahat dönemlerinde tercih edilen bir hizmettir. Bu sayede istediğiniz koltuğu önceden seçebilir, seyahatiniz boyunca daha rahat bir deneyim yaşayabilirsiniz. Koltuk rezervasyonu genellikle ek bir ücret karşılığında yapılır ve rezervasyon yapılan koltuğun size ait olduğunu garanti eder.
                             </p>
                         </div>
                     </li>
@@ -77,28 +62,19 @@
                         </div>
                         <div id="faq5" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo.
-                                Dignissim suspendisse in est ante in. Nunc vel risus commodo
-                                viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
-                                bibendum est. Purus gravida quis blandit turpis cursus in
+                                Güncel biletlerinizi görüntüleyecebildiğiniz 'Biletlerim' sayfası üzerinden, son bir saate kadar biletinizi iptal edip, paranızı hiçbir kesintiye uğramadan geri alabilirsiniz.
                             </p>
                         </div>
                     </li>
 
                     <li>
                         <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">
-                            Ödeme Yöntemleri Nelerdir?
+                        Tatil rezervasyonumu nasıl yapabilirim?
                             <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i>
                         </div>
                         <div id="faq6" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris
-                                vitae ultricies leo integer malesuada nunc vel. Tincidunt eget
-                                nullam non nisi est sit amet. Turpis nunc eget lorem dolor
-                                sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                                Pellentesque diam volutpat commodo sed egestas egestas
-                                fringilla phasellus faucibus. Nibh tellus molestie nunc non
-                                blandit massa enim nec.
+                            Tatil rezervasyonunuzu kolayca yapmak için web sitemizdeki rezervasyon formunu doldurabilir veya bizi arayarak yardım alabilirsiniz.
                             </p>
                         </div>
                     </li>

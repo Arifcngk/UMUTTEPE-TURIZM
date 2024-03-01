@@ -47,16 +47,16 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Ad-Soyad"
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Ad-Soyad" autocomplete="given-name"
                                         required />
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email"
+                                    <input type="email" class="form-control" name="email" id="email" autocomplete="off"
                                         placeholder="Email Adresiniz" required />
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject"
+                                <input type="text" class="form-control" name="pnr" id="pnr"
                                     placeholder="PNR Numaranız (opsiyonel)" required />
                             </div>
                             <div class="form-group mt-3">

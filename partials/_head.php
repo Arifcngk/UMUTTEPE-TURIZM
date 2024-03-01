@@ -2,8 +2,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <title>Umuttepe Turizm</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+    <meta content="Yolculuğunuzda güven ve konforun adresi!" name="description" />
+    <meta content="Umuttepe Turizm" name="title"/>
+    <meta content="bus, tourism, travel, tourist" name="keywords" />
 
     <!-- Favicons -->
     <link href="assets/img/umuttepe_logo.jpg" rel="icon" />
@@ -21,11 +22,9 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-MzP6zQ5g62K3MWLxrQzuWypOVuqF8IteZMa8G9yGdaG+1Gz+3OwzjUHw/Jg/PqazvhWLzN62VVstkbj8OD4F2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- <link href="assets/css/login.css" rel="stylesheet" /> -->
-    <link href="assets/css/bilet_satin_al.css" rel="stylesheet" />
+    <link href="assets/css/login_popup.css" rel="stylesheet" />
+    <link href="assets/css/buy_ticket.css" rel="stylesheet" />

@@ -18,6 +18,7 @@
 }
 
 .popup {
+  z-index: 4;
   position: fixed; /* changed to fixed */
   top: 50%;
   left: 50%;
@@ -42,14 +43,18 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 15px;
-  height: 15px;
-  background: #888;
+  border-radius: 50%;
+  background: red;
   color: #eee;
   text-align: center;
   line-height: 15px;
   border-radius: 15px;
   cursor: pointer;
+}
+
+.popup .close-btn:is(:hover, :focus-visible){
+  transform: translateY(180deg);
+  background-color: darkred;
 }
 
 .popup .form h2 {
