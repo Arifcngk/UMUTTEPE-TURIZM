@@ -10,11 +10,11 @@
                 <li>
                     <a class="nav-link scrollto active" href="#hero">Anasayfa</a>
                 </li>
-                <li><a class="nav-link scrollto" href="hakkımızda.php">Hakkımızda</a></li>
+                <li><a class="nav-link scrollto" href="#">Hakkımızda</a></li>
                 <li class="dropdown">
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Rezervasyon Kontrol</a></li>
+                        <li><a href="#">Bilet Kontrol</a></li>
 
                         <li><a href="#">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#">Üyelik Avantajları</a></li>
