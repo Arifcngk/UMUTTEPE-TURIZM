@@ -22,10 +22,6 @@ require "libs/funtions.php";
     <?php include "partials/_hero.php" ?>
     <!-- End Hero -->
 
-    <!-- ======= Hero Section ======= -->
-    <?php include "partials/_login_popup.php" ?>
-    <!-- End Hero -->
-
     <main id="main">
         <!-- ======= Bilet Satın Alma Ekranı ======= -->
         <?php include "partials/_buy_ticket.php"?>
@@ -66,19 +62,6 @@ require "libs/funtions.php";
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script>
-    document
-        .querySelector("#show-login")
-        .addEventListener("click", function() {
-            document.querySelector(".popup").classList.add("active");
-        });
-    document
-        .querySelector(".popup .close-btn")
-        .addEventListener("click", function() {
-            document.querySelector(".popup").classList.remove("active");
-        });
-    </script>
-
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 </body>
