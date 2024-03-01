@@ -62,7 +62,7 @@
 
 
                           <fieldset>
-                              <button type="submit" id="form-submit" class="btn-bilet-al btn">Bilet Bul</button>
+                              <button type="submit" id="btn-form-submit" class="btn-bilet-al btn">Bilet Bul</button>
                           </fieldset>
 
                       </div>

@@ -1,8 +1,13 @@
 .center {
+  z-index: -1;
   position: fixed; /* changed to fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.center.active {
+  z-index: 4;
 }
 
 .center button {
@@ -18,7 +23,6 @@
 }
 
 .popup {
-  z-index: 4;
   position: fixed; /* changed to fixed */
   top: 50%;
   left: 50%;
