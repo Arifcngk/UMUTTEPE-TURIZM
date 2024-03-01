@@ -1,3 +1,13 @@
+<?php include 'libs/funtions.php' ?>
+
+<?php
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +23,7 @@
 
 </head>
 
-<body>
+<body> 
     <!-- KUllANICI KAYIT OL GİRİŞ -->
     <div class="form_wrapper">
         <div class="form_container">
@@ -22,7 +32,7 @@
             </div>
             <div class="row clearfix">
                 <div class="">
-                    <form>
+                    <form action="sign_up.php" method="post">
                         <div class="row clearfix">
                             <div class="col_half">
                                 <div class="input_field">
@@ -33,7 +43,7 @@
                             <div class="col_half">
                                 <div class="input_field">
                                     <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                                    <input type="text" name="name" placeholder="Soyadınız" required />
+                                    <input type="text" name="lastName" placeholder="Soyadınız" required />
                                 </div>
                             </div>
                         </div>
@@ -55,7 +65,7 @@
                         </div>
                         <div class="input_field">
                             <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Parola Tekrar" required />
+                            <input type="password" name="repassword" placeholder="Parola Tekrar" required />
                         </div>
 
                         <div class="input_field radio_option">
