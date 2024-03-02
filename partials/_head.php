@@ -26,5 +26,4 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/login_popup.css" rel="stylesheet" />
     <link href="assets/css/buy_ticket.css" rel="stylesheet" />
