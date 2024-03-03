@@ -32,7 +32,7 @@
                          </li>
                          <li>
                              <i class="bx bx-chevron-right"></i>
-                             <a href="#">Gizlilik Politikası</a>
+                             <a href="#" id="privacy-open">Gizlilik Politikası</a>
                          </li>
                      </ul>
                  </div>
@@ -46,14 +46,14 @@
                          </li>
                          <li>
                              <i class="bx bx-chevron-right"></i>
-                             <a href="#">S.S.S</a>
+                             <a href="#faq">S.S.S</a>
                          </li>
                          <li>
                              <i class="bx bx-chevron-right"></i>
                              <a href="#">Üyelik Avantajları</a>
                          </li>
                          <li>
-                             <i class="bx bx-chevron-right"></i> <a href="#">İletişim</a>
+                             <i class="bx bx-chevron-right"></i> <a href="#contact">İletişim</a>
                          </li>
                      </ul>
                  </div>

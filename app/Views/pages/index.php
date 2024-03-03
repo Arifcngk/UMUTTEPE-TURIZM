@@ -55,6 +55,7 @@
         <!-- ======= İletişim Alanı ======= -->
        <?php include "app/Views/partials/_contact.php"?>
         <!-- İletişim Alanı Son -->
+
     </main>
     <!-- End #main -->
 
