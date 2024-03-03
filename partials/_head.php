@@ -9,6 +9,8 @@
     <!-- Favicons -->
     <link href="assets/img/umuttepe_logo.jpg" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
     <!-- Google Fonts -->
     <link
@@ -27,3 +29,5 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/buy_ticket.css" rel="stylesheet" />
+    <link href="assets/bilet_kontrol.css" rel="stylesheet" />
+

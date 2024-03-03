@@ -14,7 +14,7 @@
                 <li class="dropdown">
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Bilet Kontrol</a></li>
+                        <li><a href="#"   >Bilet Kontrol</a></li>
 
                         <li><a href="#">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#">Üyelik Avantajları</a></li>
@@ -23,19 +23,24 @@
                 </li>
 
 
-
-
-                <li><a href="login.php" id="show-login">Giriş</a></li>
-                <li><a href="sign_up.php">Kayıt Ol</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="bi bi-person fs-5"></i>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="login.php">Giriş</a></li>
+                        <li><a href="sign_up.php">Kayıt Ol</a></li>
+                    </ul>
+                </li>
 
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
         <!-- .navbar -->
     </div>
-    <!-- login kart başlangıç -->
+    <!-- Bilet Kontrol Popup -->
 
-
-    <!-- login kart bitiş -->
 </header>
+
+
 <!-- End Header -->
