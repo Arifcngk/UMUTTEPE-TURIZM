@@ -1,70 +1,87 @@
 <?php
-require "libs/varibles.php";
-require "libs/funtions.php";
 
-?>
-<!DOCTYPE html>
-<html lang="tr">
+// Check PHP version.
+$minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.
+if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
+    $message = sprintf(
+        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
+        $minPhpVersion,
+        PHP_VERSION
+    );
 
-<!-- head başlangıc -->
-<head>
-     <?php include "partials/_head.php"?>
-</head>
-<!-- head son -->
+    exit($message);
+}
 
-<body>
-    
-    <!-- navbar başlangıç -->
-    <?php include "partials/_navbar.php" ?>
-    <!-- navbar başlangıç -->
+// Path to the front controller (this file)
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-    <!-- ======= Hero Section ======= -->
-    <?php include "partials/_hero.php" ?>
-    <!-- End Hero -->
+// Ensure the current directory is pointing to the front controller's directory
+if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
+    chdir(FCPATH);
+}
 
-    <main id="main">
-        <!-- ======= Bilet Satın Alma Ekranı ======= -->
-        <?php include "partials/_buy_ticket.php"?>
-        <!-- Bilet Satın Alma Ekranı Kapanış -->
+/*
+ *---------------------------------------------------------------
+ * BOOTSTRAP THE APPLICATION
+ *---------------------------------------------------------------
+ * This process sets up the path constants, loads and registers
+ * our autoloader, along with Composer's, loads our constants
+ * and fires up an environment-specific bootstrapping.
+ */
 
-        <!-- ======= Servislerimiz ======= -->
-        <?php include "partials/_services.php"?>
-        <!-- Servislerimiz-Son -->
+// Load our paths config file
+// This is the line that might need to be changed, depending on your folder structure.
+require FCPATH . 'app/Config/Paths.php';
+// ^^^ Change this line if you move your application folder
 
-        <!-- ======= Hızlı Satın Alma  ======= -->
-        <?php include "partials/_buy_fast.php"?>
-        <!-- Hızlı Satın Alma Son -->
+$paths = new Config\Paths();
 
-        <!-- ======= Hemen Üyel Ol ======= -->
-        <?php include "partials/_banner.php"?>
-        <!-- Hemen Üyel Ol - Son -->
+// Location of the framework bootstrap file.
+require rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
-        <!-- ======= Sıkça Sorulan Sorular Kısmı ======= -->
-       <?php include "partials/_sss.php" ?>
-        <!-- Sıkça Sorulan Sorular Kısmı- Son -->
+// Load environment settings from .env files into $_SERVER and $_ENV
+require_once SYSTEMPATH . 'Config/DotEnv.php';
+(new CodeIgniter\Config\DotEnv(ROOTPATH))->load();
 
-        <!-- ======= İletişim Alanı ======= -->
-       <?php include "partials/_contact.php"?>
-        <!-- İletişim Alanı Son -->
-    </main>
-    <!-- End #main -->
+// Define ENVIRONMENT
+if (! defined('ENVIRONMENT')) {
+    define('ENVIRONMENT', env('CI_ENVIRONMENT', 'production'));
+}
 
-    <!-- ======= Footer ======= -->
-    <?php include "partials/_footer.php"?>
-    <!--  Footer-Son -->
+// Load Config Cache
+// $factoriesCache = new \CodeIgniter\Cache\FactoriesCache();
+// $factoriesCache->load('config');
+// ^^^ Uncomment these lines if you want to use Config Caching.
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+/*
+ * ---------------------------------------------------------------
+ * GRAB OUR CODEIGNITER INSTANCE
+ * ---------------------------------------------------------------
+ *
+ * The CodeIgniter class contains the core functionality to make
+ * the application run, and does all the dirty work to get
+ * the pieces all working together.
+ */
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <script></script>
-</body>
+$app = Config\Services::codeigniter();
+$app->initialize();
+$context = is_cli() ? 'php-cli' : 'web';
+$app->setContext($context);
 
-</html>
+/*
+ *---------------------------------------------------------------
+ * LAUNCH THE APPLICATION
+ *---------------------------------------------------------------
+ * Now that everything is set up, it's time to actually fire
+ * up the engines and make this app do its thang.
+ */
+
+$app->run();
+
+// Save Config Cache
+// $factoriesCache->save('config');
+// ^^^ Uncomment this line if you want to use Config Caching.
+
+// Exits the application, setting the exit code for CLI-based applications
+// that might be watching.
+exit(EXIT_SUCCESS);
