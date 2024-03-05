@@ -2,13 +2,14 @@
 <html lang="tr">
 
 <!-- head başlangıc -->
+
 <head>
-     <?php include "app/Views/partials/_head.php"?>
+    <?php include "app/Views/partials/_head.php"?>
 </head>
 <!-- head son -->
 
 <body>
-    
+
     <!-- navbar başlangıç -->
     <?php include "app/Views/partials/_navbar.php" ?>
     <!-- navbar başlangıç -->
@@ -28,9 +29,13 @@
     <!-- End Hero -->
 
     <main id="main">
-        <!-- ======= Bilet Satın Alma Ekranı ======= -->
+        <!-- ======= Giriş Yapma Ekranı ======= -->
         <?php include "app/Views/partials/_login_popup.php"?>
-        <!-- Bilet Satın Alma Ekranı Kapanış -->
+        <!-- Giriş Yapma Ekranı Kapanıs -->
+
+        <!-- ======= PNR  Ekranı ======= -->
+        <?php include "app/Views/partials/_pnr_control.php"?>
+        <!-- PNR Ekranı Kapanıs -->
 
         <!-- ======= Bilet Satın Alma Ekranı ======= -->
         <?php include "app/Views/partials/_buy_ticket.php"?>
@@ -49,11 +54,11 @@
         <!-- Hemen Üyel Ol - Son -->
 
         <!-- ======= Sıkça Sorulan Sorular Kısmı ======= -->
-       <?php include "app/Views/partials/_sss.php" ?>
+        <?php include "app/Views/partials/_sss.php" ?>
         <!-- Sıkça Sorulan Sorular Kısmı- Son -->
 
         <!-- ======= İletişim Alanı ======= -->
-       <?php include "app/Views/partials/_contact.php"?>
+        <?php include "app/Views/partials/_contact.php"?>
         <!-- İletişim Alanı Son -->
 
     </main>

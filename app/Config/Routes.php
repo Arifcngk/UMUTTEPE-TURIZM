@@ -17,6 +17,6 @@ $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/about', 'AboutController::index');
 
-$routes->post('/pnr', 'PnrController::index');
+$routes->post('/pnrControl', 'PnrController::index');
 
 
