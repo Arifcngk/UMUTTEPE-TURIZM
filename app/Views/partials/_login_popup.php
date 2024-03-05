@@ -1,7 +1,7 @@
 <div class="overlay" id="overlay">
     <div class="popup" id="popup">
         <button class="close-btn" id="close-btn">X</button>
-        <form class="form" action="authenticate" method="POST">
+        <form class="form" action="authenticate" method="POST" style="width: 300px; height: 350px;">
             <h2>Giriş Yap</h2>
             <div class="form-element">
                 <label for="email">Email:</label>
