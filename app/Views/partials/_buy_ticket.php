@@ -10,21 +10,21 @@
 
 
                   <h4>Sefer Bilgilerinizi Giriniz</h4>
-                  <form id="form-submit" action="" method="get">
+                  <form id="form-submit" action="find_ticket" method="get">
                       <div class="row">
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="nereden">Nereden:</label>
-                                  <select required name='nereden' id="nereden">
+                                  <select required name='departure_city' id="nereden">
                                       <option value="">Şehir Seçiniz:</option>
-                                      <option value="">Kocaeli Otogar</option>
-                                      <option value="">Gebze Otogar (Kocaeli)</option>
-                                      <option value="">Düzce Otogar</option>
-                                      <option value="">Sakarya Otogar</option>
-                                      <option value="">Yalova Otogar</option>
-                                      <option value="">İstanbul Otogar</option>
-                                      <option value="">Ankara Otogar</option>
-                                      <option value="">Antalya Otogar</option>
+                                      <option value="Kocaeli">Kocaeli</option>
+                                      <option value="Gebze">Gebze(Kocaeli)</option>
+                                      <option value="Düzce">Düzce</option>
+                                      <option value="Sakarya">Sakarya</option>
+                                      <option value="Yalova">Yalova</option>
+                                      <option value="İstanbul">İstanbul</option>
+                                      <option value="Ankara">Ankara</option>
+                                      <option value="Antalya">Antalya</option>
 
                                   </select>
                               </fieldset>
@@ -32,23 +32,23 @@
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="nereye">Nereye:</label>
-                                  <select required name='nereye' id="nereye">
+                                  <select required name='destination_city' id="nereye">
                                       <option value="">Şehir Seçiniz:</option>
-                                      <option value="">Kocaeli Otogar</option>
-                                      <option value="">Gebze Otogar (Kocaeli)</option>
-                                      <option value="">Düzce Otogar</option>
-                                      <option value="">Sakarya Otogar</option>
-                                      <option value="">Yalova Otogar</option>
-                                      <option value="">İstanbul Otogar</option>
-                                      <option value="">Ankara Otogar</option>
-                                      <option value="">Antalya Otogar</option>
+                                      <option value="Kocaeli">Kocaeli</option>
+                                      <option value="Gebze">Gebze(Kocaeli)</option>
+                                      <option value="Düzce">Düzce</option>
+                                      <option value="Sakarya">Sakarya</option>
+                                      <option value="Yalova">Yalova</option>
+                                      <option value="İstanbul">İstanbul</option>
+                                      <option value="Ankara">Ankara</option>
+                                      <option value="Antalya">Antalya</option>
                                   </select>
                               </fieldset>
                           </div>
                           <div class="col-md-6">
                               <fieldset>
                                   <label for="departure">Gidiş Tarihi:</label>
-                                  <input name="deparure" type="date" class="form-control date" id="departure"
+                                  <input name="start_time" type="date" class="form-control date" id="departure"
                                       placeholder="Gidiş Tarihi...">
                               </fieldset>
                           </div>
@@ -62,7 +62,7 @@
 
 
                           <fieldset>
-                              <button type="submit" id="btn-form-submit" class="btn-bilet-al btn">Bilet Bul</button>
+                              <button type="submit" id="btn-find-ticket" class="btn-bilet-al btn">Bilet Bul</button>
                           </fieldset>
 
                       </div>
