@@ -7,7 +7,8 @@ class AboutController extends BaseController
 {
     public function index()
     {
-       return view("pages/about");
+       $data["title"] = "Hakkımızda"; 
+       return view("pages/about", $data);
 
     }
 } 

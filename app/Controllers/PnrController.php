@@ -7,7 +7,7 @@ class PnrController extends BaseController
 {
     public function index()
     {
-       return view("pages/pnrController");
+       return view("pages/pnr");
 
     }
 } 

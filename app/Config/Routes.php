@@ -15,10 +15,8 @@ $routes->post('/register', 'AuthController::save');
 
 $routes->get('/logout', 'AuthController::logout');
 
-$routes->post('/pnrControl', 'AuthController::save');
-
 $routes->get('/about', 'AboutController::index');
 
-$routes->post('/about', 'PnrController::index');
+$routes->post('/pnr', 'PnrController::index');
 
 

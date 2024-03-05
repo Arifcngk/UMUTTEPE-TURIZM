@@ -1,5 +1,5 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top   <?php if ($title != 'Anasayfa') echo 'header-inner-pages' ?> ">
     <div class="container d-flex align-items-center justify-content-between">
         <h1 class="logo"><a href="#">Umuttepe Turizm</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -10,11 +10,11 @@
                 <li>
                     <a class="nav-link scrollto <?php if ($title == 'Anasayfa') echo 'active' ?>" href="#hero">Anasayfa</a>
                 </li>
-                <li><a class="nav-link scrollto" href="about">Hakkımızda</a></li>
+                <li>   <a class="nav-link scrollto <?php if ($title == 'Hakkımızda') echo 'active' ?>" href="#hero">Hakkımızda</a></li>
                 <li class="dropdown">
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="pnrController">Bilet Kontrol</a></li>
+                        <li><a href="pnr">Bilet Kontrol</a></li>
 
                         <li><a href="#faq">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#">Üyelik Avantajları</a></li>

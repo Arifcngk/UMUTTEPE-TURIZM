@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+ <!-- head başlangıc -->
+
+     <?php include "app/Views/partials/_head.php"?>
+
+<!-- head son -->
 </head>
 <body>
-    
+     
+    <!-- navbar başlangıç -->
+    <?php include "app/Views/partials/_navbar.php" ?>
+    <!-- navbar başlangıç -->
 </body>
 </html>
