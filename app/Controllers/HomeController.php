@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\TicketModel;
+use App\Models\CityModel;
+use App\Models\RouteModel;
 class HomeController extends BaseController
 {
     public function index(): string
@@ -10,6 +12,8 @@ class HomeController extends BaseController
         $data['title'] = 'Anasayfa';
         $data['user'] = $session->get('user');
         $data['message'] = session()->getFlashdata('message');
+        $data['cities'] = CityModel::getCities();
+        $data['routes'] = RouteModel::getTopRoutes(8);
         return view('pages/index', $data);
     }
 

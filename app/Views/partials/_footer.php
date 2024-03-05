@@ -65,8 +65,8 @@
                          Abone Ol
                      </p>
                      <form action="" method="post">
-                         <input type="email" name="email"  autocomplete="off"/>
-                         <input type="submit" value="Abone Ol"/>
+                         <input type="email" name="email" autocomplete="off" />
+                         <input type="submit" value="Abone Ol" />
                      </form>
                  </div>
              </div>
@@ -79,7 +79,7 @@
                  &copy; Copyright <strong><span>Umuttepe Turizm</span></strong>. Tüm hakları saklıdır
              </div>
              <div class="credits">
-                
+
                  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
                  Designed by <a href="https://bootstrapmade.com/">DynamicSoftware</a>
              </div>

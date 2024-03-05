@@ -36,7 +36,8 @@
 
                             <div class="col-lg-6">
                                 <ul>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Adres</strong> <span>Kocaeli Üniversitesi Turizm Fakültesi 
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Adres</strong> <span>Kocaeli
+                                            Üniversitesi Turizm Fakültesi
                                         </span>
                                     </li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Tel:</strong>
@@ -139,7 +140,8 @@
                     <h3 class="resume-title">Kuruluş</h3>
                     <div class="resume-item pb-0">
                         <h4>Kocaeli Üniversite Turizm Fakültesi</h4>
-                        <p><em>Turizm Fakültesi tarafından öğrenciler ve eğitimciler için ulaşım kolaylığı sağlanması fikri ortaya atıldı.</em></p>
+                        <p><em>Turizm Fakültesi tarafından öğrenciler ve eğitimciler için ulaşım kolaylığı sağlanması
+                                fikri ortaya atıldı.</em></p>
                         <p>
                         <ul>
                             <li>Gerekli Kurumlar Toplandı ve izinler alındı</li>
@@ -171,7 +173,7 @@
                     <div class="resume-item">
                         <h4>Ödüller İle Daha Büyüdük</h4>
                         <h5>2019 - Turizm Ödülleri</h5>
-                       
+
                         <p>
                         <ul>
                             <li>Lead in the design, development, and implementation of the graphic, layout, and

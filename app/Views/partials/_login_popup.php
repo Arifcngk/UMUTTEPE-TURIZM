@@ -20,3 +20,19 @@
         </form>
     </div>
 </div>
+
+<script>
+// Close button element
+var closeButton = document.getElementById("close-btn");
+
+// Overlay element
+var overlay = document.getElementById("overlay-login");
+
+// Function to close the overlay
+function closeOverlay() {
+    overlay.classList.remove('active');
+}
+
+// Event listener to close the overlay when close button is clicked
+closeButton.addEventListener("click", closeOverlay);
+</script>

@@ -29,14 +29,6 @@
     <!-- End Hero -->
 
     <main id="main">
-        <!-- ======= Giriş Yapma Ekranı ======= -->
-        <?php include "app/Views/partials/_login_popup.php"?>
-        <!-- Giriş Yapma Ekranı Kapanıs -->
-
-        <!-- ======= PNR  Ekranı ======= -->
-        <?php include "app/Views/partials/_pnr_control.php"?>
-        <!-- PNR Ekranı Kapanıs -->
-
         <!-- ======= Bilet Satın Alma Ekranı ======= -->
         <?php include "app/Views/partials/_buy_ticket.php"?>
         <!-- Bilet Satın Alma Ekranı Kapanış -->

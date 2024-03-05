@@ -18,7 +18,13 @@
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#" id="pnr-control">Bilet Kontrol</a></li>
-
+                        <!-- ======= PNR  Ekranı ======= -->
+                        <?php include "app/Views/partials/_pnr_control.php" ?>
+                        <!-- PNR Ekranı Kapanıs -->
+                        <script src="public/assets/js/popup.js"></script>
+                        <script>
+                        PopUp('pnr-control', 'overlay-pnr');
+                        </script>
                         <li><a href="#faq">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#">Üyelik Avantajları</a></li>
                         <li><a href="#contact" class="nav-link scrollto">İletişim</a></li>
@@ -31,15 +37,21 @@
                         <i class="bi bi-person fs-5"></i>
                     </a>
                     <ul class="dropdown-menu ">
-                    <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
-                        href="profile">Profil</a></li>
+                        <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
+                                href="profile">Profil</a></li>
                         <li><a href="logout">Çıkış Yap</a></li>
                     </ul>
                 </li>
                 <?php else : ?>
+                <!-- ======= Giriş Yapma Ekranı ======= -->
+                <?php include "app/Views/partials/_login_popup.php" ?>
+                <!-- Giriş Yapma Ekranı Kapanıs -->
                 <li><a href="#" id="show-login">Giriş</a></li>
                 <li><a href="register">Kayıt Ol</a></li>
-                
+                <script src="public/assets/js/popup.js"></script>
+                <script>
+                PopUp('show-login', 'overlay-login');
+                </script>
                 <?php endif; ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -47,8 +59,5 @@
         <!-- .navbar -->
     </div>
     <!-- Bilet Kontrol Popup -->
-
 </header>
-
-
 <!-- End Header -->
