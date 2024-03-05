@@ -32,9 +32,9 @@
                 </li>
 
                 <?php if (session()->get('user')) : ?>
-                <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="bi bi-person fs-5"></i>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle <?php if ($title == 'Profil') echo 'active' ?>">
+                        <strong>Merhaba, <?php echo session()->get('user')['first_name'] ?></strong>
                     </a>
                     <ul class="dropdown-menu ">
                         <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
