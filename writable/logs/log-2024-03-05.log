@@ -28,3 +28,157 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PnrController))
  6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 17:29:31 --> mysqli_sql_exception: Unknown column 'c1.city_id' in 'on clause' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\umuttepe_turizm\app\Models\RouteModel.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-05 17:29:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\RouteModel.php(19): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 17:29:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\RouteModel.php(19): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 17:29:31 --> [Caused by] mysqli_sql_exception: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\RouteModel.php(19): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 17:33:10 --> mysqli_sql_exception: Unknown column 'c1.city_id' in 'on clause' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\umuttepe_turizm\app\Models\RouteModel.php(24): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-03-05 17:33:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\RouteModel.php(24): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 17:33:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\RouteModel.php(24): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 17:33:10 --> [Caused by] mysqli_sql_exception: Unknown column 'c1.city_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.*, `c1`.`city_name` as `departure_city`, `c2`.`city_name` as `arrival_city`
+FROM `routes`
+JOIN `cities` as `c1` ON `c1`.`city_id` = `routes`.`departure_city_id`
+JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\RouteModel.php(24): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getRoutesWithCityNames()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

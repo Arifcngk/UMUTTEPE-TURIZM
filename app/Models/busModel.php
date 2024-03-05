@@ -10,4 +10,3 @@ class BuseModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = ['company_id', 'plate_number', 'model', 'seat_capacity', 'created_at', 'updated_at'];
 }
-?>

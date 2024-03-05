@@ -9,7 +9,7 @@
             <div class="submit-form">
                 <div class="btn-group pt-2 pb-2" role="group" aria-label="Route type switch">
                     <button type="button" class="btn btn-secondary" onclick="activateButton(1)">Tek Yön</button>
-                    <button type="button" class="btn btn-secondary" onclick="activateButton(2)">Gidiş-Dönüş</button>
+                    <button type="button" class="btn btn-secondary active" onclick="activateButton(2)">Gidiş-Dönüş</button>
                 </div>
 
                 <script>

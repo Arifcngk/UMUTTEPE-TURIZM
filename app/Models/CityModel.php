@@ -10,11 +10,11 @@ class CityModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = ['city_name'];
 
-    public static function getCities() {
+    public static function getCities()
+    {
         $cityModel = new CityModel();
         $cities = $cityModel->findAll();
 
         return $cities;
     }
 }
-?>
