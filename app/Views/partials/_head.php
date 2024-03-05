@@ -1,7 +1,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title> Umuttepe | <?= esc($title)?></title>
+    <title> Umuttepe | <?= isset($title) ? esc($title) : '' ?></title>
     <meta content="Yolculuğunuzda güven ve konforun adresi!" name="description" />
     <meta content="Umuttepe Turizm" name="title"/>
     <meta content="bus, tourism, travel, tourist" name="keywords" />
