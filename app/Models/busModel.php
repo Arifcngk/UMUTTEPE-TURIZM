@@ -8,5 +8,5 @@ class BuseModel extends Model
 {
     protected $table      = 'buses';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['company_id', 'plate_number', 'model', 'seat_capacity', 'created_at', 'updated_at'];
+    protected $allowedFields = ['plate_number', 'model', 'seat_capacity', 'seat_layout', 'created_at'];
 }

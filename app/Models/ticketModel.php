@@ -8,7 +8,7 @@ class TicketModel extends Model
 {
     protected $table      = 'tickets';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['route_id', 'user_id', 'seat_number', 'price', 'status', 'created_at', 'updated_at'];
+    protected $allowedFields = ['route_id', 'user_id', 'seat_number', 'created_at'];
 
     public function getTicketsWithDetails()
     {

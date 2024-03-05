@@ -2287,3 +2287,25 @@ section {
 .form-element a:hover {
   text-decoration: underline;
 }
+
+/* Tickets */
+.grid-list {
+  padding: 8px;
+  overflow-y: auto;
+  display: grid;
+  gap: 32px;
+  transition: 2s ease;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  transition: 2s ease;
+}
+
+.text-center {
+  text-align: center;
+}

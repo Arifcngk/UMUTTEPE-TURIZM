@@ -4,7 +4,7 @@
 <!-- head başlangıc -->
 
 <head>
-    <?php include "app/Views/partials/_head.php"?>
+    <?php include "app/Views/partials/_head.php" ?>
 </head>
 <!-- head son -->
 
@@ -15,21 +15,36 @@
     <!-- navbar başlangıç -->
 
     <?php if (!empty($message)) : ?>
-    <div class="alert <?php echo $message['type']; ?>">
-        <?php echo $message['text']; ?>
-    </div>
+        <div class="alert <?php echo $message['type']; ?>">
+            <?php echo $message['text']; ?>
+        </div>
     <?php endif; ?>
-    
+
     <main id="main">
+        <div class="container pt-5 mt-5">
+            <ul class="grid-list">
+                <li class="card">
+
+                </li>
+
+                <li class="card">
+                    <img src="public/assets/img/umuttepe_logo.jpg" alt="Company Logo">
+                    <div class="card-body"></div>
+                </li>
+
+                <li class="card">
+
+                </li>
+            </ul>
+        </div>
     </main>
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <?php include "app/Views/partials/_footer.php"?>
+    <?php include "app/Views/partials/_footer.php" ?>
     <!--  Footer-Kapanıs -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

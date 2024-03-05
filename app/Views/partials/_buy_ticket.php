@@ -39,7 +39,7 @@
                                 <select required name='departure_city' id="nereden">
                                     <option value="">Şehir Seçiniz:</option>
                                     <?php foreach ($cities as $city) : ?>
-                                        <Option value="<?= $city['id'] ?>"><?= $city['city_name'] ?></Option>
+                                        <Option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></Option>
                                     <?php endforeach; ?>
                                 </select>
                             </fieldset>
@@ -50,7 +50,7 @@
                                 <select required name='destination_city' id="nereye">
                                     <option value="">Şehir Seçiniz:</option>
                                     <?php foreach ($cities as $city) : ?>
-                                        <Option value="<?= $city['id'] ?>"><?= $city['city_name'] ?></Option>
+                                        <Option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></Option>
                                     <?php endforeach; ?>
                                 </select>
                             </fieldset>

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class CityModel extends Model
 {
     protected $table      = 'cities';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'city_plate';
     protected $allowedFields = ['city_name'];
 
     public static function getCities()
