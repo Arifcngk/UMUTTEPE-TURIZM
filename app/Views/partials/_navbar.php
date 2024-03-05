@@ -17,7 +17,7 @@
                 <li class="dropdown">
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="pnr">Bilet Kontrol</a></li>
+                        <li><a href="#" id="pnr-control">Bilet Kontrol</a></li>
 
                         <li><a href="#faq">Sıkça Sorulan Sorular</a></li>
                         <li><a href="#">Üyelik Avantajları</a></li>
