@@ -8,9 +8,12 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li>
-                    <a class="nav-link scrollto <?php if ($title == 'Anasayfa') echo 'active' ?>" href="#hero">Anasayfa</a>
+                    <a class="nav-link scrollto <?php if ($title == 'Anasayfa') echo 'active' ?>"
+                        href="<?= base_url('/') ?>">Anasayfa</a>
+
                 </li>
-                <li>   <a class="nav-link scrollto <?php if ($title == 'Hakkımızda') echo 'active' ?>" href="#hero">Hakkımızda</a></li>
+                <li> <a class="nav-link scrollto <?php if ($title == 'Hakkımızda') echo 'active' ?>"
+                        href="about">Hakkımızda</a></li>
                 <li class="dropdown">
                     <a href="#"><span>Yardım</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -23,18 +26,18 @@
                 </li>
 
                 <?php if (session()->get('user')) : ?>
-                    <li class="dropdown ">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="bi bi-person fs-5"></i>
-                        </a>
-                        <ul class="dropdown-menu ">
-                            <li><a href="profile">Profil</a></li>
-                            <li><a href="logout">Çıkış Yap</a></li>
-                        </ul>
-                    </li>
+                <li class="dropdown ">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="bi bi-person fs-5"></i>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="profile">Profil</a></li>
+                        <li><a href="logout">Çıkış Yap</a></li>
+                    </ul>
+                </li>
                 <?php else : ?>
-                    <li><a href="#" id="show-login">Giriş</a></li>
-                    <li><a href="register">Kayıt Ol</a></li>
+                <li><a href="#" id="show-login">Giriş</a></li>
+                <li><a href="register">Kayıt Ol</a></li>
                 <?php endif; ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

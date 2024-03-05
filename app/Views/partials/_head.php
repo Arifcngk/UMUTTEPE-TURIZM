@@ -30,4 +30,5 @@
     <link href="public/assets/css/style.css" rel="stylesheet" />
     <link href="public/assets/css/buy_ticket.css" rel="stylesheet" />
     <link href="public/assets/bilet_kontrol.css" rel="stylesheet" />
+    <link href="public/assets/about.css" rel="stylesheet" />
 
