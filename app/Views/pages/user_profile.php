@@ -6,22 +6,21 @@
     <?php include "app/Views/partials/_head.php"?>
 </head>
 <!-- head son -->
-
 <body>
+      <!-- navbar başlangıç -->
+      <?php include "app/Views/partials/_navbar.php" ?>
     <!-- navbar başlangıç -->
-    <?php include "app/Views/partials/_navbar.php" ?>
-    <!-- navbar başlangıç -->
 
-    <!-- kullanıcı profili baslangıc -->
+<!-- kullanıcı profili baslangıc -->
 
 
-    <!-- kullanıcı profili kapanıs -->
+<!-- kullanıcı profili kapanıs -->
 
 
 
-    <!-- ======= Footer ======= -->
-    <?php include "app/Views/partials/_footer.php"?>
-    <!--  Footer-Kapanıs -->
+       <!-- ======= Footer ======= -->
+       <?php include "app/Views/partials/_footer.php"?>
+       <!--  Footer-Kapanıs -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
@@ -36,5 +35,4 @@
     <script src="public/assets/js/main.js"></script>
     <script></script>
 </body>
-
 </html>

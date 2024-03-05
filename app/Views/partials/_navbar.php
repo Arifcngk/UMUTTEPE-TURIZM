@@ -39,6 +39,7 @@
                 <?php else : ?>
                 <li><a href="#" id="show-login">Giriş</a></li>
                 <li><a href="register">Kayıt Ol</a></li>
+                
                 <?php endif; ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
