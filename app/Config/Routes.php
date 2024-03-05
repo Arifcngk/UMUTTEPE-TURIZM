@@ -21,4 +21,7 @@ $routes->post('/pnrControl', 'PnrController::index');
 
 $routes->get('/profile', 'ProfileController::index');
 
+$routes->get('/tickets', 'TicketsController::index');
+
+
 

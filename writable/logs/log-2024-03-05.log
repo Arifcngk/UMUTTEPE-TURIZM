@@ -182,3 +182,1708 @@ JOIN `cities` as `c2` ON `c2`.`city_id` = `routes`.`arrival_city_id`', [], false
 10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
 11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:53 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:53 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:55 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:55 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:55 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:55 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:56 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:56 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:56 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:09:56 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:09:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:09:56 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:10:02 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:10:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:02 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:10:59 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:10:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:59 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:10:59 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:10:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:10:59 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:11:00 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:11:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:11:00 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:14:28 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:14:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:14:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:14:28 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:16:44 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:16:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:44 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:16:45 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:16:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:45 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:16:46 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:16:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:46 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:16:49 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:16:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:49 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-03-05 19:16:54 --> mysqli_sql_exception: Unknown column 'routes.id' in 'field list' in C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`...', 0)
+#1 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`...')
+#2 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`...')
+#3 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`...', Array, false)
+#4 C:\xampp\htdocs\umuttepe_turizm\app\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\umuttepe_turizm\app\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+#6 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\HomeController->index()
+#7 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#8 C:\xampp\htdocs\umuttepe_turizm\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\umuttepe_turizm\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-03-05 19:16:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 2 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 4 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:16:54 --> [Caused by] mysqli_sql_exception: Unknown column 'routes.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `routes`.`id`, `routes`.`departure_time`, `routes`.`arrival_time`, `routes`.`bus_id`, `routes`.`price`, `c1`.`city_name` AS `departure_city`, `c2`.`city_name` AS `arrival_city`
+FROM `routes`
+JOIN `cities` AS `c1` ON `c1`.`id` = `routes`.`departure_city_id`
+JOIN `cities` AS `c2` ON `c2`.`id` = `routes`.`arrival_city_id`
+ LIMIT 8', [], false)
+ 5 APPPATH\Models\routeModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\HomeController.php(16): App\Models\RouteModel::getTopRoutes(8)
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-05 19:36:24 --> ErrorException: Undefined variable $tickets
+in APPPATH\Views\pages\tickets.php on line 21.
+ 1 APPPATH\Views\pages\tickets.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tickets', 'C:\\xampp\\htdocs\\umuttepe_turizm\\app\\Views\\pages\\tickets.php', 21)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\umuttepe_turizm\\app\\Views\\pages\\tickets.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pages/tickets', [], true)
+ 5 APPPATH\Controllers\TicketsController.php(8): view('pages/tickets')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\TicketsController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TicketsController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
