@@ -19,4 +19,6 @@ $routes->get('/about', 'AboutController::index');
 
 $routes->post('/pnrControl', 'PnrController::index');
 
+$routes->get('/profile', 'ProfileController::index');
+
 

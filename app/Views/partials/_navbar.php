@@ -31,7 +31,8 @@
                         <i class="bi bi-person fs-5"></i>
                     </a>
                     <ul class="dropdown-menu ">
-                        <li><a href="profile">Profil</a></li>
+                    <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
+                        href="profile">Profil</a></li>
                         <li><a href="logout">Çıkış Yap</a></li>
                     </ul>
                 </li>

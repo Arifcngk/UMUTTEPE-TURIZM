@@ -21,7 +21,7 @@ class AuthController extends BaseController
             if($user['password'] == $password) {
                  $message = [
                     'type' => 'success',
-                    'text' => 'Giriş başarılı. Hoş geldiniz !'
+                    'text' => ' Hoş geldiniz ! '."<br>".$user["first_name"].$user["last_name"]
                  ];
                 session()->set('user', $user);
                 return redirect()->to('/')->with('message', $message);
