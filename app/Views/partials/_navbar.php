@@ -9,8 +9,8 @@
             <ul>
                 <li>
                     <a class="nav-link scrollto <?php if ($title == 'Anasayfa') echo 'active' ?>"
-                        href="<?= base_url('/') ?>">Anasayfa</a>
-
+                        href="<?= base_url('/') ?>">Anasayfa
+                    </a>
                 </li>
                 <li> <a class="nav-link scrollto <?php if ($title == 'Hakkımızda') echo 'active' ?>"
                         href="about">Hakkımızda</a></li>
