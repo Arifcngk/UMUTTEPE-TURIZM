@@ -1,5 +1,5 @@
-<div class="overlay" id="overlay">
-    <div class="popup" id="popup">
+<div class="overlay" id="overlay-login">
+    <div class="popup">
         <button class="close-btn" id="close-btn">X</button>
         <form class="form" action="authenticate" method="POST" style="width: 300px; height: 350px;">
             <h2>Giriş Yap</h2>
