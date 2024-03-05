@@ -10,7 +10,7 @@
                   <div class="col-12 col-md-6 col-lg-3 mb-4">
                       <div class="icon-box">
                           <i class="bx bxs-location-plus" style="color: #126930"></i>
-                          <h3><a href="route-details?id=<?= $route['id'] ?>"><?= $route['departure_city'] . ' --> ' .$route['arrival_city'] ?></a></h3>
+                          <h3><a href="route-details?id=<?= $route['id'] ?>"><?= $route['departure_city'] . ' --> ' . $route['arrival_city'] ?></a></h3>
                       </div>
                   </div>
               <?php endforeach; ?>
