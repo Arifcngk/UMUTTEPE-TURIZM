@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\TicketModel;
+use App\Models\CityModel;
 class HomeController extends BaseController
 {
     public function index(): string
@@ -10,6 +11,7 @@ class HomeController extends BaseController
         $data['title'] = 'Anasayfa';
         $data['user'] = $session->get('user');
         $data['message'] = session()->getFlashdata('message');
+        $data['cities'] = CityModel::getCities();
         return view('pages/index', $data);
     }
 

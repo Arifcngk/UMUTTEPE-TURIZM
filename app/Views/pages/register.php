@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="public/assets/css/style.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
     <title>Umuttepe | <?=esc($title)?></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
-<body> 
+<body>
     <!-- KUllANICI KAYIT OL GİRİŞ -->
     <div class="form_wrapper">
         <div class="form_container">
@@ -59,17 +61,18 @@
                         </div>
 
                         <div class="input_field radio_option">
-                            <input type="radio" name="gender" id="rd1" value="Male"/>
+                            <input type="radio" name="gender" id="rd1" value="Male" />
                             <label for="rd1">Erkek</label>
                             <input type="radio" name="gender" id="rd2" value="Female" />
                             <label for="rd2">Kadın</label>
-                            <input type="radio" name="gender" id="rd3" value="Other"/>
+                            <input type="radio" name="gender" id="rd3" value="Other" />
                             <label for="rd3">Diğer</label>
                         </div>
-                       
+
                         <div class="input_field checkbox_option">
                             <input type="checkbox" id="cb1" />
-                            <label for="cb1">Kaydolarak <a href="#"> Gizlilik Politikası</a> ve <a href="#">Kullanım Şartları'nı </a>kabul
+                            <label for="cb1">Kaydolarak <a href="#"> Gizlilik Politikası</a> ve <a href="#">Kullanım
+                                    Şartları'nı </a>kabul
                                 ediyorum.</label>
                         </div>
                         <div class="input_field checkbox_option">

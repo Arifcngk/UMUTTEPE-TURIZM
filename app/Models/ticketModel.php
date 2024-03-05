@@ -21,3 +21,4 @@ class TicketModel extends Model
                         ->getResultArray();
     }
 }
+?>

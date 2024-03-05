@@ -241,5 +241,4 @@ function PopUp(btn_id, PopUpid) {
     });
 }
 
-PopUp('show-login', 'overlay-login');
 PopUp('pnr-control', 'overlay-pnr');

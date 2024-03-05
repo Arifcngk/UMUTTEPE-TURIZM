@@ -10,3 +10,4 @@ class RouteModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = ['bus_id', 'departure_city', 'arrival_city', 'departure_time', 'arrival_time', 'price', 'created_at', 'updated_at'];
 }
+?>
