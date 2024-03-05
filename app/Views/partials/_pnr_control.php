@@ -1,4 +1,4 @@
-<div class="overlay" id="overlay">
+<div class="overlay" id="overlay-pnr">
     <div class="popup" id="popup">
         <button class="close-btn" id="close-btn">X</button>
         <form class="form" action="pnrControl" method="POST" style="width: 300px; height: 350px;">
@@ -10,7 +10,6 @@
             <div class="form-element">
                 <button type="submit">Kontrol Et</button>
             </div>
-            
         </form>
     </div>
 </div>
