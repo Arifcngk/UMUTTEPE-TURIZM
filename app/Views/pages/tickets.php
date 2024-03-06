@@ -21,21 +21,24 @@
     <?php endif; ?>
 
     <main id="main">
-        <div class="container pt-5 mt-5">
-            <ul class="grid-list">
-                <li class="card">
+        <div class="container">
+            <div class="search-form-wrapper">
+                <form action="" class="trn-search-bar">
+                    <div class="inner-container">
+                        <div class="search-form-container">
+                            <div class="search-form">
+                                <div class="panel-left">
+                                    
+                                </div>
+                                <div class="panel-right">
 
-                </li>
-
-                <li class="card">
-                    <img src="public/assets/img/umuttepe_logo.jpg" alt="Company Logo">
-                    <div class="card-body"></div>
-                </li>
-
-                <li class="card">
-
-                </li>
-            </ul>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Ara</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
     <!-- End #main -->

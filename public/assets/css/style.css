@@ -65,7 +65,7 @@ h6 {
 --------------------------------------------------------------*/
 #header {
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 10;
   padding: 20px 0;
 }
 
@@ -2289,23 +2289,3 @@ section {
 }
 
 /* Tickets */
-.grid-list {
-  padding: 8px;
-  overflow-y: auto;
-  display: grid;
-  gap: 32px;
-  transition: 2s ease;
-}
-
-.card {
-  border-radius: 8px;
-  padding: 8px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 16px;
-  transition: 2s ease;
-}
-
-.text-center {
-  text-align: center;
-}
