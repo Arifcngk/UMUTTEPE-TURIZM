@@ -15,114 +15,156 @@
     <!-- navbar başlangıç -->
 
     <?php if (!empty($message)) : ?>
-        <div class="alert <?php echo $message['type']; ?>">
-            <?php echo $message['text']; ?>
-        </div>
+    <div class="alert <?php echo $message['type']; ?>">
+        <?php echo $message['text']; ?>
+    </div>
     <?php endif; ?>
     <main id="main">
         <div class="container mt-5">
             <div class="row">
+
                 <!-- Kategori Menüsü -->
                 <div class="col-md-3">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active" data-target="profilim">Profilim</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-target="sifre-degistir">Şifre Değiştir</a>
-                        <a href="#" class="list-group-item list-group-item-action" data-target="hesabi-sil">Hesabı Sil</a>
+                        <button type="button" class="list-group-item list-group-item-action text-center"
+                            data-target="profilim" style="background-color: #B4B4B8;">
+                            <i class="fas fa-user mr-2"></i> Hesap Bilgilerim
+                        </button>
+
+
+                        <a href="#" class="list-group-item list-group-item-action active text-center"
+                            data-target="profilim">Profilim</a>
+                        <a href="#" class="list-group-item list-group-item-action  text-center"
+                            data-target="ödeme-bilgiler">Ödeme Bilgilerim</a>
+                        <a href="#" class="list-group-item list-group-item-action text-center"
+                            data-target="sifre-degistir">Şifre
+                            Değiştir</a>
+                        <a href="#" class="list-group-item list-group-item-action text-center"
+                            data-target="hesabi-sil">Hesabı
+                            Sil</a>
                     </div>
                 </div>
-                <!-- Kullanıcı Profili ve Şifre Değiştirme Formu -->
+
+                <!-- Kategori Menüsü Kapanıs -->
                 <div class="col-md-9">
-                    <div id="profilim" class="card">
-                        <div class="card-header">
-                            Profilim
-                        </div>
-                        <div class="card-body">
-                            <!-- Profil Formu -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="firstName" class="form-label">Ad</label>
-                                    <input type="text" class="form-control" id="firstName" value="Mehmet" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="lastName" class="form-label">Soyad</label>
-                                    <input type="text" class="form-control" id="lastName" value="Sezer" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label">Email Adres</label>
-                                    <input type="email" class="form-control" id="email" value="john@example.com" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label">Telefon Numarası</label>
-                                    <input type="text" class="form-control" id="phone" value="+1234567890" readonly>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label">Doğum Tarihi</label>
-                                <input type="date" class="form-control" id="birthdate" value="2001-01-01" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Adres</label>
-                                <textarea class="form-control" id="address" rows="3" readonly>123 Street, City, Country</textarea>
-                            </div>
-                            <a href="#" class="btn btn-primary">Bilgilerimi Kaydet</a>
-                        </div>
-                    </div>
-                    <div id="sifre-degistir" class="card mt-3" style="display: none;">
-                        <div class="card-header">
-                            Parola Değiştir
-                        </div>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label for="oldPassword" class="form-label">Eski Parola</label>
-                                <input type="password" class="form-control" id="oldPassword" placeholder="Eski parolanızı girin">
-                            </div>
-                            <div class="mb-3">
-                                <label for="newPassword" class="form-label">Yeni Parola</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="Yeni parola belirleyin">
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirmNewPassword" class="form-label">Yeni Parolayı Onayla</label>
-                                <input type="password" class="form-control" id="confirmNewPassword" placeholder="Yeni parolayı tekrar girin">
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Şifreyi Değiştir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="hesabi-sil" class="card mt-3" style="display: none;">
-                        <div class="card-header">
-                            Hesabı Sil
-                        </div>
-                        <div class="card-body">
-                            <!-- Hesap Silme Formu -->
-                            <!-- ... -->
-                        </div>
-                    </div>
+                    <!-- Kullanıcı Profili Baslangıc -->
+                    <?php include "app/Views/partials/user_form/user_profile.php" ?>
+                    
+                    <!-- Kullanıcı Profili Kapanıs -->
+
+                    <!-- Ödeme Bilgileri Baslangıc -->
+                    <?php include "app/Views/partials/user_form/user_credit_card.php" ?>
+                    <!-- Ödeme Bilgileri Kapanıs -->
+
+                    <!-- Sifre Degistir Baslangıc -->
+                    <?php include "app/Views/partials/user_form/user_password_update.php" ?>
+                    <!-- Sifre Degistir Kapanıs -->
+
+
+                    <!-- Hesabi Sil Baslangıc -->
+                    <?php include "app/Views/partials/user_form/user_delete.php" ?>
+                    <!-- Hesabı Sil Kapanıs -->
+
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuItems = document.querySelectorAll('.list-group-item');
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuItems = document.querySelectorAll('.list-group-item');
 
-            menuItems.forEach(function(item) {
-                item.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    const cards = document.querySelectorAll('.card');
-                    cards.forEach(function(card) {
-                        if (card.id === target) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                // Remove active class from all list items
+                menuItems.forEach(function(menuItem) {
+                    menuItem.classList.remove('active');
+                });
+
+                // Add active class to the clicked list item
+                this.classList.add('active');
+
+                const target = this.getAttribute('data-target');
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(function(card) {
+                    if (card.id === target) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
             });
         });
+    });
+    $('.input-cart-number').on('keyup change', function() {
+        $t = $(this);
+
+        if ($t.val().length > 3) {
+            $t.next().focus();
+        }
+
+        var card_number = '';
+        $('.input-cart-number').each(function() {
+            card_number += $(this).val() + ' ';
+            if ($(this).val().length == 4) {
+                $(this).next().focus();
+            }
+        })
+
+        $('.credit-card-box .number').html(card_number);
+    });
+
+    $('#card-holder').on('keyup change', function() {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+
+    $('#card-holder').on('keyup change', function() {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+
+    $('#card-expiration-month, #card-expiration-year').change(function() {
+        m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+        m = (m < 10) ? '0' + m : m;
+        y = $('#card-expiration-year').val().substr(2, 2);
+        $('.card-expiration-date div').html(m + '/' + y);
+    })
+
+    $('#card-ccv').on('focus', function() {
+        $('.credit-card-box').addClass('hover');
+    }).on('blur', function() {
+        $('.credit-card-box').removeClass('hover');
+    }).on('keyup change', function() {
+        $('.ccv div').html($(this).val());
+    });
+
+
+    /*--------------------
+    CodePen Tile Preview
+    --------------------*/
+    setTimeout(function() {
+        $('#card-ccv').focus().delay(1000).queue(function() {
+            $(this).blur().dequeue();
+        });
+    }, 500);
+
+    /*function getCreditCardType(accountNumber) {
+      if (/^5[1-5]/.test(accountNumber)) {
+        result = 'mastercard';
+      } else if (/^4/.test(accountNumber)) {
+        result = 'visa';
+      } else if ( /^(5018|5020|5038|6304|6759|676[1-3])/.test(accountNumber)) {
+        result = 'maestro';
+      } else {
+        result = 'unknown'
+      }
+      return result;
+    }
+
+    $('#card-number').change(function(){
+      console.log(getCreditCardType($(this).val()));
+    })*/
     </script>
     <!-- End #main -->
 
@@ -130,7 +172,8 @@
     <?php include "app/Views/partials/_footer.php" ?>
     <!--  Footer-Kapanıs -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

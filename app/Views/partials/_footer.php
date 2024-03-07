@@ -1,5 +1,5 @@
  <!-- ======= Footer ======= -->
- <footer id="footer" class="pt-4">
+ <footer id="footer" class="pt-3">
      <div class="footer-top">
          <div class="container">
              <div class="row">

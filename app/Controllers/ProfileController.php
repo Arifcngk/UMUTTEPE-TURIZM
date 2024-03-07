@@ -5,7 +5,7 @@ class ProfileController extends BaseController
 {
     public function index()
     {
-       $data["title"] = "Profil"; 
+       $data["title"] = "Profilim"; 
        return view("pages/user_profile", $data);
     }
 } 

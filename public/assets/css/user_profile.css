@@ -1,0 +1,42 @@
+.list-group-item.active {
+    background-color: #000000; /* Change to your desired gray color */
+}
+.list-group-item:focus {
+    outline: none;
+}
+.list-group-item {
+    border-color: #000000; /* kenarlık rengi */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border: none; /* Kenarlığı kaldırır */
+    cursor: pointer; /* Fare imleci el olduğunda kullanıcıya etkileşim olduğunu belirtir */
+}
+
+.list-group-item {
+    text-align: center;
+    border-color: #000000;
+}
+.btn-primary {
+    border-color: #000000;
+}
+.btn-danger {
+    
+    border-color: #fae0e0;
+}
+
+.list-group-item.active {
+    border-color: #000000; /* kenarlık rengi */
+}
+
+.card-header{
+    background-color: #000000;
+}
+.card-header h4{
+    text-align: center;
+color: white;
+}
+.list-group-item .fas {
+    vertical-align: middle; /* İkonu metnin dikey hizasına getirir */
+}
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Yatay (x) ve dikey (y) ofset, bulanıklık ve renk */
+}
