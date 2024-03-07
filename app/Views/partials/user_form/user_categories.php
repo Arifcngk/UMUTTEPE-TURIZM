@@ -11,7 +11,7 @@
                         <a href="#" class="list-group-item list-group-item-action active text-center"
                             data-target="profilim">Profilim</a>
                         <a href="#" class="list-group-item list-group-item-action  text-center"
-                            data-target="ödeme-bilgiler">Ödeme Bilgilerim</a>
+                            data-target="odeme-bilgiler">Ödeme Bilgilerim</a>
                         <a href="#" class="list-group-item list-group-item-action text-center"
                             data-target="sifre-degistir">Şifre Güncelleme</a>
                         <a href="#" class="list-group-item list-group-item-action text-center"

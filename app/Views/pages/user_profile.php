@@ -81,9 +81,7 @@
     </script>
 
 <!-- kredi kartı js -->
-<script>
-    
-</script>
+<script></script>
 
 
     <!-- End #main -->
