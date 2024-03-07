@@ -36,20 +36,12 @@
                     <a href="#" class="dropdown-toggle <?php if ($title == 'Profil') echo 'active' ?>">
                         <strong>Merhaba, <?php echo session()->get('user')['first_name'] ?></strong>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-toggle nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
-                                href="#">Hesap Bilgileri</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="profile">Profil</a></li>
-                                <li><a href="change-password">Şifre Değiştirme</a></li>
-                                <!-- Diğer hesap bilgileri seçeneklerini ekleyebilirsiniz -->
-                            </ul>
-                        </li>
+                    <ul class="dropdown-menu ">
+                        <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
+                                href="profile">Hesap Bilgileri</a></li>
                         <li><a href="logout">Çıkış Yap</a></li>
                     </ul>
                 </li>
-
                 <?php else : ?>
                 <!-- ======= Giriş Yapma Ekranı ======= -->
                 <?php include "app/Views/partials/_login_popup.php" ?>
@@ -69,5 +61,3 @@
     <!-- Bilet Kontrol Popup -->
 </header>
 <!-- End Header -->
-
-
