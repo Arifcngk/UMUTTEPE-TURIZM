@@ -39,7 +39,9 @@
                     <ul class="dropdown-menu ">
                         <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
                                 href="profile">Hesap Bilgileri</a></li>
-                        <li><a href="logout">Çıkış Yap</a></li>
+                                <li><a href="logout">Biletlerim</a></li>
+                                <li><a href="logout">Rezervasyonlarım</a></li>
+                        <li><a href="logout" style="color: red;">Çıkış Yap</a></li>
                     </ul>
                 </li>
                 <?php else : ?>

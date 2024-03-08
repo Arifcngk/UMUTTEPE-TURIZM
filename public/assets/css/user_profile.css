@@ -27,105 +27,66 @@
     border-color: #000000; /* kenarlık rengi */
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
-
-h2 {
-    display: block;
-    color: white;
-    font-weight: 300;
-    text-align: center;
+/* Kart Css Başlangıç */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+.l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
 }
 
-.credit-card {
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-   height: 270px; /* Kartın boyutunu azaltmak için min-height değerini düşürdük */
-    margin: 0 auto; /* Kartın sayfa ortasında olmasını sağlar */
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    font-size: 18px; /* Metin boyutunu azalttık */
-    background: #2b2b2b;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Kenarlık rengini ayarladık */
-    border-radius: 0.5rem;
-    padding: 1rem;
-    width: 400px; /* Kartın genişliğini ayarladık */
+.l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+}
 
-    backdrop-filter: blur(4px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
-    background: #2b2b2b;
-    background-position: center center;
-    background-size: 200%;
-    background-image: url(https://images.unsplash.com/photo-1457062673746-3c8d0b60aa44?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
-    background-blend-mode: multiply;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-row-gap: 0.5rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 0.35rem;
+.l-bg-green-dark {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+    color: #fff;
+}
 
-    grid-template-areas:
-        "provider . . ."
-        "number number number number"
-        "good-through-label good-through-value . validity"
-        "holder holder holder select";
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+}
 
-    > .provider {
-        grid-area: provider;
-    }
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
 
-    > .number {
-        grid-area: number;
-    }
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
 
-    > .good-through-label {
-        grid-area: good-through-label;
-        font-family: "Lato", sans-serif;
-        text-transform: uppercase;
-        font-size: 0.65rem;
-    }
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
 
-    > .good-through-value {
-        grid-area: good-through-value;
-    }
+.l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+}
 
-    > .holder {
-        grid-area: holder;
-    }
+.l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+}
 
-    > .validity {
-        grid-area: validity;
-        border: 1px solid #44a333;
-        font-size: 1rem;
-        background: #57c443 linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.25) 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.5);
-    }
-
-    > .select {
-        grid-area: select;
-        background: #2ca7d8 linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.25) 100%);
-        border: 1px solid #1482ce;
-        color: white;
-        font-family: "Lato", sans-serif;
-        font-size: 1rem;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 250ms, transform 250ms;
-
-        &:active {
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-            transform: translate(-1px, -1px);
-        }
-    }
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
 }
