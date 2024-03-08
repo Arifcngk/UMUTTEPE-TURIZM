@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
 
-<!-- head başlangıc -->
-
 <head>
     <?php include "app/Views/partials/_head.php" ?>
 </head>
-<!-- head son -->
 
 <body>
 
-    <!-- navbar başlangıç -->
     <?php include "app/Views/partials/_navbar.php" ?>
-    <!-- navbar başlangıç -->
 
     <?php if (!empty($message)) : ?>
     <div class="alert <?php echo $message['type']; ?>">
@@ -20,19 +15,124 @@
     </div>
     <?php endif; ?>
 
-    
-    <main id="main">
-      
-    </main>
+    <main id="main" class="pb-4"> 
+    <section class="container pb-4">
+<h1>Biletlerim </h1>
+  <div class="row">
+    <article class="card fl-left">
+      <section class="date">
+        <time datetime="23th feb">
+          <span>23</span><span>Mart</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <small>Bilet Sahibi:</small>
+        <h3 style="color: black;"><b>Arif Can Gök</b></h3>
+        <div class="even-date">
+         <i class="fa fa-calendar" ></i>
+        
+           <p style="color: black;"><span>  23 Mart 2024</span>
+           <span>  08:55  kalkış 12:00 varış</span></p>
+        
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Kocaeli Otogar --> Sakarya Otogar 
+          </p>
+        </div>
+        
+        <a href="#" style="background-color: black;">tickets</a>
+      </section>
+    </article>
+    <article class="card fl-left">
+      <section class="date">
+        <time datetime="23th feb">
+          <span>23</span><span>Mart</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <small>Bilet Sahibi:</small>
+        <h3 style="color: black;"><b>Arif Can Gök</b></h3>
+        <div class="even-date">
+         <i class="fa fa-calendar" ></i>
+        
+           <p style="color: black;"><span>  23 Mart 2024</span>
+           <span>  08:55  kalkış 12:00 varış</span></p>
+        
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Kocaeli Otogar --> Sakarya Otogar 
+          </p>
+        </div>
+        
+        <a href="#" style="background-color: black;">tickets</a>
+      </section>
+    </article>
+  </div>
+  <div class="row">
+    <article class="card fl-left">
+      <section class="date">
+        <time datetime="23th feb">
+          <span>23</span><span>Mart</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <small>Bilet Sahibi:</small>
+        <h3 style="color: black;"><b>Arif Can Gök</b></h3>
+        <div class="even-date">
+         <i class="fa fa-calendar" ></i>
+        
+           <p style="color: black;"><span>  23 Mart 2024</span>
+           <span>  08:55  kalkış 12:00 varış</span></p>
+        
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Kocaeli Otogar --> Sakarya Otogar 
+          </p>
+        </div>
+        
+        <a href="#" style="background-color: black;">tickets</a>
+      </section>
+    </article>
+    <article class="card fl-left">
+      <section class="date">
+        <time datetime="23th feb">
+          <span>23</span><span>Mart</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <small>Bilet Sahibi:</small>
+        <h3 style="color: black;"><b>Arif Can Gök</b></h3>
+        <div class="even-date">
+         <i class="fa fa-calendar" ></i>
+        
+           <p style="color: black;"><span>  23 Mart 2024</span>
+           <span>  08:55  kalkış 12:00 varış</span></p>
+        
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Kocaeli Otogar --> Sakarya Otogar 
+          </p>
+        </div>
+        
+        <a href="#" style="background-color: black;">tickets</a>
+      </section>
+    </article>
+  </div>
+  
+</section>
+</main>
 
-   
 
 
-    <!-- End #main -->
-
-    <!-- ======= Footer ======= -->
     <?php include "app/Views/partials/_footer.php" ?>
-    <!--  Footer-Kapanıs -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
@@ -45,7 +145,6 @@
     <script src="public/assets/vendor/php-email-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="public/assets/js/main.js"></script>
-    <script></script>
 </body>
 
 </html>
