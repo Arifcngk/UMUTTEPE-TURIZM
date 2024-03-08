@@ -23,5 +23,7 @@ $routes->get('/profile', 'ProfileController::index');
 
 $routes->get('/tickets', 'TicketsController::index');
 
+$routes->get('/my_tickets', 'MyTicketsController::index');
+
 
 
