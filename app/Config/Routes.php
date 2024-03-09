@@ -19,7 +19,9 @@ $routes->get('/about', 'AboutController::index');
 
 $routes->post('/pnrControl', 'PnrController::index');
 
-$routes->get('/profile', 'ProfileController::index');
+$routes->get('/profile', 'UserController::index');
+
+$routes->get('/mytickets', 'UserController::myTickets');
 
 $routes->get('/tickets', 'TicketsController::index');
 

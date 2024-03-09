@@ -224,14 +224,14 @@
     });
   })();
 
-  // HTML yüklendikten sonra içeriğin navbarın altında yer almasını sağla
-document.addEventListener("DOMContentLoaded", function() {
+// HTML yüklendikten sonra içeriğin navbarın altında yer almasını sağla
+document.addEventListener("DOMContentLoaded", function () {
   // Navbar yüksekliğini al
   var navbarHeight = document.querySelector("#header").offsetHeight;
   // İçerik alanını bul
   var content = document.querySelector("#main");
-  // İçeriğin üst boşluğunu navbar yüksekliği kadar ayarla
-  content.style.paddingTop = navbarHeight + "px";
+  // İçeriğin üst boşluğunu navbar yüksekliği + 20px ayarla
+  content.style.paddingTop = (navbarHeight + 50) + "px";
 });
 
 // Navbar yüksekliğini güncelle
@@ -240,8 +240,8 @@ function updateContentPadding() {
   var navbarHeight = document.querySelector("#header").offsetHeight;
   // İçerik alanını bul
   var content = document.querySelector("#main");
-  // İçeriğin üst boşluğunu navbar yüksekliği kadar ayarla
-  content.style.paddingTop = navbarHeight + "px";
+  // İçeriğin üst boşluğunu navbar yüksekliği + 20px ayarla
+  content.style.paddingTop = (navbarHeight + 50) + "px";
 }
 
 // Sayfa yüklendiğinde ve boyut değiştiğinde içeriğin navbarın altında kalmasını sağla

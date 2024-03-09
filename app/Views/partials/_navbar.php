@@ -37,8 +37,8 @@
                         <strong>Merhaba, <?php echo session()->get('user')['first_name'] ?></strong>
                     </a>
                     <ul class="dropdown-menu ">
-                        <li> <a class="nav-link scrollto <?php if ($title == 'Profil') echo 'active' ?>"
-                                href="profile">Profil</a></li>
+                        <li> <a class="nav-link scrollto" href="profile">Profil</a></li>
+                        <li> <a class="nav-link scrollto" href="mytickets">Biletlerim</a></li>
                         <li><a href="logout">Çıkış Yap</a></li>
                     </ul>
                 </li>
