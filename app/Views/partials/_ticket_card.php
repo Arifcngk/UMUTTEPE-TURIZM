@@ -27,8 +27,8 @@
                     <strong><em>Otogar</em></strong>
                 </div>
                 <div class="box">
-                    <small>Kapı</small>
-                    <strong><em>3</em></strong>
+                    <small>Tip</small>
+                    <strong><em><?=$ticket['passenger_type']?></em></strong>
                 </div>
                 <div class="box">
                     <small>Plaka</small>

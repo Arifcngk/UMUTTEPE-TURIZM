@@ -29,12 +29,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bg-dark p-4 rounded mb-4 text-light">
-                        <form action="<?= base_url('user/search') ?>" method="get">
+                        <form action="<?= base_url('searchtickets') ?>" method="get">
                             <div class="row justify-content-center">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="departure_city" class="text-light">Kalkış Şehri:</label>
                                         <select id="departure_city" name="departure_city" class="form-control">
+                                            <option value="">Seçiniz</option>
                                             <?php foreach ($cities as $city) : ?>
                                                 <option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></option>
                                             <?php endforeach; ?>
@@ -45,6 +46,7 @@
                                     <div class="form-group">
                                         <label for="arrival_city" class="text-light">Varış Şehri:</label>
                                         <select id="arrival_city" name="arrival_city" class="form-control">
+                                            <option value="">Seçiniz</option>
                                             <?php foreach ($cities as $city) : ?>
                                                 <option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></option>
                                             <?php endforeach; ?>
@@ -57,7 +59,7 @@
                                         <input type="date" id="departure_date" name="departure_date" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group mt-4">
                                         <button type="submit" class="btn btn-primary btn-block">Ara</button>
                                     </div>
@@ -65,18 +67,13 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
 
+
             <!-- Bilet listesi -->
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="sidebar bg-dark p-4 rounded">
-                        <!-- Burada diğer filtreler olabilir -->
-                    </div>
-                </div>
-                <div class="col-lg-9 border rounded">
+                <div class="col-lg-12 border rounded">
                     <div class="row pt-2">
                         <?php if (empty($tickets)) : ?>
                             <div class="col-12">

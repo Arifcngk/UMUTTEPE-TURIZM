@@ -36,5 +36,28 @@ class UserController extends BaseController
         // Biletlerin listelendiği sayfayı göster
         return view('pages/my_tickets', $data);
     }
+
+    public function search() {
+        // Form verilerini al
+        $departureCity = $this->request->getGet('departure_city');
+        $arrivalCity = $this->request->getGet('arrival_city');
+        $departureDate = $this->request->getGet('departure_date');
+
+        // Veritabanında gerekli sorguyu yap
+        $ticketModel = new TicketModel();
+        $tickets = $ticketModel->searchTickets($departureCity, $arrivalCity, $departureDate);
+        foreach ($tickets as &$ticket) {
+            // QR kod oluşturma
+            $qrCode = new QRCode;
+            $ticket['qrCode'] = $qrCode->render($ticket['pnr_code']);
+            unset($qrCode);
+        }
+
+        $data['title'] = 'Biletlerim';
+        $data['tickets'] = $tickets;
+        $data['cities'] = CityModel::getCities();
+        // Sonuçları görüntüle
+        return view('pages/my_tickets', $data);
+    }
 } 
 ?>
