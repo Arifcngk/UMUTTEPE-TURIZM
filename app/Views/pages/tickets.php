@@ -22,41 +22,52 @@
 
     <main id="main">
         <div class="container">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <form class="search-form trn-search-bar" action="/otobus-bileti/otobus-arama" method="post" id="bus-trip-search-form">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" name="bus_trip_origin" value="İzmit (Kocaeli) - (İzmit (Kocaeli))" placeholder="Nereden?" readonly>
-                                    <input type="hidden" name="bus_trip_origin_slug" value="kocaeli-izmit">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" name="bus_trip_destination" value="İstanbul Avrupa - (İstanbul)" placeholder="Nereye?" readonly>
-                                    <input type="hidden" name="bus_trip_destination_slug" value="istanbul-avrupa-bolgesi">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" name="fromdate" readonly placeholder="Gidiş Tarihi">
-                                    <input type="hidden" name="bus_trip_departure_date" value="2024-03-07">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <button class="btn btn-outline-secondary btn-block" type="button">Bugün</button>
-                                    <button class="btn btn-outline-secondary btn-block" type="button">Yarın</button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <button type="button" class="btn btn-primary btn-block" id="btnBusTripSearch">Ara</button>
-                                </div>
-                            </div>
-                        </form>
+            <?php include "app/Views/partials/_banner_large.php" ?>
+            <form action="tickets/search" method="GET">
+                <div class="row">
+                    <div class="col-md-3 d-flex align-items-center">
+                        <select id="departure_city" name="departure_city" class="form-control text-secondary">
+                            <option value="">Başlangıç Yeri Seçiniz</option>
+                            <?php foreach ($cities as $city) : ?>
+                                <option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></option>
+                            <?php endforeach; ?>
+                            <!-- Başlangıç yerleri buraya eklenecek -->
+                        </select>
+                    </div>
+                    <div class="col-md-1 d-flex align-items-center justify-content-center">
+                        <button type="button" id="swap_cities" class="btn btn-warning w-100"><i class="fa-solid fa-rotate"></i></button>
+                        <script>
+                            document.getElementById('swap_cities').addEventListener('click', function() {
+                                var departureCity = document.getElementById('departure_city').value;
+                                var arrivalCity = document.getElementById('arrival_city').value;
+
+                                // Değişkenleri takas et
+                                document.getElementById('departure_city').value = arrivalCity;
+                                document.getElementById('arrival_city').value = departureCity;
+                            });
+                        </script>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                        <select id="arrival_city" name="arrival_city" class="form-control text-secondary">
+                            <option value="">Varış Yeri Seçiniz</option>
+                            <?php foreach ($cities as $city) : ?>
+                                <option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></option>
+                            <?php endforeach; ?>
+                            <!-- Varış yerleri buraya eklenecek -->
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center">
+                        <input type="date" id="departure_date" name="departure_date" class="form-control">
+                    </div>
+                    <div class="col-md-2 d-flex align-items-center justify-content-center">
+                        <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </main>
+
+
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->

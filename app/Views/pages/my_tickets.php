@@ -26,14 +26,15 @@
 
     <main id="main">
         <div class="container">
+            <?php include "app/Views/partials/_banner_large.php" ?>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="bg-dark p-4 rounded mb-4 text-light">
+                    <div class="p-4 rounded mb-4">
                         <form action="<?= base_url('searchtickets') ?>" method="get">
                             <div class="row justify-content-center">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="departure_city" class="text-light">Kalkış Şehri:</label>
+                                        <label for="departure_city" class="">Kalkış Şehri:</label>
                                         <select id="departure_city" name="departure_city" class="form-control">
                                             <option value="">Seçiniz</option>
                                             <?php foreach ($cities as $city) : ?>
@@ -44,7 +45,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="arrival_city" class="text-light">Varış Şehri:</label>
+                                        <label for="arrival_city" class="">Varış Şehri:</label>
                                         <select id="arrival_city" name="arrival_city" class="form-control">
                                             <option value="">Seçiniz</option>
                                             <?php foreach ($cities as $city) : ?>
@@ -55,7 +56,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="departure_date" class="text-light">Kalkış Tarihi:</label>
+                                        <label for="departure_date" class="">Kalkış Tarihi:</label>
                                         <input type="date" id="departure_date" name="departure_date" class="form-control">
                                     </div>
                                 </div>
@@ -88,10 +89,6 @@
                 </div>
             </div>
         </div>
-
-        </div>
-
-
     </main>
     <!-- End #main -->
 
