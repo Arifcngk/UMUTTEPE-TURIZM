@@ -1,6 +1,6 @@
 <!-- Ödeme Bilgileri Başlangıç -->
 
-<div class="container" id="odeme-bilgiler-icerik">
+<div class="container mt-5" id="odeme-bilgiler">
     <div class="row ">
         <div class="col-xl-6 col-lg-6">
             <div class="card l-bg-cherry">
