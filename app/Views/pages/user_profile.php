@@ -22,32 +22,7 @@
     </div>
     <?php endif; ?>
     <main id="main">
-        <div class="container mt-5">
-            <div class="row">
-                <!-- Kategori Menüsü -->
-                <?php include "app/Views/partials/user_form/user_categories.php"?>
-                <!-- Kategori menüsü Kapanıs -->
 
-                <div class="col-md-9">
-                    <!-- kullanıcı profili baslangıc -->
-                    <?php include "app/Views/partials/user_form/user_profile.php" ?>
-                    <!-- kullanıcı profili kapanıs -->
-
-                    <!-- kullanıcı profili sifre degistirme baslangıc -->
-                    <?php include "app/Views/partials/user_form/user_credit_card.php" ?>
-                    <!-- kullanıcı profili sifre degistirme kapanıs -->
-
-                    <!-- kullanıcı profili sifre degistirme baslangıc -->
-                    <?php include "app/Views/partials/user_form/user_password_update.php" ?>
-                    <!-- kullanıcı profili sifre degistirme kapanıs -->
-
-                    <!-- kullanıcı profili silme baslangıc -->
-                    <?php include "app/Views/partials/user_form/user_delete.php" ?>
-                    <!-- kullanıcı profili sifre degistirme kapanıs -->
-
-                </div>
-            </div>
-        </div>
     </main>
 
     <script>

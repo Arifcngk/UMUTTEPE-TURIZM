@@ -1,0 +1,195 @@
+.ticket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .event-card {
+    background-color: white;
+    width: 860px;
+    height: 160px;
+    display: flex;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-card:hover {
+    animation-name: card-hover;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+  
+  .event-card:hover .event-image {
+    animation-name: image-hover;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+  }
+  
+  .event-name {
+text-align: center;  }
+  
+  .date-box {
+    background: #ac0b0b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: inherit;
+  }
+  
+  .date-box .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3.3rem;
+  }
+  
+  .date-box .date .month {
+    font-size: 1.2rem !important;
+  }
+  
+  .event-image {
+    width: 120px;
+    height: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .event-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 15px;
+    font-size: 15px;
+  }
+  
+  .event-body .event-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #202020;
+    margin-bottom: 3px;
+  }
+  
+  .event-body .location {
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+  }
+  
+  .event-body .event-price {
+    display: flex;
+    position: relative;
+    color: grey;
+    height: 100%;
+  }
+  
+  .event-body .event-price div {
+    position: absolute;
+    align-self: flex-end;
+    margin-right: 16px;
+  }
+  
+  .event-body .event-price div i {
+    margin-right: 5px;
+  }
+  
+  .event-body .event-price > .adult {
+    left: 85px;
+  }
+  
+  .event-body .event-price > .child:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .event-body .event-price > .adult:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .social-media {
+    display: flex;
+    width: 70px;
+    height: inherit;
+    flex-direction: column;
+    border-left: 1px solid #F7F7F7;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .social-media div {
+    display: flex;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+  }.social-media button:hover {
+    text-decoration: underline;
+}
+  
+
+  
+  .tooltiptext {
+    justify-content: center;
+    align-self: center;
+    position: absolute;
+    bottom: 20px;
+    visibility: hidden;
+    background: black;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 6px;
+    color: white;
+  }
+  
+  @keyframes card-hover {
+    from {
+      box-shadow: 0px 0px 0px #CBCBCB;
+    }
+    to {
+      box-shadow: 3px 3px 5px #CBCBCB;
+    }
+  }
+  
+  @keyframes image-hover {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Ekran genişliği 768 piksel ve daha küçük olduğunda */
+@media (max-width: 768px) {
+    .event-card {
+      width: 100%; /* Kartların genişliği ekran genişliğine uyacak şekilde ayarlanır */
+      height: auto; /* Kartların yüksekliği içerik boyutuna göre otomatik olarak ayarlanır */
+    }
+  
+    .date-box {
+      width: 100px; /* Tarih kutularının genişliği ayarlanır */
+    }
+  
+    .event-image {
+      display: none; /* Etkinlik resimleri küçük ekranlarda gizlenir */
+    }
+  
+    .event-body {
+      padding: 10px; /* Kartın içeriğinin boşlukları azaltılır */
+      font-size: 14px; /* Metin boyutu küçültülür */
+    }
+  }
+  
+  /* Ekran genişliği 576 piksel ve daha küçük olduğunda */
+  @media (max-width: 576px) {
+    .event-body .event-name {
+      font-size: 1.1rem; /* Başlık metni daha da küçültülür */
+    }
+  
+    .event-body .location {
+      font-size: 0.9rem; /* Konum metni daha da küçültülür */
+    }
+  }
+  

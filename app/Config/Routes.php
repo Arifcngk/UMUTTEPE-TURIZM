@@ -28,5 +28,7 @@ $routes->get('/tickets', 'TicketsController::index');
 
 $routes->get('/searchtickets', 'UserController::search');
 
+$routes->get('/reservation', 'ReservationController::index');
+
 
 

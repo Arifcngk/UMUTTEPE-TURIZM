@@ -39,6 +39,8 @@
                     <ul class="dropdown-menu ">
                         <li> <a class="nav-link scrollto" href="profile">Profil</a></li>
                         <li> <a class="nav-link scrollto" href="mytickets">Biletlerim</a></li>
+                        <li> <a class="nav-link scrollto" href="reservation">Rezervasyon</a></li>
+
                         <li><a href="logout" class="text-danger">Çıkış Yap</a></li>
                     </ul>
                 </li>
