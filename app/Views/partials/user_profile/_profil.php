@@ -1,135 +1,126 @@
  <!-- Profil -->
- <main class="py-3 bg-surface-secondary">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-5 mx-auto">
+ <div class="container-xl px-4 mt-4">
+   
+    <hr class="mt-0 mb-4">
+    <div class="row">
+    <div class="col-xl-4">
+    <div class="card card-header-actions mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Kayıtlı Kartlarım</span>
+            <button class="btn btn-sm btn-primary" type="button">Ekle</button>
+        </div>
+        <div class="card-body px-0">
+            <!-- Payment method 1-->
+            <div class="d-flex align-items-center justify-content-between px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
+                    <div class="ms-4">
+                        <div class="small">Mehmet Sezer - İş Bankası </div>
+                        <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
+                        <div class="small"><b>04/2024</b> </div>
+                        
+                    </div>
+                </div>
+                <div class="ms-4 small">
+                    <a href="#!">Sil</a>
+                </div>
+            </div>
+            <hr>
+            <!-- Payment method 2-->
+            <div class="d-flex align-items-center justify-content-between px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-cc-mastercard fa-2x cc-color-mastercard"></i>
+                    <div class="ms-4">
+                    <div class="small">Mehmet Sezer - Zirat Bankası </div>
+                    <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
+                        <div class="small"><b>04/2024</b> </div>
+                    </div>
+                </div>
+                <div class="ms-4 small">
+                    <a href="#!">Sil</a>
+                </div>
+            </div>
+            <hr>
+            <!-- Payment method 3-->
+            <div class="d-flex align-items-center justify-content-between px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
+                    <div class="ms-4">
+                        <div class="small">Mehmet Sezer - İş Bankası </div>
+                        <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
+                        <div class="small"><b>04/2024</b> </div>
+                        
+                    </div>
+                </div>
+                <div class="ms-4 small">
+                   
+                    <a href="#!">Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-                                <!-- Form -->
-                                <div class="mb-4">
-                                    <h5 class="mb-0">Profil Bilgileri</h5>
-                                </div>
-                                <form class="mb-4">
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="first_name">Adı</label>
-                                                <input type="text" class="form-control" id="first_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="last_name">Soyadı</label>
-                                                <input type="text" class="form-control" id="last_name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="email">Email</label>
-                                                <input type="email" class="form-control" id="email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="phone_number">Telefon</label>
-                                                <input type="tel" class="form-control" id="phone_number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="tc_kimlik_no">T.C Kimlik No</label>
-                                                <input type="tel" class="form-control" id="phone_number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="date">Doğum Tarihi</label>
-                                                <input type="date" class="form-control" id="date">
-                                            </div>
-                                        </div>
-
-                                        
-                                        <div class="col-md-4">
-                                            <div class="border p-3">
-                                                <label class="form-label" for="country">Cinsiyet</label>
-                                                <select class="form-select" id="country" placeholder="Your email"
-                                                    aria-label="Default select example">
-                                                    <option selected>Seçiniz</option>
-                                                    <option value="1">Erkek</option>
-                                                    <option value="2">Kadın</option>
-                                                    <option value="3">Belirtmek İstemiyorum</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-12">
-                                            <div class="form-check mt-3">
-                                                <input class="form-check-input" type="checkbox"
-                                                    name="check_primary_address" id="check_primary_address">
-                                                <label class="form-check-label" for="check_primary_address">
-                                                    Değişiklikleri varsayılan yap
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-end mt-1">
-                                        <button type="submit" class="btn btn-sm btn-primary">Kaydet</button>
-                                    </div>
-                                </form>
-                                <hr class="my-6" />
-                                <!-- Individual switch cards -->
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card shadow border-2">
-                                            <div class="card-body">
-                                                <h5 class="mb-2">Public profile</h5>
-                                                <p class="text-sm text-muted mb-4">
-                                                    Making your profile public means that anyone on the network will be
-                                                    able to find you.
-                                                </p>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="flexSwitchCheckDefault" checked>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card shadow border-2">
-                                            <div class="card-body">
-                                                <h5 class="mb-2">Show my email</h5>
-                                                <p class="text-sm text-muted mb-4">
-                                                    Showing your e-mail addresses means that anyone on the network will
-                                                    be able to find you.
-                                                </p>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="flexSwitchCheckDefault">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="card shadow border-2">
-                                            <div class="card-body d-flex align-items-center">
-                                                <div>
-                                                    <h5 class="text-danger mb-2">Deactivate account</h5>
-                                                    <p class="text-sm text-muted">
-                                                        Once you delete your account, there is no going back. Please be
-                                                        certain.
-                                                    </p>
-                                                </div>
-                                                <div class="ms-auto">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-danger">Deactivate</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Hesap Detaylarım</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
+                            <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
                             </div>
                         </div>
-                    </div>
-                </main>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Organization name</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Location</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA">
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Birthday</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

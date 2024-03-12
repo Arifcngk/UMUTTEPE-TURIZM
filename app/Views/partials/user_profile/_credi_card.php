@@ -1,21 +1,54 @@
 <!-- Ödeme Bilgileri Formu -->
-<div id="payment_info" class="card shadow border-0 mt-4" style="display: none;">
-    <div class="card-body">
-        <h2 class="h4 mb-4">Ödeme Bilgileri</h2>
-        <form>
-            <div class="mb-3">
-                <label for="card_number" class="form-label">Kredi Kartı Numarası</label>
-                <input type="text" class="form-control" id="card_number" placeholder="Kredi Kartı Numaranızı Girin">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<div class="container-xl px-4 mt-4">
+   
+    <hr class="mt-0 mb-4">
+   
+   
+    <!-- Billing history card-->
+    <div class="card mb-4">
+        <div class="card-header">Billing History</div>
+        <div class="card-body p-0">
+            <!-- Billing history table-->
+            <div class="table-responsive table-billing-history">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="border-gray-200" scope="col">Transaction ID</th>
+                            <th class="border-gray-200" scope="col">Date</th>
+                            <th class="border-gray-200" scope="col">Amount</th>
+                            <th class="border-gray-200" scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#39201</td>
+                            <td>06/15/2021</td>
+                            <td>$29.99</td>
+                            <td><span class="badge bg-light text-dark">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#38594</td>
+                            <td>05/15/2021</td>
+                            <td>$29.99</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>#38223</td>
+                            <td>04/15/2021</td>
+                            <td>$29.99</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>#38125</td>
+                            <td>03/15/2021</td>
+                            <td>$29.99</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="mb-3">
-                <label for="expiry_date" class="form-label">Son Kullanma Tarihi</label>
-                <input type="text" class="form-control" id="expiry_date" placeholder="MM/YY">
-            </div>
-            <div class="mb-3">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cvv" placeholder="CVV Numaranızı Girin">
-            </div>
-            <button type="submit" class="btn btn-primary">Kaydet</button>
-        </form>
+        </div>
     </div>
 </div>
