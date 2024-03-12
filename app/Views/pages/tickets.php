@@ -77,6 +77,7 @@
 
     <div class="ticket mt-5">
         <div class="event-cards">
+            <!-- 1.bilet -->
             <div class="event-card">
                 <div class="date-box">
                     <div class="date">
@@ -91,44 +92,106 @@
                     <div class="event-name">
                         KOCAELİ > DÜZCE
                     </div>
-                    <div class="row" style="text-align: center;">
-                        <div class="col">
+                    <div class="row" style="text-align: center;" style="margin-right: 3px;">
+                        <div class="col" >
                             <div class="location">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 00.45 KALKIŞ
                             </div>
                         </div>
                         <div class="col">
                             <div class="location">
-                                <i class="fa fa-clock-o 2x" aria-hidden="true"></i> 2+1 Koltuk
+                                <i class="fa fa-chair" aria-hidden="true"></i> 2+1 Koltuk
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="location">
+                                <i class="fa fa-flag-checkered" aria-hidden="true"></i> 3 Saat 45dk varış
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col" style="text-align: right;">
+                     <h3 style="padding-right: 9px; color:#ac0b0b" ><b> 200 ₺</b></h3>
+                        <button class="btn btn-primary" style="background-color: black;">Koltuk Seç</button>
+                    </div>
+                    <div class="event-price">
+                        <div class="child">
+                           
+                            <i class="fa fa-child" aria-hidden="true"></i> Sosyal İzolasyon
+                        </div>
+                        <div class="adult">
+                           
+                            <i class="fa fa-arrows-rotate" aria-hidden="true"></i> Anında İptal Seçeneği
+                        </div>
+                       
+                    </div>
+
+                </div>
+
+                <!-- Koltuk Seç Butonu -->
+
+            </div>
+            <!-- 2.bilet -->
+            <div class="event-card">
+                <div class="date-box">
+                    <div class="date">
+                        23
+                        <div class="month">
+                            Mart
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-body">
+                    <div class="event-name">
+                        KOCAELİ > DÜZCE
+                    </div>
+                    <div class="row" style="text-align: center;" style="margin-right: 3px;">
+                        <div class="col" >
+                            <div class="location">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 0.45 KALKIŞ
                             </div>
                         </div>
                         <div class="col">
                             <div class="location">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 3 Saat 45dk varış
+                                <i class="fa fa-chair" aria-hidden="true"></i> 2+1 Koltuk
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="location">
+                                <i class="fa fa-flag-checkered" aria-hidden="true"></i> 3 Saat 45dk varış
                             </div>
                         </div>
                     </div>
 
-
+                    
+                    <div class="col" style="text-align: right;">
+                     <h3 style="padding-right: 9px; color:#ac0b0b" ><b> 200 ₺</b></h3>
+                        <button class="btn btn-primary" style="background-color: black;">Koltuk Seç</button>
+                    </div>
                     <div class="event-price">
                         <div class="child">
-                            <div class="tooltiptext">Child</div>
-                            <i class="fa fa-child" aria-hidden="true"></i> $15.00
+                           
+                            <i class="fa fa-child" aria-hidden="true"></i> Sosyal İzolasyon
                         </div>
                         <div class="adult">
-                            <div class="tooltiptext">Adult</div>
-                            <i class="fa fa-male" aria-hidden="true"></i> $35.00
+                           
+                            <i class="fa fa-arrows-rotate" aria-hidden="true"></i> Anında İptal Seçeneği
                         </div>
+                       
                     </div>
+
                 </div>
-               
+
+                <!-- Koltuk Seç Butonu -->
 
             </div>
-
-
-
         </div>
     </div>
+
 
 
 
