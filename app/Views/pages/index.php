@@ -5,6 +5,8 @@
 
 <head>
     <?php include "app/Views/partials/_head.php"?>
+    <link href="public/assets/css/buy_ticket.css" rel="stylesheet" />
+
 </head>
 <!-- head son -->
 

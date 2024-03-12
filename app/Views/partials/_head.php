@@ -28,6 +28,5 @@
 
     <!-- Template Main CSS File -->
     <link href="public/assets/css/style.css" rel="stylesheet" />
-    <link href="public/assets/css/buy_ticket.css" rel="stylesheet" />
 
 

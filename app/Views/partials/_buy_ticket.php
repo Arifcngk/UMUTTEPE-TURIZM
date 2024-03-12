@@ -1,43 +1,33 @@
-<!-- ======= Bilet Satın Alma Ekranı ======= -->
-<div class="">
+<div class="container">
     <section id="first-tab-group" class="tabgroup">
         <div class="section-title">
             <h2>Bilet Satın Al</h2>
-            <h3>Sana Uygun Bileti <span> Bul</span></h3>
+            <h3>Sana Uygun Bileti <span>Bul</span></h3>
         </div>
         <div id="tab1">
             <div class="submit-form">
                 <div class="btn-group pt-2 pb-2" role="group" aria-label="Route type switch">
-                    <button type="button" class="btn btn-secondary" onclick="activateButton(1)">Tek Yön</button>
-                    <button type="button" class="btn btn-secondary active"
-                        onclick="activateButton(2)">Gidiş-Dönüş</button>
+                    <input type="radio" class="btn-check" name="routeType" id="tekYon" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="tekYon" onclick="activateButton(1)">Tek Yön</label>
+
+                    <input type="radio" class="btn-check" name="routeType" id="gidisDonus" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="gidisDonus" onclick="activateButton(2)">Gidiş-Dönüş</label>
                 </div>
 
                 <script>
-                function activateButton(buttonNumber) {
-                    // Tüm butonları pasif hale getir
-                    var buttons = document.querySelectorAll('.btn-group .btn');
-                    buttons.forEach(function(button) {
-                        button.classList.remove('active');
-                    });
-
-                    // Tıklanan butonu aktif hale getir
-                    var clickedButton = document.querySelector('.btn-group .btn:nth-child(' + buttonNumber + ')');
-                    clickedButton.classList.add('active');
-
-
-                    var returnDate = document.querySelector('#return');
-
-                    returnDate.disabled = (buttonNumber == 1) ? true : false;
-                }
+                    function activateButton(buttonNumber) {
+                        var returnDate = document.querySelector('#return');
+                        returnDate.disabled = (buttonNumber === 1);
+                    }
                 </script>
+
                 <h4>Sefer Bilgilerinizi Giriniz</h4>
                 <form id="form-submit" action="find_ticket" method="get">
                     <div class="row">
                         <div class="col-md-6">
                             <fieldset>
-                                <label for="nereden">Nereden:</label>
-                                <select required name='departure_city' id="nereden">
+                                <label for="nereden" class="form-label">Nereden:</label>
+                                <select required name='departure_city' id="nereden" class="form-select">
                                     <option value="">Şehir Seçiniz:</option>
                                     <?php foreach ($cities as $city) : ?>
                                     <Option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></Option>
@@ -47,8 +37,8 @@
                         </div>
                         <div class="col-md-6">
                             <fieldset>
-                                <label for="nereye">Nereye:</label>
-                                <select required name='destination_city' id="nereye">
+                                <label for="nereye" class="form-label">Nereye:</label>
+                                <select required name='destination_city' id="nereye" class="form-select">
                                     <option value="">Şehir Seçiniz:</option>
                                     <?php foreach ($cities as $city) : ?>
                                     <Option value="<?= $city['city_plate'] ?>"><?= $city['city_name'] ?></Option>
@@ -58,26 +48,22 @@
                         </div>
                         <div class="col-md-6">
                             <fieldset>
-                                <label for="departure">Gidiş Tarihi:</label>
-                                <input name="start_time" type="date" class="form-control date" id="departure"
-                                    placeholder="Gidiş Tarihi...">
+                                <label for="departure" class="form-label">Gidiş Tarihi:</label>
+                                <input name="start_time" type="date" class="form-control" id="departure">
                             </fieldset>
                         </div>
                         <div class="col-md-6">
                             <fieldset>
-                                <label for="return">Dönüş Tarihi:</label>
-                                <input name="return" type="date" class="form-control date" id="return"
-                                    placeholder="Dönüş Tarihi...">
+                                <label for="return" class="form-label">Dönüş Tarihi:</label>
+                                <input name="return" type="date" class="form-control" id="return" disabled>
                             </fieldset>
                         </div>
-                        <fieldset>
-                            <button type="submit" id="btn-find-ticket" class="btn-bilet-al btn">Bilet Bul</button>
+                        <fieldset class="text-center">
+                            <button type="submit" id="btn-find-ticket" class="btn btn-dark mx-auto d-block">Uygun Bileti Bul <i class="fas fa-search"></i></button>
                         </fieldset>
                     </div>
                 </form>
-              
             </div>
         </div>
     </section>
 </div>
-<!-- Bilet Satın Alma Ekranı Kapanış -->
