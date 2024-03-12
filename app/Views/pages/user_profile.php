@@ -29,40 +29,12 @@
         <!-- Profil -->
         <?php include "app/Views/partials/user_profile/_profil.php" ?>
         <!-- Ödeme Bilgileri Formu -->
-        <?php include "app/Views/partials/user_profile/_credi_card.php" ?>
+        <?php include "app/Views/partials/user_profile/_order_history.php" ?>
         <!-- Parola Ayarları Formu -->
         <?php include "app/Views/partials/user_profile/user_password_update.php" ?>
 
 
     </main>
-
-    <script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const menuItems = document.querySelectorAll('.nav-link');
-
-    //     menuItems.forEach(function(item) {
-    //         item.addEventListener('click', function() {
-    //             // Tüm menü öğelerinden aktiflik sınıfını kaldır
-    //             menuItems.forEach(function(item) {
-    //                 item.classList.remove('active');
-    //             });
-
-    //             // Tıklanan menü öğesine aktiflik sınıfını ekle
-    //             this.classList.add('active');
-
-    //             const target = this.getAttribute('data-target');
-    //             const forms = document.querySelectorAll('.card');
-    //             forms.forEach(function(form) {
-    //                 if (form.id === target) {
-    //                     form.style.display = 'block';
-    //                 } else {
-    //                     form.style.display = 'none';
-    //                 }
-    //             });
-    //         });
-    //     });
-    // });
-    </script>
 
 
 

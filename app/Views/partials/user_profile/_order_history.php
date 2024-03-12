@@ -8,17 +8,17 @@
    
     <!-- Billing history card-->
     <div class="card mb-4">
-        <div class="card-header">Billing History</div>
+        <div class="card-header">Ödeme Geçmişim</div>
         <div class="card-body p-0">
             <!-- Billing history table-->
             <div class="table-responsive table-billing-history">
                 <table class="table mb-0">
                     <thead>
                         <tr>
-                            <th class="border-gray-200" scope="col">Transaction ID</th>
-                            <th class="border-gray-200" scope="col">Date</th>
-                            <th class="border-gray-200" scope="col">Amount</th>
-                            <th class="border-gray-200" scope="col">Status</th>
+                            <th class="border-gray-200" scope="col">PNR No</th>
+                            <th class="border-gray-200" scope="col">Satın Alma Tarihi</th>
+                            <th class="border-gray-200" scope="col">Fiyat</th>
+                            <th class="border-gray-200" scope="col">Durum</th>
                         </tr>
                     </thead>
                     <tbody>
