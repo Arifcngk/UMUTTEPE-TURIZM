@@ -24,9 +24,9 @@
 <!-- koltuk secme ekranı baslangıc -->
 <section id="form">
         <center>
-            <table border="0" cellspacing="0px">
+            <table  cellspacing="0px">
                 <tr>
-                    <td rowspan="2"><img src="public/assets/img/seat/tv.png" /></td>
+                    <td rowspan="2"><img src="public/assets/img/seat/door.png" style="padding-bottom: 80px;"/></td>
                     <td>
                         <div id="s1">01</div>
                         <img src="public/assets/img/seat/available_seat.png" class="seat1" />
@@ -160,14 +160,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
-                    <td colspan="5" >
-                        <a href="home.html"><input type="button" value="EXIT" id="exit"/></a>
-                    </td>
-                    <td colspan="5" style="align-items: center;">
-                        <a href="login.html"><input type="button" value="CONTINUE" id="continue"/></a>
-                    </td>
+                    
                     
                 </tr>
             </table>
@@ -184,15 +177,15 @@
                             <img src="public/assets/img/seat/booked_seat.png" />        
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="text-align: center;">
                         <td>
-                            AVAILABLE SEATS    
+                           Boş Koltuk  
                         </td>
                         <td>
-                            SELECTED SEATS
+                            Seçili Koltuk
                         </td>
                         <td>
-                            BOOKED SEATS
+                            Dolu Koltuk
                         </td>
                     </tr>
                 </table>
