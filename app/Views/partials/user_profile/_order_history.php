@@ -25,26 +25,26 @@
                         <tr>
                             <td>#39201</td>
                             <td>06/15/2021</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-light text-dark">Pending</span></td>
+                            <td>329.99 ₺</td>
+                            <td><span class="badge bg-light text-dark">Rezervasyon</span></td>
                         </tr>
                         <tr>
                             <td>#38594</td>
                             <td>05/15/2021</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
+                            <td>299.99 ₺</td>
+                            <td><span class="badge bg-success">Ödendi</span></td>
                         </tr>
                         <tr>
                             <td>#38223</td>
                             <td>04/15/2021</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
+                            <td>129.99 ₺</td>
+                            <td><span class="badge bg-success">Ödendi</span></td>
                         </tr>
                         <tr>
                             <td>#38125</td>
                             <td>03/15/2021</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
+                            <td>200 ₺</td>
+                            <td><span class="badge bg-danger">İptal</span></td>
                         </tr>
                     </tbody>
                 </table>

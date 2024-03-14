@@ -30,5 +30,7 @@ $routes->get('/searchtickets', 'UserController::search');
 
 $routes->get('/reservation', 'ReservationController::index');
 
+$routes->get('/seatSelection', 'SeatSelectionController::index');
+
 
 

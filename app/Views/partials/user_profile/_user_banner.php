@@ -47,8 +47,12 @@
         <div class="col-md-4 col-xl-3">
             <div class="card bg-c-green order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
+                <i class="fa fa-person f-left"></i>
+                    <h6 class="m-b-20 " style="text-align: center;" >Kullanıcı Statüsü</h6>
+                    <h2 class="text-right">
+                       
+                        <span>Öğrenci</span> <!-- Number -->
+                    </h2>
                     <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                 </div>
             </div>
