@@ -22,11 +22,12 @@
 
 
 <!-- koltuk secme ekranı baslangıc -->
-<section id="form">
+<section id="form" >
         <center>
-            <table  cellspacing="0px">
+            <table  cellspacing="0px" style="background-color: #B4B4B8;">
                 <tr>
                     <td rowspan="2"><img src="public/assets/img/seat/door.png" style="padding-bottom: 80px;"/></td>
+                    
                     <td>
                         <div id="s1">01</div>
                         <img src="public/assets/img/seat/available_seat.png" class="seat1" />
@@ -46,6 +47,9 @@
                     <td>
                         <div id="s1">05</div>
                         <img src="public/assets/img/seat/available_seat.png" class="seat5" />
+                    </td>
+                    <td>
+                        <img src="public/assets/img/seat/door.png"  />
                     </td>
                     <td>
                         <div id="s1">06</div>
@@ -90,6 +94,9 @@
                         <img src="public/assets/img/seat/available_seat.png" class="seat15" />
                     </td>
                     <td>
+                       
+                    </td>
+                    <td>
                         <div id="s1">16</div>
                         <img src="public/assets/img/seat/available_seat.png" class="seat16" />
                     </td>
@@ -114,8 +121,9 @@
                     <td rowspan="2"></td>
                     <td colspan="9" ></td>
                     <td>
-                        <div id="s1">21</div>
-                        <img src="public/assets/img/seat/available_seat.png" class="seat21" />
+                        <p></p>
+                        <p></p>
+                        <p></p>
                     </td>
                 </tr>
                 <tr>
@@ -136,7 +144,13 @@
                         <img src="public/assets/img/seat/booked_seat.png" class="seat25" />
                     </td>
                     <td>
-                        <img src="public/assets/img/seat/tv.png"  />
+                        <div id="s1">25</div>
+                        <img src="public/assets/img/seat/booked_seat.png" class="seat25" />
+                    </td>
+                    
+                    <td>
+                        <div id="s1">26</div>
+                        <img src="public/assets/img/seat/available_seat.png" class="seat26" />
                     </td>
                     <td>
                         <div id="s1">26</div>
@@ -160,11 +174,13 @@
                     </td>
                 </tr>
                 <tr>
-                    
+                    <td colspan="12">
+                        <a href="passengerİnfo"><button>Onayla </button></a>
+                    </td>
                     
                 </tr>
             </table>
-            <div id="notification">
+           
                 <table border="0" cellspacing="10px">
                     <tr align="center">
                         <td>
@@ -187,10 +203,14 @@
                         <td>
                             Dolu Koltuk
                         </td>
+                        
                     </tr>
+                    
                 </table>
+                
             </div>
         </center>
+     
         </section>
        
 <!-- koltuk secme ekranı bitiş -->

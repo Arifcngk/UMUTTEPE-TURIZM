@@ -32,5 +32,7 @@ $routes->get('/reservation', 'ReservationController::index');
 
 $routes->get('/seatSelection', 'SeatSelectionController::index');
 
+$routes->get('/passengerİnfo', 'PassengerİnfoController::index');
+
 
 
