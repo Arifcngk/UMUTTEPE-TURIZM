@@ -106,8 +106,10 @@
                              <!-- Form Group (phone number)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="inputPhone">Telefon Numaranız:</label>
-                                 <input class="form-control" id="inputPhone" type="tel"
-                                     placeholder="Enter your phone number" value="555-123-4567">
+                                 <div class="input-group">
+                                                <span class="input-group-text">+90</span>
+                                                <input type="phone" aria-label="phone" class="form-control">
+                                            </div>
                              </div>
                              <!-- Form Group (birthday)-->
                              <div class="col-md-6">

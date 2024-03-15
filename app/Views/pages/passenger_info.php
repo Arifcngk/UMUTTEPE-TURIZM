@@ -5,9 +5,11 @@
 
 <head>
     <?php include "app/Views/partials/_head.php" ?>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="public/assets/css/passenger_info.css" rel="stylesheet" />
 
-
+   
 
 </head>
 <!-- head son -->
