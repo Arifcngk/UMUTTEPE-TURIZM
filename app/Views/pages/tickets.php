@@ -84,27 +84,32 @@
 
         <div class="container mt-5">
             <?php foreach ($routes as $route) : ?>
-                <div class="card mb-4">
+                <div class="card mb-4 shadow" style="min-height: 200px;">
                     <div class="card-body">
                         <div class="row w-100">
-                            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <h5 class="card-text d-block"><?= $route['departure_city'] ?> > <?= $route['arrival_city'] ?></h5>
-                            </div>
-                            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <p class="card-text d-block text-secondary font-weight-bold" style="font-size: 24px;"><?= $route['departure_time'] ?></p>
-                            </div>
                             <div class="col-md-2 d-flex align-items-center justify-content-center">
-                                <p class="card-text">2+1 Koltuk</p>
+                                <h5 class="card-text"><?= $route['departure_city'] ?> > <?= $route['arrival_city'] ?></h5>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-clock text-secondary" style="font-size: 24px; margin-right: 4px"></i>
+                                <p class="card-text text-secondary font-weight-bold" style="font-size: 24px;"><?= $route['departure_time'] ?></p>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-couch text-secondary font-weight-bold" style="font-size: 24px; margin-right: 4px"></i>
+                                <p class="card-text text-secondary font-weight-bold" style="font-size: 24px;">2+1 Koltuk</p>
                             </div>
                             <div class="col-md-2">
-                                <h3 class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b>200 ₺</b></h3>
-                                <a href="seatSelection" class="btn btn-secondary" style="background-color: #e43c5c; border: none;">Koltuk Seç</a>
+                                <div class="text-center"><!-- yatayda ortalamak için text-center sınıfını ekleyin -->
+                                    <h3 class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b>200 ₺</b></h3>
+                                    <a href="seatSelection" class="btn btn-secondary w-100 py-2" style="background-color: #e43c5c; border: none;">Koltuk Seç</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
+
 
 
 
