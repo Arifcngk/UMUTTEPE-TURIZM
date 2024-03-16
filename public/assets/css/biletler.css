@@ -123,6 +123,18 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
+.seat {
+  fill: #ccc;
+}
+
+.selected {
+  fill: green;
+}
+
+.unavailable {
+  fill: red;
+}
+
 
 
 .tooltiptext {

@@ -6,6 +6,7 @@
 <head>
     <?php include "app/Views/partials/_head.php" ?>
     <link href="public/assets/css/biletler.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <!-- head son -->
 
@@ -66,15 +67,43 @@
                 </div>
             </form>
         </div>
-
         <div class="container mt-5">
             <div class="row">
-            <?php foreach ($routes as $route) : ?>
-                <?php include "app/Views/partials/_route_card.php" ?>
-            <?php endforeach; ?>
+                <?php foreach ($routes as $route) : ?>
+                    <?php include "app/Views/partials/_route_card.php" ?>
+                <?php endforeach; ?>
             </div>
         </div>
+        <?php include "app/Views/partials/_seats_popup.php" ?>
     </main>
+
+    <script>
+        $(document).ready(function() {
+            // Koltuk seç butonuna tıklandığında
+            $('.show-seats-btn').click(function() {
+                // Seferin ID'sini al
+                var routeId = $(this).data('route-id');
+
+                // AJAX isteği ile koltukları yükle
+                $.ajax({
+                    url: '<?php echo base_url('seats/')?>' + routeId, // seats fonksiyonunun bulunduğu yol, ve sefer_id parametresini ekledik
+                    type: 'GET',
+                    data: {
+                        route_id: routeId
+                    }, // Sefer ID'sini AJAX isteği ile gönder
+                    success: function(response) {
+                        // AJAX isteği başarılı olduğunda koltukları modal içinde göster
+                        $('#seatMap').html(response);
+                        $('#seatModal').modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                        // Hata durumunda kullanıcıya bilgi ver
+                        alert('Koltuklar yüklenirken bir hata oluştu.');
+                    }
+                });
+            });
+        });
+    </script>
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->

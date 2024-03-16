@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\TicketsController;
 use App\Models\TicketModel;
 use CodeIgniter\Router\RouteCollection;
 
@@ -24,7 +25,7 @@ $routes->get('/profile', 'UserController::index');
 
 $routes->get('/mytickets', 'UserController::myTickets');
 
-$routes->get('/tickets', 'TicketsController::index');
+$routes->get('/tickets', 'RoutesController::index');
 
 $routes->get('/searchtickets', 'UserController::search');
 
@@ -34,5 +35,4 @@ $routes->get('/seatSelection', 'SeatSelectionController::index');
 
 $routes->get('/passengerİnfo', 'PassengerİnfoController::index');
 
-
-
+$routes->get('/seats/(:num)', 'RoutesController::seats/$1');
