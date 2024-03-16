@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\UserModel;
 
 class AuthController extends BaseController
 {
-    public function logout() {
+    public function logout()
+    {
         session()->destroy();
         return redirect()->to('/');
     }
 
-    public function authenticate() {
+    public function authenticate()
+    {
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
@@ -18,23 +21,21 @@ class AuthController extends BaseController
         $user = $model->where('email', $email)->first();
 
         if ($user) {
-            if($user['password'] == $password) {
-                 $message = [
+            if ($user['password'] == $password) {
+                $message = [
                     'type' => 'success',
-                    'text' => ' Hoş geldiniz ! '."<br>".$user["first_name"].$user["last_name"]
-                 ];
+                    'text' => ' Hoş geldiniz ! ' . "<br>" . $user["first_name"] . $user["last_name"]
+                ];
                 session()->set('user', $user);
                 return redirect()->to('/')->with('message', $message);
-            }
-            else {
+            } else {
                 $message = [
                     'type' => 'error',
                     'text' => 'Hatalı şifre girdiniz !'
                 ];
                 return redirect()->back()->with('message', $message);
             }
-        }
-        else {
+        } else {
             $message = [
                 'type' => 'error',
                 'text' => 'Geçersiz kullanıcı adı'
@@ -58,10 +59,36 @@ class AuthController extends BaseController
             'gender' => $this->request->getPost('gender')
         ];
 
-        $message = ($model->insert(($user))) ? ['type' => 'warning', 'text' =>'Kayıt işlemi başarıyla tamamlandı.'] : ['type' => 'error' ,'text' => 'Kayıt işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin.'];
+        $message = ($model->insert(($user))) ? ['type' => 'warning', 'text' => 'Kayıt işlemi başarıyla tamamlandı.'] : ['type' => 'error', 'text' => 'Kayıt işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin.'];
 
         session()->set('user', $user);
         $data['message'] = $message;
         return redirect()->to('/')->with('message', $message);
+    }
+
+
+    public function update()
+    {
+        // Formdan gelen verileri al
+        $userData = [
+            'first_name' => $this->request->getPost('first_name'),
+            'last_name' => $this->request->getPost('last_name'),
+            'tc_id' => $this->request->getPost('tc_id'),
+            'email' => $this->request->getPost('email'),
+            'phone_number' => $this->request->getPost('phone_number'),
+            'birth_date' => $this->request->getPost('birth_date'),
+            'address' => $this->request->getPost('address')
+        ];
+
+        // Kullanıcı modelini yükle
+        $userModel = new UserModel();
+
+        // Kullanıcıyı güncelle
+        $userId = session()->get('user')['id']; // Örnek olarak 38 numaralı kullanıcıyı güncelleyelim
+        $userModel->update($userId, $userData);
+        session()->set('user', $userModel->where('id', $userId)->first());
+
+        // Kullanıcıyı güncelledikten sonra bir yerine yönlendirme yapabiliriz
+        return redirect()->to('/profile');
     }
 }

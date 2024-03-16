@@ -36,3 +36,6 @@ $routes->get('/seatSelection', 'SeatSelectionController::index');
 $routes->get('/passengerİnfo', 'PassengerİnfoController::index');
 
 $routes->get('/seats/(:num)', 'RoutesController::seats/$1');
+
+$routes->post('/user/update', 'AuthController::update');
+

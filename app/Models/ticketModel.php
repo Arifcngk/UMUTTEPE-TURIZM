@@ -61,6 +61,13 @@ class TicketModel extends Model
 
     public function getTicketsByUserID($userid)
     {
-        return $this->where('id', $userid)->findAll();
+        return $this->where('user_id', $userid)->findAll();
+    }
+
+    public function getTicketsByStatusAndUserID($status, $user_id)
+    {
+        return $this->where('status', $status)
+            ->where('user_id', $user_id)
+            ->findAll();
     }
 }

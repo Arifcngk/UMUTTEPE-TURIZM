@@ -8,7 +8,7 @@
                     <h6 class="m-b-20 " style="text-align: center;" >Satın Alınan Biletler</h6>
                     <h2 class="text-right">
                        
-                        <span>5</span> <!-- Number -->
+                        <span><?php echo count($tickets['sold']) ?></span> <!-- Number -->
                     </h2>
                     <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                 </div>
@@ -22,7 +22,7 @@
                     <h6 class="m-b-20 " style="text-align: center;" >İdade Edilen Biletler</h6>
                     <h2 class="text-right">
                        
-                        <span>2</span> <!-- Number -->
+                        <span><?php echo count($tickets['cancelled']) ?></span> <!-- Number -->
                     </h2>
                     <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                 </div>
@@ -36,7 +36,7 @@
                     <h6 class="m-b-20 " style="text-align: center;" >Hesap Bakiyem</h6>
                     <h2 class="text-right">
                        
-                        <span>230 ₺</span> <!-- Number -->
+                        <span><?php echo $user['balance'].'₺'?></span> <!-- Number -->
                     </h2>
                     <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                 </div>
@@ -51,7 +51,7 @@
                     <h6 class="m-b-20 " style="text-align: center;" >Kullanıcı Statüsü</h6>
                     <h2 class="text-right">
                        
-                        <span>Öğrenci</span> <!-- Number -->
+                        <span><?php echo $user['type'] ?></span> <!-- Number -->
                     </h2>
                     <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
                 </div>

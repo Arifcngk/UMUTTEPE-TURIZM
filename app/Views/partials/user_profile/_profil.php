@@ -11,53 +11,10 @@
                          data-bs-target="#addCardModal">Ekle</button>
                  </div>
                  <div class="card-body px-0">
-                     <!-- Payment method 1-->
-                     <div class="d-flex align-items-center justify-content-between px-4">
-                         <div class="d-flex align-items-center">
-                             <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
-                             <div class="ms-4">
-                                 <div class="small">Mehmet Sezer - İş Bankası </div>
-                                 <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
-                                 <div class="small"><b>04/2024</b> </div>
-
-                             </div>
-                         </div>
-                         <div class="ms-4 small">
-                             <a href="#!">Sil</a>
-                         </div>
-                     </div>
-                     <hr>
-                     <!-- Payment method 2-->
-                     <div class="d-flex align-items-center justify-content-between px-4">
-                         <div class="d-flex align-items-center">
-                             <i class="fab fa-cc-mastercard fa-2x cc-color-mastercard"></i>
-                             <div class="ms-4">
-                                 <div class="small">Mehmet Sezer - Zirat Bankası </div>
-                                 <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
-                                 <div class="small"><b>04/2024</b> </div>
-                             </div>
-                         </div>
-                         <div class="ms-4 small">
-                             <a href="#!">Sil</a>
-                         </div>
-                     </div>
-                     <hr>
-                     <!-- Payment method 3-->
-                     <div class="d-flex align-items-center justify-content-between px-4">
-                         <div class="d-flex align-items-center">
-                             <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
-                             <div class="ms-4">
-                                 <div class="small">Mehmet Sezer - İş Bankası </div>
-                                 <div class="text-xs text-muted"><b>1111 1111 1111 11</b></div>
-                                 <div class="small"><b>04/2024</b> </div>
-
-                             </div>
-                         </div>
-                         <div class="ms-4 small">
-
-                             <a href="#!">Sil</a>
-                         </div>
-                     </div>
+                    <?php foreach ($credit_cards as $credit_card) {
+                        include "app/Views/partials/_credit_card.php";
+                        echo '<hr>';
+                    } ?>
                  </div>
              </div>
          </div>
@@ -67,7 +24,7 @@
              <div class="card mb-4">
                  <div class="card-header">Hesap Detaylarım</div>
                  <div class="card-body">
-                     <form>
+                     <form method="POST" action="user/update">
                          <!-- Form Group (username)-->
 
                          <!-- Form Row-->
@@ -75,14 +32,14 @@
                              <!-- Form Group (first name)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="name">Adınız:</label>
-                                 <input class="form-control" id="name" type="text" placeholder="Adınızı Giriniz"
-                                     value="Mehmet">
+                                 <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Adınızı Giriniz"
+                                     value="<?php echo $user['first_name'] ?>">
                              </div>
                              <!-- Form Group (last name)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="lastName">Soyadınız:</label>
-                                 <input class="form-control" id="lastName" type="text" placeholder="Soyadınızı Giriniz"
-                                     value="Sezer">
+                                 <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Soyadınızı Giriniz"
+                                     value="<?php echo $user['last_name'] ?>">
                              </div>
                          </div>
                          <!-- Form Row        -->
@@ -90,14 +47,14 @@
                              <!-- Form Group (organization name)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="tc-kimlik">T.C Kimlik No:</label>
-                                 <input class="form-control" id="inputOrgName" type="number"
-                                     placeholder="T.C Kimlik No Giriniz" value="63565345212">
+                                 <input class="form-control" id="inputOrgName" name="tc_id" type="number"
+                                     placeholder="T.C Kimlik No Giriniz" value="<?php echo $user['tc_id'] ?>">
                              </div>
                              <!-- Form Group (location)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="inputLocation">Email Adresiniz:</label>
-                                 <input class="form-control" id="inputEmailAddress" type="email"
-                                     placeholder="Email Adresinizi Giriniz:" value="name@example.com">
+                                 <input class="form-control" id="inputEmailAddress" name="email" type="email"
+                                     placeholder="Email Adresinizi Giriniz:" value="<?php echo $user['email'] ?>">
                              </div>
                          </div>
 
@@ -108,23 +65,23 @@
                                  <label class="small mb-1" for="inputPhone">Telefon Numaranız:</label>
                                  <div class="input-group">
                                                 <span class="input-group-text">+90</span>
-                                                <input type="phone" aria-label="phone" class="form-control">
+                                                <input type="phone" aria-label="phone" name="phone_number" class="form-control" value="<?php echo $user['phone_number'] ?>">
                                             </div>
                              </div>
                              <!-- Form Group (birthday)-->
                              <div class="col-md-6">
                                  <label class="small mb-1" for="inputBirthday">Doğum Tarihiniz</label>
-                                 <input class="form-control" id="inputBirthday" type="date" name="birthday"
-                                     placeholder="Enter your birthday" value="06/10/1988">
+                                 <input class="form-control" id="inputBirthday" type="date" name="birth_day"
+                                     placeholder="Enter your birthday" value="<?php echo $user['birth_date'] ?>">
                              </div><!-- Form Group (email address)-->
                              <div class="mb-3">
                                  <label class="small mb-1" for="inputEmailAddress">Email Adresiniz:</label>
                                  <input class="form-control" id="inputLocation" type="text"
-                                     placeholder="Enter your location" value="San Francisco, CA">
+                                     placeholder="Enter your location" name="address" value="<?php echo $user['address'] ?>">
                              </div>
                          </div>
                          <!-- Save changes button-->
-                         <button class="btn btn-primary" type="button">Güncelle</button>
+                         <button class="btn btn-primary" type="submit">Güncelle</button>
                      </form>
                  </div>
              </div>
