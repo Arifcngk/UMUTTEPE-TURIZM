@@ -145,9 +145,22 @@ class AuthController extends BaseController
             'expiration_date' => $expirationDate,
             'cvv' => $cvv
         ];
-        $creditCardModel->insert($creditCardData);
-
+        $message = ['type' => 'success', 'text' => 'Kredi kartı başarıyla eklendi.'];
+        return redirect()->back()->with('message', $message);
         // Başarılı yanıt gönder
-        redirect()->back()->with('message', ['type' => 'error', 'text' => $cardHolderName]);
     }
+
+    public function deleteCreditCard($id)
+    {
+    // Kredi kartı modelini yükleyin
+    $creditCardModel = new CreditCardModel();
+
+    // Kredi kartını sil
+    $creditCardModel->delete($id);
+
+    // Başarılı mesajı gönderin ya da başka bir işlem yapın
+    $message = ['type' => 'success', 'text' => 'Kredi kartı başarıyla silindi.'];
+    return redirect()->back()->with('message', $message);
+    }
+
 }

@@ -43,4 +43,7 @@ $routes->post('/user/update-password', 'AuthController::updatePassword');
 
 $routes->post('/add_credit_card', 'AuthController::addCreditCard');
 
+$routes->post('/delete_credit_card/(:num)', 'AuthController::deleteCreditCard/$1');
+
+
 
