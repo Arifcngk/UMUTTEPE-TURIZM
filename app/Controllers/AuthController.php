@@ -145,9 +145,12 @@ class AuthController extends BaseController
             'expiration_date' => $expirationDate,
             'cvv' => $cvv
         ];
+        $creditCardModel->insert($creditCardData);
+
         $message = ['type' => 'success', 'text' => 'Kredi kartı başarıyla eklendi.'];
         return redirect()->back()->with('message', $message);
         // Başarılı yanıt gönder
+
     }
 
     public function deleteCreditCard($id)
