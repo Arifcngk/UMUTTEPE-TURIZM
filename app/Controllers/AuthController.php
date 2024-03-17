@@ -166,4 +166,17 @@ class AuthController extends BaseController
     return redirect()->back()->with('message', $message);
     }
 
+    public function deleteAccount() {
+        $userModel = new UserModel();
+        $userId = session()->get('user')['id'];
+
+        if ($userId) {
+            $userModel->delete($userId);
+            session()->remove('user');
+            return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Kullanıcı başarıyla silindi']);
+        }
+        else {
+            return redirect()->back()->with('message', ['type' => 'error', 'text' => 'Kullanıcı kaldırılırken bir hata oluştu.']);
+        }
+    }
 }

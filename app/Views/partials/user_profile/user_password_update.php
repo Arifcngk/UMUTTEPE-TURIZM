@@ -39,7 +39,7 @@
                     Hesabınızı silmek kalıcı bir işlemdir ve geri alınamaz. Hesabınızı silmek istediğinizden eminseniz
                     aşağıdaki düğmeyi seçin.
                 </div>
-                <button type="submit" class="btn btn-danger">Sil</button>
+                <a href="user/delete" class="btn btn-danger">Sil</a>
 
             </div>
         </div>

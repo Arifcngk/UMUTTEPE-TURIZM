@@ -39,6 +39,8 @@ $routes->get('/seats/(:num)', 'RoutesController::seats/$1');
 
 $routes->post('/user/update', 'AuthController::update');
 
+$routes->get('/user/delete', 'AuthController::deleteAccount');
+
 $routes->post('/user/update-password', 'AuthController::updatePassword');
 
 $routes->post('/add_credit_card', 'AuthController::addCreditCard');
