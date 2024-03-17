@@ -7,7 +7,7 @@
     <?php include "app/Views/partials/_head.php" ?>
     <link href="public/assets/css/user_profile.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="public/assets/css/style.css" rel="stylesheet" />
 
 </head>
 <!-- head son -->
@@ -18,11 +18,7 @@
     <?php include "app/Views/partials/_navbar.php" ?>
     <!-- navbar başlangıç -->
 
-    <?php if (!empty($message)) : ?>
-    <div class="alert <?php echo $message['type']; ?>">
-        <?php echo $message['text']; ?>
-    </div>
-    <?php endif; ?>
+    <?php include "app/Views/partials/_alert.php" ?>
     <main id="main">
         <!-- Profil Banner  -->
         <?php include "app/Views/partials/user_profile/_user_banner.php" ?>
@@ -45,8 +41,7 @@
     <?php include "app/Views/partials/_footer.php" ?>
     <!--  Footer-Kapanıs -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

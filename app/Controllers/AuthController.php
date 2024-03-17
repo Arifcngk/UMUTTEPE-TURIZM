@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\CreditCardModel;
 
 class AuthController extends BaseController
 {
@@ -89,6 +90,64 @@ class AuthController extends BaseController
         session()->set('user', $userModel->where('id', $userId)->first());
 
         // Kullanıcıyı güncelledikten sonra bir yerine yönlendirme yapabiliriz
-        return redirect()->to('/profile');
+        return redirect()->to('/profile')->with('message', ['type' => 'warning', 'text' => 'Kayıt işlemi başarıyla tamamlandı.']);
+    }
+
+    public function updatePassword()
+    {
+        // Formdan gelen verileri al
+        $currentPassword = $this->request->getPost('current_password');
+        $newPassword = $this->request->getPost('new_password');
+        $confirmPassword = $this->request->getPost('confirm_password');
+
+        // Kullanıcının oturumunu kontrol et
+        $userId = session()->get('user')['id'];
+        if (!$userId) {
+            return redirect()->to('/login'); // Kullanıcı giriş yapmamışsa, giriş sayfasına yönlendir
+        }
+
+        // Yeni parolaların doğruluğunu kontrol et
+        if ($newPassword != $confirmPassword) {
+            $message = ['type' => 'warning', 'text' => 'Yeni parolalar eşleşmiyor.'];
+            return redirect()->back()->with('message', $message); // Hata mesajıyla birlikte formu geri dön
+        }
+
+        // Kullanıcı modelini yükle
+        $userModel = new UserModel();
+
+        // Kullanıcının mevcut parolasını kontrol et
+        $user = $userModel->find($userId);
+        if (!$user['password'] == $currentPassword) {
+            $message = ['type' => 'warning', 'text'  => 'Mevcut parola yanlış.' . $user['password'] . ' => ' . $currentPassword];
+            return redirect()->back()->with('message', $message); // Hata mesajıyla birlikte formu geri dön
+        }
+
+        // Yeni parolayı hashle ve güncelle
+        $userModel->update($userId, ['password' => $confirmPassword]);
+        $message = ['type' => 'success', 'text' => 'Parolanız başarıyla değiştirildi.'];
+        return redirect()->to('/profile')->with('message', $message); // Başarı mesajıyla birlikte profil sayfasına yönlendir
+    }
+
+    public function addCreditCard()
+    {
+        // Formdan gelen verileri al
+        $cardHolderName = $this->request->getPost('cardHolderName');
+        $cardNumber = $this->request->getPost('cardNumber');
+        $expirationDate = $this->request->getPost('expirationDate');
+        $cvv = $this->request->getPost('cvv');
+
+        // Veritabanına yeni kredi kartı ekle
+        $creditCardModel = new CreditCardModel();
+        $creditCardData = [
+            'user_id' => session()->get('user')['id'],
+            'card_holder_name' => $cardHolderName,
+            'card_number' => $cardNumber,
+            'expiration_date' => $expirationDate,
+            'cvv' => $cvv
+        ];
+        $creditCardModel->insert($creditCardData);
+
+        // Başarılı yanıt gönder
+        redirect()->back()->with('message', ['type' => 'error', 'text' => $cardHolderName]);
     }
 }
