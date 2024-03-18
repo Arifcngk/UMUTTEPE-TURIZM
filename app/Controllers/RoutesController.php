@@ -29,7 +29,6 @@ class RoutesController extends BaseController
         $busId = $routeModel->where('id', $routeId)->first()['bus_id'];
         $seatLayout = $busModel->where('id', $busId)->first()['seat_layout'];
         $data['seat_layout'] = $seatLayout;
-        $data['routes'] = RouteModel::getRoutesWithCityNames();
         echo json_encode($data);
     }
 }

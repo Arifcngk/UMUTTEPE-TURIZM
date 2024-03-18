@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         #seatModal .modal-dialog {
-            max-width: 1300px;
+            max-width: 1200px;
         }
 
         .seat {
@@ -132,39 +132,36 @@
                         console.log(response);
                         var seatHtml = '';
                         var seatNumber = response.seat_layout === '2+1' ? 3 : 4; // Koltuk düzenine göre koltuk sayısını belirle
-                        var rows = Math.ceil(response.seats.length / seatNumber); // Toplam satır sayısı
 
-                        for (var i = 0; i < rows; i++) {
+                        // Her bir sütun için döngü
+                        for (var i = 0; i < seatNumber; i++) {
                             seatHtml += '<div class="row">';
 
-                            for (var j = 0; j < seatNumber; j++) {
-                                var seatIndex = j * rows + i; // Koltuk dizinini hesapla
+                            // Her bir sıra için döngü
+                            for (var j = i; j < response.seats.length; j += seatNumber) {
+                                var availability = response.seats[j].status;
+                                var colorClass = '';
 
-                                if (seatIndex < response.seats.length) {
-                                    var availability = response.seats[seatIndex].status;
-                                    var colorClass = '';
-
-                                    // Duruma göre renk sınıfını belirle
-                                    switch (availability) {
-                                        case 'empty':
-                                            colorClass = 'empty';
-                                            break;
-                                        case 'sold':
-                                            colorClass = 'sold';
-                                            break;
-                                        case 'booked':
-                                            colorClass = 'booked';
-                                            break;
-                                        default:
-                                            colorClass = '';
-                                    }
-
-                                    seatHtml += '<div class="col">' +
-                                        '<div class="seat ' + colorClass + '">' +
-                                        response.seats[seatIndex].seat_number +
-                                        '</div>' +
-                                        '</div>';
+                                // Duruma göre renk sınıfını belirle
+                                switch (availability) {
+                                    case 'empty':
+                                        colorClass = 'empty';
+                                        break;
+                                    case 'sold':
+                                        colorClass = 'sold';
+                                        break;
+                                    case 'booked':
+                                        colorClass = 'booked';
+                                        break;
+                                    default:
+                                        colorClass = '';
                                 }
+
+                                seatHtml += '<div class="col">' +
+                                    '<div class="seat ' + colorClass + '">' +
+                                    response.seats[j].seat_number +
+                                    '</div>' +
+                                    '</div>';
                             }
 
                             seatHtml += '</div>'; // Satır sonu
@@ -177,6 +174,7 @@
                         alert('Koltuklar yüklenirken bir hata oluştu.');
                     }
                 });
+
 
 
             });
