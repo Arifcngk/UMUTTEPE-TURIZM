@@ -27,6 +27,11 @@
             color: red;
         }
 
+        .corridor {
+            width: 50px;
+            height: 50px;
+        }
+
         .seat.sold {
             background-image: url('public/assets/img/seat_sold.png');
         }
@@ -136,7 +141,6 @@
                         // Her bir sütun için döngü
                         for (var i = 0; i < seatNumber; i++) {
                             seatHtml += '<div class="row">';
-
                             // Her bir sıra için döngü
                             for (var j = i; j < response.seats.length; j += seatNumber) {
                                 var availability = response.seats[j].status;
@@ -163,8 +167,13 @@
                                     '</div>' +
                                     '</div>';
                             }
-
                             seatHtml += '</div>'; // Satır sonu
+                            if (response.seat_layout === '2+1' && i === 1) {
+                                seatHtml += '<div class="corridor row"></div>';
+                                seatHtml += '<div class="corridor row"></div>';
+                            } else if (response.seat_layout === '2+2' && i === 1) {
+                                seatHtml += '<div class="corridor row"></div>';
+                            }
                         }
 
                         $('#seatMap').html(seatHtml);
@@ -174,8 +183,6 @@
                         alert('Koltuklar yüklenirken bir hata oluştu.');
                     }
                 });
-
-
 
             });
         });
