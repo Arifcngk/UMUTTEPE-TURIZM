@@ -15,9 +15,11 @@
         .seat {
             width: 50px;
             height: 50px;
+            cursor: pointer;
             background-size: cover;
             display: inline-block;
             position: relative;
+            transition: all ease .3s;
         }
 
         .seat .seat-number {
@@ -30,6 +32,18 @@
         .corridor {
             width: 50px;
             height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .corridor span {
+            font-size: 1.5rem;
+            color: #899dab;
+            font-weight: 700;
+            text-align: center;
+            opacity: .4;
         }
 
         .seat.sold {
@@ -40,16 +54,32 @@
             background-image: url('public/assets/img/seat_empty.png');
         }
 
+        .seat.empty:is(:hover, :focus-visible) {
+            filter: drop-shadow(0 0 0.75rem #008080);
+        }
+
         .seat.booked {
             background-image: url('public/assets/img/seat_booked.png');
+        }
+
+        .seat.booked:is(:hover, :focus-visible) {
+            filter: drop-shadow(0 0 0.75rem #ffef00);
         }
 
         .seat.sold.male {
             background-image: url('public/assets/img/seat_male.png');
         }
 
+        .seat.sold.male:is(:hover, :focus-visible) {
+            filter: drop-shadow(0 0 0.75rem #007FFF);
+        }
+
         .seat.sold.female {
             background-image: url('public/assets/img/seat_female.png');
+        }
+
+        .seat.sold.female:is(:hover, :focus-visible) {
+            filter: drop-shadow(0 0 0.75rem #ff77ff);
         }
     </style>
 </head>
@@ -152,7 +182,7 @@
                                         colorClass = 'empty';
                                         break;
                                     case 'sold':
-                                        colorClass = 'sold';
+                                        colorClass = 'sold ' + response.seats[j].gender;
                                         break;
                                     case 'booked':
                                         colorClass = 'booked';
@@ -169,10 +199,10 @@
                             }
                             seatHtml += '</div>'; // Satır sonu
                             if (response.seat_layout === '2+1' && i === 1) {
-                                seatHtml += '<div class="corridor row"></div>';
-                                seatHtml += '<div class="corridor row"></div>';
+                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
+                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
                             } else if (response.seat_layout === '2+2' && i === 1) {
-                                seatHtml += '<div class="corridor row"></div>';
+                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
                             }
                         }
 
