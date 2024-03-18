@@ -16,10 +16,10 @@ class RouteModel extends Model
         $routeModel = new RouteModel();
 
         // Rotaları alırken city_name'leri ile eşleşen şehirleri alın
-            return $routeModel->db->table('routes')
-            ->select('routes.id, routes.departure_time, routes.arrival_time, routes.bus_id, routes.price, 
-                routes.departure_date,
-                c1.city_name AS departure_city, c2.city_name AS arrival_city, buses.*')
+        return $routeModel->db->table('routes')
+            ->select('routes.id as route_id, routes.departure_time, routes.arrival_time, routes.bus_id, routes.price, 
+            routes.departure_date,
+            c1.city_name AS departure_city, c2.city_name AS arrival_city, buses.*')
             ->join('cities AS c1', 'c1.city_plate = routes.departure_city_id')
             ->join('cities AS c2', 'c2.city_plate = routes.arrival_city_id')
             ->join('buses', 'buses.id = routes.bus_id')
@@ -35,7 +35,8 @@ class RouteModel extends Model
         return $routes;
     }
 
-    public static function getTopRoutes($limit = 12) {
+    public static function getTopRoutes($limit = 12)
+    {
         $routeModel = new RouteModel();
 
         // Rotaları alırken city_name'leri ile eşleşen şehirleri alın

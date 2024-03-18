@@ -15,7 +15,7 @@
             <div class="col-md-2">
                 <div class="text-center"><!-- yatayda ortalamak için text-center sınıfını ekleyin -->
                     <h3 class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b>200 ₺</b></h3>
-                    <a data-route-id="<?php echo $route['id'] ?>" class="btn btn-secondary w-75 py-2 show-seats-btn" style="min-width: 100px; box-shadow: 0 0 5px #e43c5c; background-color: #e43c5c; border: none;">Koltuk Seç</a>
+                    <a data-route-id="<?php echo $route['route_id'] ?>" class="btn btn-secondary w-75 py-2 show-seats-btn" style="min-width: 100px; box-shadow: 0 0 5px #e43c5c; background-color: #e43c5c; border: none;">Koltuk Seç</a>
                 </div>
             </div>
         </div>

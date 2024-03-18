@@ -7,6 +7,46 @@
     <?php include "app/Views/partials/_head.php" ?>
     <link href="public/assets/css/biletler.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #seatModal .modal-dialog {
+            max-width: 1300px;
+        }
+
+        .seat {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            display: inline-block;
+            position: relative;
+        }
+
+        .seat .seat-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: red;
+        }
+
+        .seat.sold {
+            background-image: url('public/assets/img/seat_sold.png');
+        }
+
+        .seat.empty {
+            background-image: url('public/assets/img/seat_empty.png');
+        }
+
+        .seat.booked {
+            background-image: url('public/assets/img/seat_booked.png');
+        }
+
+        .seat.sold.male {
+            background-image: url('public/assets/img/seat_male.png');
+        }
+
+        .seat.sold.female {
+            background-image: url('public/assets/img/seat_female.png');
+        }
+    </style>
 </head>
 <!-- head son -->
 
@@ -83,24 +123,62 @@
             $('.show-seats-btn').click(function() {
                 // Seferin ID'sini al
                 var routeId = $(this).data('route-id');
-
                 // AJAX isteği ile koltukları yükle
                 $.ajax({
-                    url: '<?php echo base_url('seats/')?>' + routeId, // seats fonksiyonunun bulunduğu yol, ve sefer_id parametresini ekledik
+                    url: '<?php echo base_url('seats/') ?>' + routeId,
                     type: 'GET',
-                    data: {
-                        route_id: routeId
-                    }, // Sefer ID'sini AJAX isteği ile gönder
+                    dataType: 'json',
                     success: function(response) {
-                        // AJAX isteği başarılı olduğunda koltukları modal içinde göster
-                        $('#seatMap').html(response);
+                        console.log(response);
+                        var seatHtml = '';
+                        var seatNumber = response.seat_layout === '2+1' ? 3 : 4; // Koltuk düzenine göre koltuk sayısını belirle
+                        var rows = Math.ceil(response.seats.length / seatNumber); // Toplam satır sayısı
+
+                        for (var i = 0; i < rows; i++) {
+                            seatHtml += '<div class="row">';
+
+                            for (var j = 0; j < seatNumber; j++) {
+                                var seatIndex = j * rows + i; // Koltuk dizinini hesapla
+
+                                if (seatIndex < response.seats.length) {
+                                    var availability = response.seats[seatIndex].status;
+                                    var colorClass = '';
+
+                                    // Duruma göre renk sınıfını belirle
+                                    switch (availability) {
+                                        case 'empty':
+                                            colorClass = 'empty';
+                                            break;
+                                        case 'sold':
+                                            colorClass = 'sold';
+                                            break;
+                                        case 'booked':
+                                            colorClass = 'booked';
+                                            break;
+                                        default:
+                                            colorClass = '';
+                                    }
+
+                                    seatHtml += '<div class="col">' +
+                                        '<div class="seat ' + colorClass + '">' +
+                                        response.seats[seatIndex].seat_number +
+                                        '</div>' +
+                                        '</div>';
+                                }
+                            }
+
+                            seatHtml += '</div>'; // Satır sonu
+                        }
+
+                        $('#seatMap').html(seatHtml);
                         $('#seatModal').modal('show');
                     },
                     error: function(xhr, status, error) {
-                        // Hata durumunda kullanıcıya bilgi ver
                         alert('Koltuklar yüklenirken bir hata oluştu.');
                     }
                 });
+
+
             });
         });
     </script>

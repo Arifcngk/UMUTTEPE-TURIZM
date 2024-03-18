@@ -62,7 +62,6 @@ class AuthController extends BaseController
 
         $message = ($model->insert(($user))) ? ['type' => 'warning', 'text' => 'Kayıt işlemi başarıyla tamamlandı.'] : ['type' => 'error', 'text' => 'Kayıt işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin.'];
 
-        session()->set('user', $user);
         $data['message'] = $message;
         return redirect()->to('/')->with('message', $message);
     }
