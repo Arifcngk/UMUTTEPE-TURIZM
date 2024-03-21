@@ -8,8 +8,34 @@
     <link href="public/assets/css/biletler.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+        .select-gender {
+            display: flex;
+            position: absolute;
+            top: -20px;
+            /* Koltuğun 20px üzerinde */
+            left: 0;
+            z-index: 1001;
+            /* Popup'ı diğer elementlerin üzerine taşır */
+        }
+
+        #seatModal {
+            overflow: auto;
+        }
+
         #seatModal .modal-dialog {
-            max-width: 1200px;
+            min-width: 1200px;
+        }
+
+        .select-gender .popup-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .select-gender .popup-button i {
+            margin-right: 5px;
         }
 
         .seat {
@@ -191,8 +217,9 @@
                                         colorClass = '';
                                 }
 
+                                // Koltuk HTML'ini oluştur
                                 seatHtml += '<div class="col">' +
-                                    '<div class="seat ' + colorClass + '">' +
+                                    '<div class="seat ' + colorClass + '" data-seat-number="' + response.seats[j].seat_number + '">' +
                                     response.seats[j].seat_number +
                                     '</div>' +
                                     '</div>';
@@ -208,6 +235,39 @@
 
                         $('#seatMap').html(seatHtml);
                         $('#seatModal').modal('show');
+
+                        // Koltuklara tıklama işlevi ekle
+                        $('.seat').off('click').click(function(event) {
+                            event.stopPropagation(); // Koltuğa tıklamayı engelle
+                            var seatNumber = $(this).data('seat-number');
+                            var popupHtml = '<div class="popup select-gender ' + seatNumber + '">' +
+                                '<button id="male" class="popup-button male" value="male"><i class="fa-solid fa-mars"></i> Erkek Seç</button>' +
+                                '<button id="female" class="popup-button female" value="female"><i class="fa-solid fa-venus"></i> Kadın Seç</button>' +
+                                '</div>';
+
+                            // Önceki popup'ı kaldır
+                            $('.popup').remove();
+
+                            // Koltuğun üstünde popup'ı göster
+                            $(this).append(popupHtml);
+
+                            // Koltuk seç butonuna tıklama işlevi ekle
+                            $('.popup-button').click(function(event) {
+                                event.stopPropagation(); // Koltuğa tıklamayı engelle
+                                var selectedGender = $(this).attr('id');
+                                // Koltuğun ID'sini ve seçilen cinsiyeti alarak ilgili işlemi yapabilirsiniz
+                                console.log('Koltuk Numarası:', seatNumber);
+                                console.log('Seçilen Cinsiyet:', selectedGender);
+                                // Buraya koltuk seçildikten sonra yapılacak işlemi ekleyin
+                                // Örneğin, seçilen koltuğu rezerve etme veya satın alma gibi
+                            });
+                        });
+
+                        // Koltuk dışına tıklanınca popup'ı kaldır
+                        $(document).off('click.popup').on('click.popup', function() {
+                            $('.popup').remove();
+                        });
+
                     },
                     error: function(xhr, status, error) {
                         alert('Koltuklar yüklenirken bir hata oluştu.');
