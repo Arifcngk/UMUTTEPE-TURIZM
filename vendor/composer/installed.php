@@ -3,7 +3,7 @@
         'name' => 'codeigniter4/appstarter',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'aa3d272c691592b4a66ad6e138ba74d44eceac17',
+        'reference' => '7585f32f224b3c37bf89b445f698164b0f15aff7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'codeigniter4/appstarter' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'aa3d272c691592b4a66ad6e138ba74d44eceac17',
+            'reference' => '7585f32f224b3c37bf89b445f698164b0f15aff7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -63,6 +63,15 @@
             'install_path' => __DIR__ . '/../fakerphp/faker',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'iyzico/iyzipay-php' => array(
+            'pretty_version' => 'v2.0.54',
+            'version' => '2.0.54.0',
+            'reference' => '4a5874a63582e92338662782887da757de62c646',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../iyzico/iyzipay-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'laminas/laminas-escaper' => array(
             'pretty_version' => '2.13.0',

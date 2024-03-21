@@ -63,6 +63,7 @@
                         </fieldset>
                     </div>
                 </form>
+                <a href="passengerİnfo">Git</a>
             </div>
         </div>
     </section>

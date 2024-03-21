@@ -46,12 +46,16 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label class="form-label">Durumu</label>
+                                            <label class="form-label">Yolcu Tarifesi</label>
 
                                             <select class="form-select">
                                                 <option value="draft" selected="">Seçiniz</option>
-                                                <option value="active">Öğrenci </option>
-                                                <option value="active">Memur</option>
+                                                <option value="active">Öğrenci - %15 İndirim </option>
+                                                <option value="active">Memur - %15 İndirim</option>
+                                                <option value="active">Emekli - %15 İndirim</option>
+                                                <option value="active">65 Yaş Üstü -%50 İndirim</option>
+                                                <option value="active">7 Yaş Altı - Ücretsiz </option>
+                                                <option value="active">Güvenlik Mensubu - Ücretsiz</option>
                                             </select>
                                         </div>
                                     </div>
