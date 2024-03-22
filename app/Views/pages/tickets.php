@@ -296,13 +296,14 @@
                 event.stopPropagation();
                 var selectedGender = $(this).attr('id');
                 var selectedSeatsCount = $('#selectedSeats li').length;
+                var seatLayout = ($('#seatLayout')).text() === '2+1' ? 3 : 4;
 
                 if (selectedSeatsCount >= 4) {
                     alert('Daha fazla koltuk ekleyemezsiniz.');
                     return;
                 }
 
-                $(this).parent().parent().addClass('selected').removeClass('empty');
+                $(this).parent().parent().removeClass().addClass('seat').addClass('selected').addClass(selectedGender);
                 var seat = '<li class="list-group-item"><div class="col">' +
                     '<div class="seat sold ' + selectedGender + '" data-seat-number="' + seatNumber + '">' +
                     seatNumber +
@@ -316,17 +317,108 @@
                 console.log('Koltuk Numarası:', seatNumber);
                 console.log('Seçilen Cinsiyet:', selectedGender);
 
+                console.log(seatLayout);
+
                 // İki ardışık koltuğun cinsiyet kontrolü
-                var adjacentSeats = $('.seat[data-seat-number="' + seatNumber + '"]').next();
-                if (adjacentSeats.length > 0) {
-                    var adjacentSeatGender = adjacentSeats.attr('class').split(' ')[1];
-                    if (adjacentSeatGender === selectedGender) {
-                        alert("Yan yana iki koltuk aynı cinsiyet olamaz!");
-                        removeSeatSelection(seatElement, seatNumber);   
+
+                if (seatLayout == 3) {
+                    if (seatNumber % seatLayout === 1) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber + 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
+                    } else if (seatNumber % seatLayout === 2) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber - 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
+                    }
+                } else if (seatLayout == 4) {
+                    if (seatNumber % seatLayout === 1) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber + 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
+                    } else if (seatNumber % seatLayout === 2) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber - 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
+                    }
+
+                    else if (seatNumber % seatLayout === 3) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber + 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
+                    }
+
+                    else if (seatNumber % seatLayout === 0) {
+                        var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber - 1) + '"]');
+                        if (!adjacentSeat.hasClass('empty')) {
+                            var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
+                            console.log("Seçilen koltuk cinsiyeti:", selectedGender);
+                            console.log("Yanındaki koltuk cinsiyeti:", adjacentSeatGender);
+                            if (adjacentSeatGender !== undefined && adjacentSeatGender !== selectedGender) {
+                                alert("Yan yana iki koltuk farklı cinsiyet olamaz!");
+                                removeSeatSelection(seatElement, seatNumber);
+                                return;
+                            }
+                        }
                     }
                 }
+
+
+                // var adjacentSeatNumbers = [seatNumber - 1, seatNumber + 1];
+                // for (var i = 0; i < adjacentSeatNumbers.length; i++) {
+                //     var adjacentSeat = $('.seat[data-seat-number="' + adjacentSeatNumbers[i] + '"]');
+                //     if (adjacentSeat.length > 0) {
+                //         var adjacentSeatGender = adjacentSeat.hasClass('selected') ? selectedGender : adjacentSeat.attr('class').split(' ')[2];
+                //         if (adjacentSeatGender === selectedGender) {
+                //             alert("Yan yana iki koltuk aynı cinsiyet olamaz!");
+                //             removeSeatSelection(seatElement, seatNumber);
+                //             return;
+                //         }
+                //     }
+                // }
             });
         }
+
 
         function removeSeatSelection(seatElement, seatNumber) {
             var selectedSeatsCount = $('#selectedSeats li').length;
