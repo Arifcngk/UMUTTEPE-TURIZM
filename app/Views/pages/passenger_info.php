@@ -5,12 +5,12 @@
 
 <head>
     <?php include "app/Views/partials/_head.php" ?>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="public/assets/css/passenger_info.css" rel="stylesheet" />
     <link href="public/assets/css/style.css" rel="stylesheet" />
 
-   
+
 
 </head>
 <!-- head son -->
@@ -22,9 +22,9 @@
     <!-- navbar başlangıç -->
 
     <?php if (!empty($message)) : ?>
-    <div class="alert <?php echo $message['type']; ?>">
-        <?php echo $message['text']; ?>
-    </div>
+        <div class="alert <?php echo $message['type']; ?>">
+            <?php echo $message['text']; ?>
+        </div>
     <?php endif; ?>
 
     <main id="main">
@@ -33,9 +33,8 @@
             <div class="container">
                 <!-- Title -->
                 <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
-                    <h2 class="h5 mb-3 mb-lg-0"><a href="../../pages/admin/customers.html" class="text-muted"><i
-                                class="bi bi-arrow-left-square me-2"></i></a> Koltuk Seçme Ekranına Dön</h2>
-                    
+                    <h2 class="h5 mb-3 mb-lg-0"><a href="../../pages/admin/customers.html" class="text-muted"><i class="bi bi-arrow-left-square me-2"></i></a> Koltuk Seçme Ekranına Dön</h2>
+
                 </div>
 
                 <!-- Main content -->
@@ -54,7 +53,7 @@
                         <!-- Son Durum -->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <div id="register">
+                                <div id="register" style="text-align: center;">
                                     <div id="ticket">
 
                                         <table>
@@ -80,11 +79,12 @@
                                         </table>
                                     </div>
 
+                                    <a href="ticketpayment"> <button type="button" class="btn btn-dark " style=" padding: 2px 10px; margin-top: 8px;">Tutarı Onayla</button>
+                                    </a>
                                 </div>
+
                             </div>
                         </div>
-                        <!-- Bilet Bilgileri -->
-                        <?php include "app/Views/partials/passenger_info/ticket_info.php" ?>
 
                         <!-- Ödeme Bilgileri -->
                         <?php include "app/Views/partials/passenger_info/payment_info.php" ?>
@@ -109,8 +109,7 @@
     <?php include "app/Views/partials/_footer.php" ?>
     <!--  Footer-Kapanıs -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
