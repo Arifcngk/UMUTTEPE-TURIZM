@@ -22,6 +22,7 @@ class RouteModel extends Model
             c1.city_name AS departure_city, c2.city_name AS arrival_city, buses.*')
             ->join('cities AS c1', 'c1.city_plate = routes.departure_city_id')
             ->join('cities AS c2', 'c2.city_plate = routes.arrival_city_id')
+            ->limit(12)
             ->join('buses', 'buses.id = routes.bus_id');
     
         // Id parametresi verilmişse sorguyu filtrele

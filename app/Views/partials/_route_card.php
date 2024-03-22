@@ -4,9 +4,14 @@
             <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <h5 class="card-text text-secondary font-weight-bold" style="font-size: 24px;"><?= $route['departure_city'] . "  " ?><i class="fa-solid fa-angles-right" style="font-size: 18px; color: #e43c5c;"></i><?= "  " . $route['arrival_city'] ?></h5>
             </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center">
-                <i class="fa-solid fa-clock" style="font-size: 24px; margin-right: 4px; color: #1d3445; text-shadow: 0 0 1px #e43c5c; color: #e43c5c;"></i>
-                <p class="card-text text-secondary font-weight-bold" style="font-size: 24px; color: #1d3445; text-shadow: 0 0 1px #1d3445;"><?= $route['departure_time'] ?></p>
+            <div class="col-md-3">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <i class="fa-solid fa-clock" style="font-size: 24px; margin-right: 4px; color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"></i>
+                    <div class="vertical-center">
+                        <p class="card-text text-secondary font-weight-bold" style="font-size: 24px; color: #1d3445; text-shadow: 0 0 1px #1d3445;"><?= $route['departure_date'] ?></p>
+                        <p class="card-text text-center text-secondary font-weight-bold" style="font-size: 14px; color: #888; text-shadow: 0 0 1px #1d3445;"><?= $route['departure_time'] ?></p>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3 d-flex align-items-center justify-content-center">
                 <i class="fa-solid fa-couch font-weight-bold" style="font-size: 20px; margin-right: 8px; color: #899dab; text-shadow: 0 0 1px #1d3445;"></i>
