@@ -23,12 +23,8 @@ class RoutesController extends BaseController
         
         // Başarılı bir şekilde koltuk seçildiğini varsayalım
         $seatModel = new SeatModel();
-        $routeModel = new RouteModel();
-        $busModel = new BusModel();
         $data['seats'] = $seatModel->where('route_id', $routeId)->findAll();
-        $busId = $routeModel->where('id', $routeId)->first()['bus_id'];
-        $seatLayout = $busModel->where('id', $busId)->first()['seat_layout'];
-        $data['seat_layout'] = $seatLayout;
+        $data['route'] = RouteModel::getRoutesWithCityNames($routeId);
         echo json_encode($data);
     }
 }

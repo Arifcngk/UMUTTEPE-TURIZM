@@ -18,6 +18,11 @@
             /* Popup'ı diğer elementlerin üzerine taşır */
         }
 
+        #selectedSeats {
+            display: flex;
+            gap: 4px;
+        }
+
         #seatModal {
             overflow: auto;
         }
@@ -78,6 +83,10 @@
 
         .seat.empty {
             background-image: url('public/assets/img/seat_empty.png');
+        }
+
+        .seat.selected {
+            background-image: url('public/assets/img/seat_selected.png');
         }
 
         .seat.empty:is(:hover, :focus-visible) {
@@ -177,105 +186,162 @@
         </div>
         <?php include "app/Views/partials/_seats_popup.php" ?>
     </main>
-
     <script>
         $(document).ready(function() {
-            // Koltuk seç butonuna tıklandığında
             $('.show-seats-btn').click(function() {
-                // Seferin ID'sini al
                 var routeId = $(this).data('route-id');
-                // AJAX isteği ile koltukları yükle
+
                 $.ajax({
                     url: '<?php echo base_url('seats/') ?>' + routeId,
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
-                        var seatHtml = '';
-                        var seatNumber = response.seat_layout === '2+1' ? 3 : 4; // Koltuk düzenine göre koltuk sayısını belirle
-
-                        // Her bir sütun için döngü
-                        for (var i = 0; i < seatNumber; i++) {
-                            seatHtml += '<div class="row">';
-                            // Her bir sıra için döngü
-                            for (var j = i; j < response.seats.length; j += seatNumber) {
-                                var availability = response.seats[j].status;
-                                var colorClass = '';
-
-                                // Duruma göre renk sınıfını belirle
-                                switch (availability) {
-                                    case 'empty':
-                                        colorClass = 'empty';
-                                        break;
-                                    case 'sold':
-                                        colorClass = 'sold ' + response.seats[j].gender;
-                                        break;
-                                    case 'booked':
-                                        colorClass = 'booked';
-                                        break;
-                                    default:
-                                        colorClass = '';
-                                }
-
-                                // Koltuk HTML'ini oluştur
-                                seatHtml += '<div class="col">' +
-                                    '<div class="seat ' + colorClass + '" data-seat-number="' + response.seats[j].seat_number + '">' +
-                                    response.seats[j].seat_number +
-                                    '</div>' +
-                                    '</div>';
-                            }
-                            seatHtml += '</div>'; // Satır sonu
-                            if (response.seat_layout === '2+1' && i === 1) {
-                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
-                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
-                            } else if (response.seat_layout === '2+2' && i === 1) {
-                                seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
-                            }
-                        }
-
-                        $('#seatMap').html(seatHtml);
-                        $('#seatModal').modal('show');
-
-                        // Koltuklara tıklama işlevi ekle
-                        $('.seat').off('click').click(function(event) {
-                            event.stopPropagation(); // Koltuğa tıklamayı engelle
-                            var seatNumber = $(this).data('seat-number');
-                            var popupHtml = '<div class="popup select-gender ' + seatNumber + '">' +
-                                '<button id="male" class="popup-button male" value="male"><i class="fa-solid fa-mars"></i> Erkek Seç</button>' +
-                                '<button id="female" class="popup-button female" value="female"><i class="fa-solid fa-venus"></i> Kadın Seç</button>' +
-                                '</div>';
-
-                            // Önceki popup'ı kaldır
-                            $('.popup').remove();
-
-                            // Koltuğun üstünde popup'ı göster
-                            $(this).append(popupHtml);
-
-                            // Koltuk seç butonuna tıklama işlevi ekle
-                            $('.popup-button').click(function(event) {
-                                event.stopPropagation(); // Koltuğa tıklamayı engelle
-                                var selectedGender = $(this).attr('id');
-                                // Koltuğun ID'sini ve seçilen cinsiyeti alarak ilgili işlemi yapabilirsiniz
-                                console.log('Koltuk Numarası:', seatNumber);
-                                console.log('Seçilen Cinsiyet:', selectedGender);
-                                // Buraya koltuk seçildikten sonra yapılacak işlemi ekleyin
-                                // Örneğin, seçilen koltuğu rezerve etme veya satın alma gibi
-                            });
-                        });
-
-                        // Koltuk dışına tıklanınca popup'ı kaldır
-                        $(document).off('click.popup').on('click.popup', function() {
-                            $('.popup').remove();
-                        });
-
+                        displaySeats(response);
+                        showModal(response);
+                        addSeatClickHandler();
+                        addPopupCloseHandler();
                     },
                     error: function(xhr, status, error) {
                         alert('Koltuklar yüklenirken bir hata oluştu.');
                     }
                 });
-
             });
         });
+
+        function displaySeats(response) {
+            var seatHtml = '';
+            var seatLayout = response.route[0].seat_layout;
+            var seatNumber = (seatLayout === '2+1') ? 3 : 4;
+
+            for (var i = 0; i < seatNumber; i++) {
+                seatHtml += '<div class="row">';
+
+                for (var j = i; j < response.seats.length; j += seatNumber) {
+                    var seat = response.seats[j];
+                    var availability = seat.status;
+                    var colorClass = '';
+
+                    switch (availability) {
+                        case 'empty':
+                            colorClass = 'empty';
+                            break;
+                        case 'sold':
+                            colorClass = 'sold ' + seat.gender;
+                            break;
+                        case 'booked':
+                            colorClass = 'booked';
+                            break;
+                    }
+
+                    seatHtml += '<div class="col">' +
+                        '<div class="seat ' + colorClass + '" data-seat-number="' + seat.seat_number + '">' +
+                        seat.seat_number +
+                        '</div>' +
+                        '</div>';
+                }
+
+                seatHtml += '</div>'; // Satır sonu
+
+                if (seatNumber === 3 && i === 1) {
+                    seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
+                    seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
+                } else if (seatNumber === 4 && i === 1) {
+                    seatHtml += '<div class="corridor row"><span>Koridor</span></div>';
+                }
+            }
+
+            $('#seatMap').html(seatHtml);
+        }
+
+        function showModal(response) {
+            var route = response.route[0];
+            var departureCity = route.departure_city;
+            var arrivalCity = route.arrival_city;
+            var departureTime = route.departure_time;
+            var seatLayout = route.seat_layout;
+            var price = route.price + "₺";
+
+            $('#departureArrival').html(departureCity + " <i class='fa-solid fa-angles-right' style='font-size: 18px; color: #e43c5c;'></i> " + arrivalCity);
+            $('#departureTime').html(departureTime);
+            $('#seatLayout').html(seatLayout);
+            $('#price').html(price);
+
+            $('#seatModal').modal('show');
+        }
+
+        function addSeatClickHandler() {
+            $('.seat').off('click').click(function(event) {
+                var seatNumber = $(this).data('seat-number');
+
+                if ($(this).hasClass('empty')) {
+                    event.stopPropagation();
+                    showPopup($(this));
+                } else if ($(this).hasClass('selected')) {
+                    removeSeatSelection($(this), seatNumber);
+                }
+            });
+        }
+
+        function showPopup(seatElement) {
+            var seatNumber = seatElement.data('seat-number');
+            var popupHtml = '<div class="popup select-gender ' + seatNumber + '">' +
+                '<button id="male" class="popup-button male" value="male"><i class="fa-solid fa-mars"></i> Erkek Seç</button>' +
+                '<button id="female" class="popup-button female" value="female"><i class="fa-solid fa-venus"></i> Kadın Seç</button>' +
+                '</div>';
+
+            $('.popup').remove();
+            seatElement.append(popupHtml);
+
+            $('.popup-button').off('click').click(function(event) {
+                event.stopPropagation();
+                var selectedGender = $(this).attr('id');
+                var selectedSeatsCount = $('#selectedSeats li').length;
+
+                if (selectedSeatsCount >= 4) {
+                    alert('Daha fazla koltuk ekleyemezsiniz.');
+                    return;
+                }
+
+                $(this).parent().parent().addClass('selected').removeClass('empty');
+                var seat = '<li class="list-group-item"><div class="col">' +
+                    '<div class="seat sold ' + selectedGender + '" data-seat-number="' + seatNumber + '">' +
+                    seatNumber +
+                    '</div>' +
+                    '</div></li>';
+
+                $('#selectedSeats').append(seat);
+                $('#totalPrice').html((selectedSeatsCount + 1) * parseFloat($('#price').text()));
+                $(this).closest('.popup').remove();
+
+                console.log('Koltuk Numarası:', seatNumber);
+                console.log('Seçilen Cinsiyet:', selectedGender);
+
+                // İki ardışık koltuğun cinsiyet kontrolü
+                var adjacentSeats = $('.seat[data-seat-number="' + seatNumber + '"]').next();
+                if (adjacentSeats.length > 0) {
+                    var adjacentSeatGender = adjacentSeats.attr('class').split(' ')[1];
+                    if (adjacentSeatGender === selectedGender) {
+                        alert("Yan yana iki koltuk aynı cinsiyet olamaz!");
+                        removeSeatSelection(seatElement, seatNumber);   
+                    }
+                }
+            });
+        }
+
+        function removeSeatSelection(seatElement, seatNumber) {
+            var selectedSeatsCount = $('#selectedSeats li').length;
+            selectedSeatsCount--;
+            console.log(selectedSeatsCount);
+            $('#totalPrice').html(selectedSeatsCount * parseFloat($('#price').text()));
+            seatElement.removeClass('selected').addClass('empty');
+            $('#selectedSeats li div[data-seat-number="' + seatNumber + '"]').parent().parent().remove();
+        }
+
+        function addPopupCloseHandler() {
+            $(document).off('click.popup').on('click.popup', function() {
+                $('.popup').remove();
+            });
+        }
     </script>
     <!-- End #main -->
 

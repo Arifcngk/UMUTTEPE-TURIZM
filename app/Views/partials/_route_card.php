@@ -10,11 +10,11 @@
             </div>
             <div class="col-md-3 d-flex align-items-center justify-content-center">
                 <i class="fa-solid fa-couch font-weight-bold" style="font-size: 20px; margin-right: 8px; color: #899dab; text-shadow: 0 0 1px #1d3445;"></i>
-                <p class="card-text font-weight-bold" style="font-size: 24px; color: #899dab; text-shadow: 0 0 1px #1d3445;">2+1</p>
+                <p class="card-text font-weight-bold" style="font-size: 24px; color: #899dab; text-shadow: 0 0 1px #1d3445;"><?= $route['seat_layout'] ?></p>
             </div>
             <div class="col-md-2">
                 <div class="text-center"><!-- yatayda ortalamak için text-center sınıfını ekleyin -->
-                    <h3 class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b>200 ₺</b></h3>
+                    <h3 class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b><?= $route['price'] ?>₺</b></h3>
                     <a data-route-id="<?php echo $route['route_id'] ?>" class="btn btn-secondary w-75 py-2 show-seats-btn" style="min-width: 100px; box-shadow: 0 0 5px #e43c5c; background-color: #e43c5c; border: none;">Koltuk Seç</a>
                 </div>
             </div>
