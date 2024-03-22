@@ -49,6 +49,8 @@ $routes->post('/delete_credit_card/(:num)', 'AuthController::deleteCreditCard/$1
 
 $routes->get('/ticketpayment', 'PaymentController::payment');
 
+$routes->get('/search_routes', 'RoutesController::search');
+
 
 
 

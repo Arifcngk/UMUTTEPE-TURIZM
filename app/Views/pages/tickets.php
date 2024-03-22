@@ -135,7 +135,7 @@
     <main id="main">
         <div class="container">
             <?php include "app/Views/partials/_banner_large.php" ?>
-            <form action="tickets/search" method="GET">
+            <form action="<?php echo base_url('/search_routes') ?>" method="GET">
                 <div class="row justify-content-center">
                     <div class="col-md-3 d-flex align-items-center">
                         <select id="departure_city" name="departure_city" class="form-control text-secondary">
