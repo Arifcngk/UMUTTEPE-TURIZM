@@ -33,7 +33,7 @@
                 </div>
                 <div>
                 <span style="display: block;" class="text-secondary pb-2">Toplam Fiyat: <h5 style="display: inline;"  id="totalPrice"></h5></span>
-                <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
+                <button type="button" class="btn btn-primary" aria-label="Accept" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
                     Onayla ve Devam Et
                 </button>
                 </div>

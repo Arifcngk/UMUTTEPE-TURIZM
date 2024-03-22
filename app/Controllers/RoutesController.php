@@ -36,7 +36,6 @@ class RoutesController extends BaseController
         $departure_date = $this->request->getGet('departure_date');
         $data["title"] = "Biletler";
         $data['cities'] = CityModel::getCities();
-        $data['message'] = ['type' => 'error', 'text' => $departure_city . $departure_date . $arrival_city];
         // Veritabanından rotaları çek
         $data['routes'] = RouteModel::searchRoutes($departure_city, $arrival_city, $departure_date);
 
