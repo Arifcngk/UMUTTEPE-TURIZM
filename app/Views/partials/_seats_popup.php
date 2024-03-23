@@ -24,6 +24,9 @@
                 </div>
             </div>
             <div class="modal-body">
+                <div id="map">
+
+                </div>
                 <div id="seatMap"></div>
             </div>
             <div class="modal-footer">
@@ -32,10 +35,10 @@
                     <ul id="selectedSeats"></ul>
                 </div>
                 <div>
-                <span style="display: block;" class="text-secondary pb-2">Toplam Fiyat: <h5 style="display: inline;"  id="totalPrice"></h5></span>
-                <button type="button" class="btn btn-primary" aria-label="Accept" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
-                    Onayla ve Devam Et
-                </button>
+                    <span style="display: block;" class="text-secondary pb-2">Toplam Fiyat: <h5 style="display: inline;" id="totalPrice"></h5></span>
+                    <button type="button" class="btn btn-primary" aria-label="Accept" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
+                        Onayla ve Devam Et
+                    </button>
                 </div>
             </div>
         </div>
@@ -47,6 +50,13 @@
 </div>
 
 <style>
+    #map {
+        /* Harita alanını stilize etmek için CSS */
+        height: 400px;
+        width: 100%;
+        /* veya belirli bir piksel değeri */
+    }
+
     .selectedSeats {
         display: flex;
         align-items: center;
@@ -60,8 +70,44 @@
     }
 </style>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+<script>
+    // // Başlangıç ve varış konumlarını belirle
+    // var startLocation = [41.004684, 28.891659]; // New York
+    // var endLocation = [40.657424, 35.797493]; // Los Angeles
+
+    // // Harita oluştur
+    // var map = L.map('map').setView(startLocation, 5); // Zoom seviyesi: 5
+
+    // // OpenStreetMap katmanını ekle
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    // }).addTo(map);
+
+    // L.marker(startLocation, {
+    //     }).addTo(map)
+    //     .bindPopup('Başlangıç Konumu').openPopup();
+
+    // L.marker(endLocation, {
+    //     }).addTo(map)
+    //     .bindPopup('Varış Konumu').openPopup();
+
+    // // Rotayı çiz
+    // L.Routing.control({
+    //     waypoints: [
+    //         L.latLng(startLocation[0], startLocation[1]),
+    //         L.latLng(endLocation[0], endLocation[1])
+    //     ],
+    //     routeWhileDragging: true
+    // }).addTo(map);
+</script>
+
 <script>
     $('#seatModal').on('hidden.bs.modal', function() {
+        $('#map').empty();
         $('#selectedSeats').empty(); // selectedSeats içeriğini boşalt
         $('#totalPrice').empty();
     });

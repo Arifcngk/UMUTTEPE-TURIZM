@@ -19,11 +19,13 @@ class RouteModel extends Model
         $query = $routeModel->db->table('routes')
             ->select('routes.id as route_id, routes.departure_time, routes.arrival_time, routes.bus_id, routes.price, 
             routes.departure_date,
-            c1.city_name AS departure_city, c2.city_name AS arrival_city, buses.*')
+            c1.city_name AS departure_city, c1.latitude AS departure_latitude, c1.longitude AS departure_longitude,
+            c2.city_name AS arrival_city, c2.latitude AS arrival_latitude, c2.longitude AS arrival_longitude,
+            buses.*')
             ->join('cities AS c1', 'c1.city_plate = routes.departure_city_id')
             ->join('cities AS c2', 'c2.city_plate = routes.arrival_city_id')
-            ->limit(12)
-            ->join('buses', 'buses.id = routes.bus_id');
+            ->join('buses', 'buses.id = routes.bus_id')
+            ->limit(12);
 
         // Id parametresi verilmişse sorguyu filtrele
         if ($id !== null) {
@@ -41,12 +43,14 @@ class RouteModel extends Model
 
         // Sorgu oluştur
         $query = $routeModel->db->table('routes')
-            ->select('routes.id as route_id, routes.departure_city_id, routes.arrival_city_id, routes.departure_time, routes.arrival_time, routes.bus_id, routes.price, 
+        ->select('routes.id as route_id, routes.departure_time, routes.arrival_time, routes.bus_id, routes.price, 
         routes.departure_date,
-        c1.city_name AS departure_city, c2.city_name AS arrival_city, buses.*')
-            ->join('cities AS c1', 'c1.city_plate = routes.departure_city_id')
-            ->join('cities AS c2', 'c2.city_plate = routes.arrival_city_id')
-            ->join('buses', 'buses.id = routes.bus_id');
+        c1.city_name AS departure_city, c1.latitude AS departure_latitude, c1.longitude AS departure_longitude,
+        c2.city_name AS arrival_city, c2.latitude AS arrival_latitude, c2.longitude AS arrival_longitude,
+        buses.*')
+        ->join('cities AS c1', 'c1.city_plate = routes.departure_city_id')
+        ->join('cities AS c2', 'c2.city_plate = routes.arrival_city_id')
+        ->join('buses', 'buses.id = routes.bus_id');
 
         // Gerekirse sorguyu filtrele
         if ($departure_city_id !== null) {

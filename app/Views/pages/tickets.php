@@ -196,6 +196,8 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
+                        console.log(response);
+                        drawRouteOnMap(response);
                         displaySeats(response);
                         showModal(response);
                         addSeatClickHandler();
@@ -252,6 +254,47 @@
 
             $('#seatMap').html(seatHtml);
         }
+
+        function drawRouteOnMap(response) {
+            // Başlangıç ve varış konumlarını belirle
+            var departureLatitude = parseFloat(response.route[0].departure_latitude); // Kalkış şehrinin enlemi
+            var departureLongitude = parseFloat(response.route[0].departure_longitude); // Kalkış şehrinin boylamı
+            var arrivalLatitude = parseFloat(response.route[0].arrival_latitude); // Varış şehrinin enlemi
+            var arrivalLongitude = parseFloat(response.route[0].arrival_longitude);
+
+            // Eğer harita zaten varsa kaldır
+            if (typeof map !== 'undefined') {
+                map.remove();
+            }
+
+            // Harita oluştur
+            var map = L.map('map', {
+                center: [departureLatitude, departureLongitude],
+                zoom: 15
+            }); // Zoom seviyesi: 5
+
+            // OpenStreetMap katmanını ekle
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([departureLatitude, departureLongitude], {}).addTo(map)
+                .bindPopup('Başlangıç Konumu').openPopup();
+
+            L.marker([arrivalLatitude, arrivalLongitude], {}).addTo(map)
+                .bindPopup('Varış Konumu').openPopup();
+
+            // Rotayı çiz
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(departureLatitude, departureLongitude),
+                    L.latLng(arrivalLatitude, arrivalLongitude)
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+        }
+
+
 
         function showModal(response) {
             var route = response.route[0];
@@ -372,9 +415,7 @@
                                 return;
                             }
                         }
-                    }
-
-                    else if (seatNumber % seatLayout === 3) {
+                    } else if (seatNumber % seatLayout === 3) {
                         var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber + 1) + '"]');
                         if (!adjacentSeat.hasClass('empty')) {
                             var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];
@@ -386,9 +427,7 @@
                                 return;
                             }
                         }
-                    }
-
-                    else if (seatNumber % seatLayout === 0) {
+                    } else if (seatNumber % seatLayout === 0) {
                         var adjacentSeat = $('.seat[data-seat-number="' + (seatNumber - 1) + '"]');
                         if (!adjacentSeat.hasClass('empty')) {
                             var adjacentSeatGender = adjacentSeat.attr('class').split(' ')[2];

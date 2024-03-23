@@ -8,7 +8,7 @@ class CityModel extends Model
 {
     protected $table      = 'cities';
     protected $primaryKey = 'city_plate';
-    protected $allowedFields = ['city_name'];
+    protected $allowedFields = ['city_name', 'latitude', 'longitude']; // Yeni eklenen sütunlar
 
     public static function getCities()
     {
