@@ -16,12 +16,12 @@ class PaymentController extends BaseController
         $payment = $iyzico->setForm([
             'conversationID' => '123456789',
             'price' => 180.0,
-            'paidPrice' => 186.0,
+            'paidPrice' => 1808.0,
             'basketID' => 'SPT123456',
         ])
             ->setBuyer([
                 'id' => 123,
-                'name' => 'Arif Can ',
+                'name' => 'Arif Can Gök ',
                 'surname' => 'Gök',
                 'phone' => '05071234567',
                 'email' => 'example@example.com',

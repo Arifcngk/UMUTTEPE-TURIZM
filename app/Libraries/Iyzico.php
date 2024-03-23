@@ -27,7 +27,7 @@ class Iyzico {
         $this->request->setCurrency(\Iyzipay\Model\Currency::TL);
         $this->request->setBasketId($params['basketID']);
         $this->request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $this->request->setCallbackUrl(base_url(route_to('payment_callback')));
+        $this->request->setCallbackUrl(base_url(route_to('sayfaya-don')));
         $this->request->setEnabledInstallments(array(2, 3, 6, 9));
         return $this;
     }
