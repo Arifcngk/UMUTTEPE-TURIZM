@@ -196,12 +196,33 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                        drawRouteOnMap(response);
                         console.log(response);
                         displaySeats(response);
                         showModal(response);
                         addSeatClickHandler();
                         addPopupCloseHandler();
+                        var isMapVisible = false; // Harita görünürlüğünü izlemek için bir değişken
+                        var isMapCreated = false; // Harita oluşturuldu mu?
+
+                        document.getElementById('showMapText').addEventListener('click', function() {
+                            var mapContainer = document.getElementById('mapContainer');
+                            var showMapText = document.getElementById('showMapText');
+                            if (!isMapVisible) {
+                                mapContainer.style.display = 'block'; // Harita container'ını görünür hale getir
+                                if (!isMapCreated) {
+                                    drawRouteOnMap(response); // Haritayı çiz
+                                    isMapCreated = true; // Harita oluşturulduğunu işaretle
+                                }
+                                showMapText.textContent = 'Haritayı Gizle'; // Metni güncelle
+                                isMapVisible = true; // Harita görünür hale geldiğini işaretle
+                            } else {
+                                mapContainer.style.display = 'none'; // Harita container'ını gizle
+                                showMapText.textContent = 'Haritayı Göster'; // Metni güncelle
+                                isMapVisible = false; // Harita gizlendiğini işaretle
+                            }
+                        });
+
+
                     },
                     error: function(xhr, status, error) {
                         alert('Koltuklar yüklenirken bir hata oluştu.');

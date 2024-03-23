@@ -24,8 +24,11 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div id="mapContainer" style="width: 100%; height: 600px; border-radius:18px"></div>
-
+                <div class="map">
+                    <h2 id="showMapText" class="text-secondary" style="cursor: pointer;">Haritayı Göster</h2>
+                    <div id="mapContainer"></div>
+                    <hr>
+                </div>
                 <div id="seatMap"></div>
             </div>
             <div class="modal-footer">
@@ -49,10 +52,15 @@
 </div>
 
 <style>
-    #map {
+    #mapContainer {
         /* Harita alanını stilize etmek için CSS */
-        height: 400px;
+        height: 200px;
         width: 100%;
+        display: none;
+        padding-bottom: 24px;
+        border: #1d3445 solid 2px;
+        border-radius: 18px;
+        overflow: hidden;
         /* veya belirli bir piksel değeri */
     }
 
@@ -75,41 +83,11 @@
 <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" /> -->
 
-
-<script>
-    // // Başlangıç ve varış konumlarını belirle
-    // var startLocation = [41.004684, 28.891659]; // New York
-    // var endLocation = [40.657424, 35.797493]; // Los Angeles
-
-    // // Harita oluştur
-    // var map = L.map('map').setView(startLocation, 5); // Zoom seviyesi: 5
-
-    // // OpenStreetMap katmanını ekle
-    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    // }).addTo(map);
-
-    // L.marker(startLocation, {
-    //     }).addTo(map)
-    //     .bindPopup('Başlangıç Konumu').openPopup();
-
-    // L.marker(endLocation, {
-    //     }).addTo(map)
-    //     .bindPopup('Varış Konumu').openPopup();
-
-    // // Rotayı çiz
-    // L.Routing.control({
-    //     waypoints: [
-    //         L.latLng(startLocation[0], startLocation[1]),
-    //         L.latLng(endLocation[0], endLocation[1])
-    //     ],
-    //     routeWhileDragging: true
-    // }).addTo(map);
-</script>
-
 <script>
     $('#seatModal').on('hidden.bs.modal', function() {
-        $('#map').empty();
+        $('#showMapText').text('Haritayı Göster');
+        document.getElementById('mapContainer').style.display = 'none';
+        $('#mapContainer').empty();
         $('#selectedSeats').empty(); // selectedSeats içeriğini boşalt
         $('#totalPrice').empty();
     });
