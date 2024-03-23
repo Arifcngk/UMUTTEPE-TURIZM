@@ -24,9 +24,8 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div id="map">
+                <div id="mapContainer" style="width: 100%; height: 600px; border-radius:18px"></div>
 
-                </div>
                 <div id="seatMap"></div>
             </div>
             <div class="modal-footer">
@@ -70,9 +69,12 @@
     }
 </style>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" /> -->
+
 
 <script>
     // // Başlangıç ve varış konumlarını belirle

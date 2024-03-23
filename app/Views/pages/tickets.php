@@ -196,8 +196,8 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
                         drawRouteOnMap(response);
+                        console.log(response);
                         displaySeats(response);
                         showModal(response);
                         addSeatClickHandler();
@@ -209,6 +209,101 @@
                 });
             });
         });
+
+        function drawRouteOnMap(response) {
+            // Kontrolleri yapalım, verilerin doğru olduğundan emin olalım
+            if (!response || !response.route || !response.route[0]) {
+                console.error('Invalid response data.');
+                return;
+            }
+
+            var departureLatitude = parseFloat(response.route[0].departure_latitude);
+            var departureLongitude = parseFloat(response.route[0].departure_longitude);
+            var arrivalLatitude = parseFloat(response.route[0].arrival_latitude);
+            var arrivalLongitude = parseFloat(response.route[0].arrival_longitude);
+
+            // Initialize communication with the platform
+            var platform = new H.service.Platform({
+                apikey: '-bWOc5bUMKLnfRbyQ4G6lS2jmn-4H5H59dSVkDizSMM'
+            });
+
+            var defaultLayers = platform.createDefaultLayers();
+
+
+            var map = new H.Map(document.getElementById('mapContainer'),
+                defaultLayers.vector.normal.map, {
+                    zoom: 7,
+                    center: {
+                        lat: (departureLatitude + arrivalLatitude) / 2,
+                        lng: (departureLongitude + arrivalLongitude) / 2
+                    }
+                }
+            );
+
+
+            // add a resize listener to make sure that the map occupies the whole container
+            window.addEventListener('resize', () => map.getViewPort().resize());
+
+            // MapEvents enables the event system
+            // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+            // Create the default UI components
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+            // Get an instance of the routing service version 8:
+            var router = platform.getRoutingService(null, 8);
+
+            // Canvas2D için willReadFrequently özelliğini true olarak ayarlayın
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+            context.willReadFrequently = true;
+
+            // Create the parameters for the routing request:
+            var routingParameters = {
+                'routingMode': 'fast',
+                'transportMode': 'car',
+                // The start point of the route:
+                'origin': departureLatitude + ',' + departureLongitude,
+                // The end point of the route:
+                'destination': arrivalLatitude + ',' + arrivalLongitude,
+                // Include the route shape in the response
+                'return': 'polyline'
+            };
+
+            // Define a callback function to process the routing response:
+            var onResult = function(result) {
+                // ensure that at least one route was found
+                if (result.routes.length) {
+                    result.routes[0].sections.forEach((section) => {
+                        // Create a linestring to use as a point source for the route line
+                        let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
+
+                        // Create a polyline to display the route:
+                        let routeLine = new H.map.Polyline(linestring, {
+                            style: {
+                                strokeColor: 'navy',
+                                lineWidth: 3
+                            }
+                        });
+
+                        // Create a marker for the start point:
+                        let startMarker = new H.map.Marker(section.departure.place.location);
+
+                        // Create a marker for the end point:
+                        let endMarker = new H.map.Marker(section.arrival.place.location);
+
+                        // Add the route polyline and the two markers to the map:
+                        map.addObjects([routeLine, startMarker, endMarker]);
+
+                    });
+                }
+            };
+
+            router.calculateRoute(routingParameters, onResult, function(error) {
+                alert(error.message);
+            });
+        }
 
         function displaySeats(response) {
             var seatHtml = '';
@@ -254,47 +349,6 @@
 
             $('#seatMap').html(seatHtml);
         }
-
-        function drawRouteOnMap(response) {
-            // Başlangıç ve varış konumlarını belirle
-            var departureLatitude = parseFloat(response.route[0].departure_latitude); // Kalkış şehrinin enlemi
-            var departureLongitude = parseFloat(response.route[0].departure_longitude); // Kalkış şehrinin boylamı
-            var arrivalLatitude = parseFloat(response.route[0].arrival_latitude); // Varış şehrinin enlemi
-            var arrivalLongitude = parseFloat(response.route[0].arrival_longitude);
-
-            // Eğer harita zaten varsa kaldır
-            if (typeof map !== 'undefined') {
-                map.remove();
-            }
-
-            // Harita oluştur
-            var map = L.map('map', {
-                center: [departureLatitude, departureLongitude],
-                zoom: 15
-            }); // Zoom seviyesi: 5
-
-            // OpenStreetMap katmanını ekle
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([departureLatitude, departureLongitude], {}).addTo(map)
-                .bindPopup('Başlangıç Konumu').openPopup();
-
-            L.marker([arrivalLatitude, arrivalLongitude], {}).addTo(map)
-                .bindPopup('Varış Konumu').openPopup();
-
-            // Rotayı çiz
-            L.Routing.control({
-                waypoints: [
-                    L.latLng(departureLatitude, departureLongitude),
-                    L.latLng(arrivalLatitude, arrivalLongitude)
-                ],
-                routeWhileDragging: true
-            }).addTo(map);
-        }
-
-
 
         function showModal(response) {
             var route = response.route[0];
