@@ -49,6 +49,10 @@ $routes->post('/delete_credit_card/(:num)', 'AuthController::deleteCreditCard/$1
 
 $routes->get('/ticketpayment', 'PaymentController::payment');
 
+
+$routes->match(['get','post'] ,'/ödeme-sonrası', 'PaymentController::callback',['as'=>'payment_callback']);
+
+
 $routes->get('/search_routes', 'RoutesController::search');
 
 
