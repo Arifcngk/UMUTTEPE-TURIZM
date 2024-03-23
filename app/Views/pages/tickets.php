@@ -221,8 +221,6 @@
                                 isMapVisible = false; // Harita gizlendiğini işaretle
                             }
                         });
-
-
                     },
                     error: function(xhr, status, error) {
                         alert('Koltuklar yüklenirken bir hata oluştu.');
@@ -378,12 +376,13 @@
             var departureTime = route.departure_time;
             var seatLayout = route.seat_layout;
             var price = route.price + "₺";
+            var routeId = route.route_id;
 
             $('#departureArrival').html(departureCity + " <i class='fa-solid fa-angles-right' style='font-size: 18px; color: #e43c5c;'></i> " + arrivalCity);
             $('#departureTime').html(departureTime);
             $('#seatLayout').html(seatLayout);
             $('#price').html(price);
-
+            $('#routeId').html(routeId);
             $('#seatModal').modal('show');
         }
 
@@ -436,6 +435,15 @@
                 console.log('Seçilen Cinsiyet:', selectedGender);
 
                 console.log(seatLayout);
+
+                // Seçilen koltuk sayısını kontrol et
+                if ($('#selectedSeats li').length === 0) {
+                    // Eğer seçilen koltuk yoksa, butonu devre dışı bırak
+                    $('#confirmButton').prop('disabled', true);
+                } else {
+                    // Aksi takdirde butonu etkinleştir
+                    $('#confirmButton').prop('disabled', false);
+                }
 
                 // İki ardışık koltuğun cinsiyet kontrolü
 
@@ -541,6 +549,14 @@
             $('#totalPrice').html(selectedSeatsCount * parseFloat($('#price').text()));
             seatElement.removeClass('selected').addClass('empty');
             $('#selectedSeats li div[data-seat-number="' + seatNumber + '"]').parent().parent().remove();
+
+            if ($('#selectedSeats li').length === 0) {
+                // Eğer seçilen koltuk yoksa, butonu devre dışı bırak
+                $('#confirmButton').prop('disabled', true);
+            } else {
+                // Aksi takdirde butonu etkinleştir
+                $('#confirmButton').prop('disabled', false);
+            }
         }
 
         function addPopupCloseHandler() {

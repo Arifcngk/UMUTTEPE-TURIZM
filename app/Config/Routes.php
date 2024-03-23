@@ -33,7 +33,7 @@ $routes->get('/reservation', 'ReservationController::index');
 
 $routes->get('/seatSelection', 'SeatSelectionController::index');
 
-$routes->get('/passengerİnfo', 'PassengerİnfoController::index');
+$routes->post('/passengerinfo', 'PassengerİnfoController::index');
 
 $routes->get('/seats/(:num)', 'RoutesController::seats/$1');
 
@@ -49,9 +49,7 @@ $routes->post('/delete_credit_card/(:num)', 'AuthController::deleteCreditCard/$1
 
 $routes->get('/ticketpayment', 'PaymentController::payment');
 
-
 $routes->match(['get','post'] ,'/ödeme-sonrası', 'PaymentController::callback',['as'=>'sayfaya-don']);
-
 
 $routes->get('/search_routes', 'RoutesController::search');
 

@@ -63,7 +63,7 @@
                         </fieldset>
                     </div>
                 </form>
-                <a href="passengerİnfo">Git</a>
+                <a href="<?php echo base_url('/passengerinfo') ?>">Git</a>
             </div>
         </div>
     </section>

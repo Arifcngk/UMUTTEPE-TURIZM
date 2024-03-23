@@ -11,13 +11,18 @@
                             <i class="fa-solid fa-clock" style="font-size: 24px; margin-right: 4px; color: #1d3445; text-shadow: 0 0 1px #e43c5c; color: #e43c5c;"></i>
                             <p id="departureTime" class="card-text text-secondary font-weight-bold" style="font-size: 24px; color: #1d3445; text-shadow: 0 0 1px #1d3445;"></p>
                         </div>
-                        <div class="col-md-3 d-flex align-items-center justify-content-center">
+                        <div class="col-md-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-couch font-weight-bold" style="font-size: 20px; margin-right: 8px; color: #899dab; text-shadow: 0 0 1px #1d3445;"></i>
                             <p class="card-text font-weight-bold" id="seatLayout" style="font-size: 24px; color: #899dab; text-shadow: 0 0 1px #1d3445;">2+1</p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="text-center"><!-- yatayda ortalamak için text-center sınıfını ekleyin -->
                                 <h3 id="price" class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c;"><b></b></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text-center"><!-- yatayda ortalamak için text-center sınıfını ekleyin -->
+                                <h3 id="routeId" class="card-text" style="color: #e43c5c; text-shadow: 0 0 1px #e43c5c; opacity: .3;"><b></b></h3>
                             </div>
                         </div>
                     </div>
@@ -38,7 +43,7 @@
                 </div>
                 <div>
                     <span style="display: block;" class="text-secondary pb-2">Toplam Fiyat: <h5 style="display: inline;" id="totalPrice"></h5></span>
-                    <button type="button" class="btn btn-primary" aria-label="Accept" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
+                    <button disabled id="confirmButton" type="button" class="btn btn-primary" aria-label="Accept" style="box-shadow: 0 0 5px #1d3445; background-color: #1d3445; border: none;">
                         Onayla ve Devam Et
                     </button>
                 </div>
@@ -58,7 +63,7 @@
         width: 100%;
         display: none;
         padding-bottom: 24px;
-        border: #1d3445 solid 2px;
+        border: #ccc solid 2px;
         border-radius: 18px;
         overflow: hidden;
         /* veya belirli bir piksel değeri */
@@ -82,7 +87,6 @@
 <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
 <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" /> -->
-
 <script>
     $('#seatModal').on('hidden.bs.modal', function() {
         $('#showMapText').text('Haritayı Göster');
@@ -94,5 +98,37 @@
     // Kapat butonuna tıklanınca modalı kapat
     $('.close').click(function() {
         $('#seatModal').modal('hide');
+    });
+
+    $(document).ready(function() {
+        $('#confirmButton').click(function() {
+            // Seçilen koltuk bilgilerini al
+            var selectedSeats = [];
+            $('#selectedSeats li').each(function() {
+                var seatNumber = $(this).find('.seat').data('seat-number');
+                var gender = $(this).find('.seat').hasClass('female') ? 'female' : 'male';
+                selectedSeats.push({
+                    seat_number: seatNumber,
+                    gender: gender
+                });
+            });
+
+            // Toplam fiyatı al
+            var totalPrice = $('#totalPrice').text();
+
+            // Route ID bilgisini al
+            var routeId = $('#routeId').text();
+
+            // Formu oluştur ve bilgileri ekle
+            var form = $('<form action="<?php echo base_url('passengerinfo'); ?>" method="post">' +
+                '<input type="hidden" name="selectedSeats" value=\'' + JSON.stringify(selectedSeats) + '\'>' +
+                '<input type="hidden" name="totalPrice" value="' + totalPrice + '">' +
+                '<input type="hidden" name="routeId" value="' + routeId + '">' +
+                '</form>');
+
+            // Formu sayfaya ekleyerek otomatik olarak submit et
+            $('body').append(form);
+            form.submit();
+        });
     });
 </script>
