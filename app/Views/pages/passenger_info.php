@@ -43,10 +43,11 @@
                     <div class="col-lg-8">
                         <!-- İletişim Bilgieri -->
                         <?php include "app/Views/partials/passenger_info/contact_info.php" ?>
-
+                        <?php foreach ($passengers as $index => $passenger) {
+                            include "app/Views/partials/passenger_info/passenger_info.php";
+                        }
+                        ?>
                         <!-- Yolcu Bilgiileri -->
-                        <?php include "app/Views/partials/passenger_info/passenger_info.php" ?>
-
                     </div>
                     <!-- Right side -->
                     <div class="col-lg-4">
@@ -55,28 +56,25 @@
                             <div class="card-body">
                                 <div id="register" style="text-align: center;">
                                     <div id="ticket">
-
                                         <table>
+                                            <?php foreach ($passengers as $index => $passenger) : ?>
+                                                <tr>
+                                                    <th><?php echo $index + 1; ?>. Yolcu</th>
+                                                    <th id="total<?php echo $index;?>"><?php echo $totalPrice / count($passengers); ?> ₺</th>
+                                                </tr>
+                                            <?php endforeach; ?>
 
-                                            <tr>
-                                                <th>1. Yolcu</th>
-                                                <th id="total">120.00 ₺</th>
-                                            </tr>
-                                            <tr>
-                                                <th>2. Yolcu</th>
-                                                <th id="total">120.00 ₺</th>
-                                            </tr>
+                                            <tbody id="entries"></tbody>
 
-                                            <tbody id="entries">
-
-                                            </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <th>Toplam Tutar</th>
-                                                    <th id="total">240.00 ₺</th>
+                                                    <th id="total"><?php echo $totalPrice; ?> ₺</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
+
+
                                     </div>
 
                                     <a href="ticketpayment"> <button type="button" class="btn btn-dark " style=" padding: 2px 10px; margin-top: 8px;">Tutarı Onayla</button>
