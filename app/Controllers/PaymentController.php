@@ -5,7 +5,10 @@ namespace App\Controllers;
 use App\Libraries\Iyzico;
 use App\Models\RouteModel;
 use App\Models\FareModel;
-
+use App\Controllers\AuthController;
+use App\Models\SeatModel;
+use App\Models\TicketModel;
+use App\Models\PassengerModel;
 class PaymentController extends BaseController
 {
     public function index()
@@ -14,6 +17,12 @@ class PaymentController extends BaseController
     }
     public function payment()
     {
+        // Kullanıcının oturumunu kontrol et
+        if (!AuthController::check()) {
+            $message = ['type' => 'error', 'text' => 'Lütfen giriş yapınız !'];
+            return redirect()->to('/')->with('message', $message);
+        }
+
         $phoneNumber = $this->request->getPost('phone_number');
         $email = $this->request->getPost('email');
 
@@ -75,17 +84,15 @@ class PaymentController extends BaseController
             $totalPrice += $price * $rate;
         }
 
-        // Alınan bilgileri kullanarak diğer işlemleri yapabilirsiniz
-
-        // Örneğin, alınan verileri bir diziye atayabilir ve view dosyasına gönderebilirsiniz
-        $data = [
+        $paymentInfo = [
             'phone_number' => $phoneNumber,
             'email' => $email,
             'passenger_info' => $passengerInfo,
             'route_id' => $routeId,
-            'totalPrice' => $totalPrice
-            // Diğer verileri ekleyin
+            // Diğer bilgileri ekleyin
         ];
+
+        session()->set('paymentInfo', $paymentInfo);
 
         $iyzico = new Iyzico();
         $payment = $iyzico->setForm([
@@ -96,7 +103,7 @@ class PaymentController extends BaseController
         ])
             ->setBuyer([
                 'id' => 123,
-                'name' => 'Arif Can Gök ',
+                'name' => 'Arif Can Gök',
                 'surname' => 'Gök',
                 'phone' => '05071234567',
                 'email' => 'example@example.com',
@@ -151,6 +158,61 @@ class PaymentController extends BaseController
         $conversionID = '123456789';
         $iyzico = new Iyzico();
         $response = $iyzico->callbackForm($token, $conversionID);
-        return json_encode($response->getPaymentStatus());
+
+        $paymentStatus = $response->getPaymentStatus();
+
+        if ($paymentStatus === 'SUCCESS') {
+            $paymentInfo = session()->get('paymentInfo');
+            $user = session()->get('user');
+            $routeId = $paymentInfo['route_id'];
+            $ticketModel = new TicketModel();
+            $seatModel = new SeatModel();
+
+            // SeatModel kullanarak koltuk bilgilerini kaydet
+            foreach ($paymentInfo['passenger_info'] as $passenger) {
+
+                $passengerModel = new PassengerModel();
+
+                $passengerData = [
+                    'first_name' => $passenger['name'],
+                    'last_name' => $passenger['surname'],
+                    'tc_id' => $passenger['id_number'],
+                    'fare_id' => $passenger['discount']
+                ];
+
+                $passengerModel->insert($passengerData);
+                $passengerId = $passengerModel->getInsertID();
+                // Koltuk bilgisini al
+                $seatNumber = $passenger['seat_number'];
+
+                // İlgili koltuğu bul
+                $seatId = $seatModel->where('route_id', $routeId)
+                    ->where('seat_number', $seatNumber)
+                    ->first()['id'];
+                
+                $seatData = [
+                    'status' => 'sold',
+                    'gender' => $passenger['gender']
+                ];
+                
+                $seatModel->update($seatId, $seatData);
+
+                $ticketData = [
+                    'route_id' => $routeId,
+                    'user_id' => $user['id'], // Örneğin, kullanıcı kimliğini alarak kaydedebilirsiniz
+                    'seat_number' => $passenger['seat_number'], // Birden fazla koltuk numarası olabilir, bunları virgülle ayırarak kaydedebilirsiniz
+                    'created_at' => date('Y-m-d H:i:s'), // Şu anki tarih ve saat
+                    'passenger_id' => $passengerId
+                    // Diğer alanları ekleyebilirsiniz
+                ];
+                $ticketModel->insert($ticketData);
+            }
+
+            return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Bilet satın alma işlemleri başarılı']);
+        } else {
+            // Ödeme başarısız veya hata oluştu
+            // Uygun bir şekilde yönlendirme veya hata mesajı gösterme işlemlerini yapabilirsiniz
+            return 'Ödeme başarısız: ' . $paymentStatus;
+        }
     }
 }

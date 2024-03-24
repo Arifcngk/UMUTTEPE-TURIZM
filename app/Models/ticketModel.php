@@ -8,14 +8,14 @@ class TicketModel extends Model
 {
     protected $table      = 'tickets';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['route_id', 'user_id', 'seat_number', 'created_at'];
+    protected $allowedFields = ['route_id', 'user_id', 'seat_number', 'pnr_code', 'created_at', 'passenger_id', 'status'];
 
     public function getTicketsWithDetails($userid = "")
     {
         $query = $this->db->table('tickets')
             ->select('tickets.*, routes.departure_time, routes.arrival_time, routes.departure_date, 
                 departure_city.city_name as departure_city, arrival_city.city_name as arrival_city, 
-                passenger.first_name as name, passenger.last_name as last_name, passenger.passenger_type as passenger_type, buses.plate_number as plate_number')
+                passenger.first_name as name, passenger.last_name as last_name, passenger.fare_id as passenger_type, buses.plate_number as plate_number')
             ->join('routes', 'tickets.route_id = routes.id')
             ->join('buses', 'routes.bus_id = buses.id')
             ->join('cities as departure_city', 'routes.departure_city_id = departure_city.city_plate', 'left')
@@ -33,7 +33,7 @@ class TicketModel extends Model
         $query = $this->db->table('tickets')
             ->select('tickets.*, routes.departure_time, routes.arrival_time, routes.departure_date, 
             departureCity.city_name as departure_city, arrivalCity.city_name as arrival_city, 
-            passenger.first_name as name, passenger.last_name as last_name, passenger.passenger_type as passenger_type, buses.plate_number as plate_number')
+            passenger.first_name as name, passenger.last_name as last_name, passenger.fare_id as passenger_type, buses.plate_number as plate_number')
             ->join('routes', 'tickets.route_id = routes.id')
             ->join('buses', 'routes.bus_id = buses.id')
             ->join('cities as departureCity', 'routes.departure_city_id = departureCity.city_plate', 'left')

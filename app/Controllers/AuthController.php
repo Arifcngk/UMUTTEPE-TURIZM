@@ -13,6 +13,19 @@ class AuthController extends BaseController
         return redirect()->to('/');
     }
 
+    public static function check()
+    {
+        // Oturumda kullanıcı bilgisi var mı kontrol et
+        if (session()->has('user')) {
+            // Kullanıcı oturumu varsa, giriş yapılmış demektir
+            return true;
+        } else {
+            // Kullanıcı oturumu yoksa, giriş yapılmamış demektir
+            return false;
+        }
+    }
+
+
     public function authenticate()
     {
         $email = $this->request->getPost('email');
@@ -154,18 +167,19 @@ class AuthController extends BaseController
 
     public function deleteCreditCard($id)
     {
-    // Kredi kartı modelini yükleyin
-    $creditCardModel = new CreditCardModel();
+        // Kredi kartı modelini yükleyin
+        $creditCardModel = new CreditCardModel();
 
-    // Kredi kartını sil
-    $creditCardModel->delete($id);
+        // Kredi kartını sil
+        $creditCardModel->delete($id);
 
-    // Başarılı mesajı gönderin ya da başka bir işlem yapın
-    $message = ['type' => 'success', 'text' => 'Kredi kartı başarıyla silindi.'];
-    return redirect()->back()->with('message', $message);
+        // Başarılı mesajı gönderin ya da başka bir işlem yapın
+        $message = ['type' => 'success', 'text' => 'Kredi kartı başarıyla silindi.'];
+        return redirect()->back()->with('message', $message);
     }
 
-    public function deleteAccount() {
+    public function deleteAccount()
+    {
         $userModel = new UserModel();
         $userId = session()->get('user')['id'];
 
@@ -173,8 +187,7 @@ class AuthController extends BaseController
             $userModel->delete($userId);
             session()->remove('user');
             return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Kullanıcı başarıyla silindi']);
-        }
-        else {
+        } else {
             return redirect()->back()->with('message', ['type' => 'error', 'text' => 'Kullanıcı kaldırılırken bir hata oluştu.']);
         }
     }
