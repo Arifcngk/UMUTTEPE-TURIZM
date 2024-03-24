@@ -49,13 +49,9 @@
                     <label class="form-label">Yolcu Tarifesi</label>
 
                     <select class="form-select passenger-discount" name="passenger_discount[<?php echo $index; ?>]" required>
-                        <option selected value="standart">Standart</option>
-                        <option value="student">Öğrenci - %15 İndirim</option>
-                        <option value="officer">Memur - %15 İndirim</option>
-                        <option value="retired">Emekli - %15 İndirim</option>
-                        <option value="senior">65 Yaş Üstü -%50 İndirim</option>
-                        <option value="child">7 Yaş Altı - Ücretsiz</option>
-                        <option value="security">Güvenlik Mensubu - Ücretsiz</option>
+                        <?php foreach ($fares as $fare) : ?>
+                            <option value="<?php echo $fare['id']; ?>"><?php echo $fare['fare_name']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
@@ -65,32 +61,47 @@
 </div>
 
 <script>
-    // Yolcu tarifesi değiştikçe fiyat kısmını güncelle
     document.addEventListener("DOMContentLoaded", function() {
         var passengerDiscounts = document.querySelectorAll('.passenger-discount');
         passengerDiscounts.forEach(function(passengerDiscount) {
             passengerDiscount.addEventListener('change', function() {
                 var index = this.name.match(/\d+/)[0]; // Yolcu indeksini al
-                var totalPriceElement = document.getElementById('total' + index);
-                var totalPrice = parseFloat(document.getElementById('total').textContent) / passengerDiscounts.length; // Toplam fiyatı al
-                switch (this.value) {
-                    case 'student':
-                    case 'officer':
-                    case 'retired':
-                        totalPrice *= 0.85; // %15 indirim
-                        break;
-                    case 'senior':
-                        totalPrice *= 0.50; // %50 indirim
-                        break;
-                    case 'child':
-                    case 'security':
-                        totalPrice = 0; // Ücretsiz
-                        break;
-                    default:
-                        break;
-                }
-                totalPriceElement.textContent = totalPrice.toFixed(2) + ' ₺';
+                var fareId = this.value; // Seçilen yolcu tarifesi ID'sini al
+                var routeId = <?php echo $route['route_id'] ?>;
+                var data = {
+                    index: index,
+                    fareId: fareId,
+                    routeId: routeId
+                };
+                sendAjax(data);
             });
         });
+
+        function sendAjax(data) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '<?php echo base_url('update_price'); ?>', true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText); // Yanıtı JSON formatına dönüştür
+                    var price = response.price; // Güncellenmiş toplam fiyatı al
+                    var index = response.index; // Güncellenmiş yolcu bilgilerini al
+
+                    // Toplam tutarı güncelle
+                    document.getElementById('total' + index).textContent = price.toFixed(2) + ' ₺';
+
+                    var prices = document.getElementsByClassName('passengerPrices');
+                    var totalPrice = 0;
+
+                    // prices NodeList'ini bir diziye dönüştür ve fiyatları topla
+                    Array.prototype.forEach.call(prices, function(priceElement) {
+                        totalPrice += parseFloat(priceElement.textContent.replace('₺', '').trim());
+                    });
+                    document.getElementById('total').textContent = totalPrice.toFixed(2) + ' ₺';;
+
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
     });
 </script>

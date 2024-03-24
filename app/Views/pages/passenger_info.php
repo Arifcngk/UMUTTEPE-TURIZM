@@ -34,9 +34,8 @@
                 <!-- Title -->
                 <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
                     <h2 class="h5 mb-3 mb-lg-0"><a href="../../pages/admin/customers.html" class="text-muted"><i class="bi bi-arrow-left-square me-2"></i></a> Koltuk Seçme Ekranına Dön</h2>
-
+                    <h2 style="color: #e43c5c; text-shadow: 0 0 2px #e43c5c;"><?php echo $route['departure_city'] . " > " . $route['arrival_city'] ?></h2>
                 </div>
-
                 <!-- Main content -->
                 <div class="row">
                     <!-- Left side -->
@@ -60,7 +59,7 @@
                                             <?php foreach ($passengers as $index => $passenger) : ?>
                                                 <tr>
                                                     <th><?php echo $index + 1; ?>. Yolcu</th>
-                                                    <th id="total<?php echo $index;?>"><?php echo $totalPrice / count($passengers); ?> ₺</th>
+                                                    <th class="passengerPrices" id="total<?php echo $index; ?>"><?php echo $totalPrice / count($passengers); ?> ₺</th>
                                                 </tr>
                                             <?php endforeach; ?>
 
@@ -96,11 +95,6 @@
 
 
     </main>
-
-
-
-
-
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -115,13 +109,15 @@
     <script src="public/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="public/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="public/assets/vendor/php-email-form/validate.js"></script>
+
     <!-- Template Main JS File -->
     <script src="public/assets/js/main.js"></script>
     <script src="public/assets/js/main.js"></script>
 
     <script src="https://use.fontawesome.com/782caa4c45.js"></script>
-
-    <script></script>
 </body>
+
+<style>
+</style>
 
 </html>
