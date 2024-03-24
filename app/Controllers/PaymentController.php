@@ -23,6 +23,8 @@ class PaymentController extends BaseController
             return redirect()->to('/')->with('message', $message);
         }
 
+        return 
+
         $phoneNumber = $this->request->getPost('phone_number');
         $email = $this->request->getPost('email');
 
@@ -95,6 +97,7 @@ class PaymentController extends BaseController
         session()->set('paymentInfo', $paymentInfo);
 
         $iyzico = new Iyzico();
+        $user = session()->get('user');
         $payment = $iyzico->setForm([
             'conversationID' => '123456789',
             'price' => 180.0,
@@ -102,13 +105,13 @@ class PaymentController extends BaseController
             'basketID' => 'SPT123456',
         ])
             ->setBuyer([
-                'id' => 123,
-                'name' => 'Arif Can Gök',
-                'surname' => 'Gök',
-                'phone' => '05071234567',
-                'email' => 'example@example.com',
-                'identity' => '12345678901',
-                'address' => 'Alıcı Adresi İstanbul',
+                'id' => $user['id'],
+                'name' => $user['first_name'],
+                'surname' => $user['last_name'],
+                'phone' => $user['phone_number'],
+                'email' => $user['email'],
+                'identity' => $user['tc_id'],
+                'address' => 'Amasya',
                 'ip' => $this->request->getIPAddress(),
                 'city' => 'İstanbul',
                 'country' => 'Türkiye',
