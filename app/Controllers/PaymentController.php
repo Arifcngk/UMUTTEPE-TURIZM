@@ -208,6 +208,7 @@ class PaymentController extends BaseController
                 $ticketModel->insert($ticketData);
             }
 
+            session()->remove('payment_info');
             return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Bilet satın alma işlemleri başarılı']);
         } else {
             // Ödeme başarısız veya hata oluştu
