@@ -25,11 +25,7 @@
             <div class="col-lg-6">
                 <div class="mb-3">
                     <label class="form-label">Cinsiyet</label>
-                    <select class="form-select" name="passenger_gender[<?php echo $index; ?>]" required>
-                        <option value="" selected disabled>Seçiniz</option>
-                        <option value="male">Erkek</option>
-                        <option value="female">Kadın</option>
-                    </select>
+                    <input type="text" class="form-control" name="passenger_gender[<?php echo $index; ?>]" required value="<?php echo $passenger['gender'] === 'female' ? 'Kadın' : 'Erkek' ?>" disabled>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -55,7 +51,6 @@
                     </select>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -97,7 +92,10 @@
                     Array.prototype.forEach.call(prices, function(priceElement) {
                         totalPrice += parseFloat(priceElement.textContent.replace('₺', '').trim());
                     });
-                    document.getElementById('total').textContent = totalPrice.toFixed(2) + ' ₺';;
+                    var totalElements = document.getElementsByClassName('total');
+                    for (var j = 0; j < totalElements.length; j++) {
+                        totalElements[j].textContent = totalPrice.toFixed(2) + ' ₺';
+                    }
 
                 }
             };

@@ -41,11 +41,22 @@
                     <!-- Left side -->
                     <div class="col-lg-8">
                         <!-- İletişim Bilgieri -->
-                        <?php include "app/Views/partials/passenger_info/contact_info.php" ?>
-                        <?php foreach ($passengers as $index => $passenger) {
-                            include "app/Views/partials/passenger_info/passenger_info.php";
-                        }
-                        ?>
+                        <form action="">
+                            <?php include "app/Views/partials/passenger_info/contact_info.php" ?>
+                            <?php foreach ($passengers as $index => $passenger) {
+                                include "app/Views/partials/passenger_info/passenger_info.php";
+                            }
+                            ?>
+                            <div class="row pb-5">
+                                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                                    <h2 class="total"><?php echo $totalPrice; ?> ₺</h2>
+                                </div>
+                                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="btn btn-dark w-100">Tutarı Onayla</button>
+                                </div>
+                            </div>
+
+                        </form>
                         <!-- Yolcu Bilgiileri -->
                     </div>
                     <!-- Right side -->
@@ -68,25 +79,17 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>Toplam Tutar</th>
-                                                    <th id="total"><?php echo $totalPrice; ?> ₺</th>
+                                                    <th class="total"><?php echo $totalPrice; ?> ₺</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
-
-
                                     </div>
-
-                                    <a href="ticketpayment"> <button type="button" class="btn btn-dark " style=" padding: 2px 10px; margin-top: 8px;">Tutarı Onayla</button>
-                                    </a>
                                 </div>
 
                             </div>
                         </div>
-
                         <!-- Ödeme Bilgileri -->
                         <?php include "app/Views/partials/passenger_info/payment_info.php" ?>
-
-
                     </div>
                 </div>
             </div>
