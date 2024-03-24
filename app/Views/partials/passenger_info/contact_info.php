@@ -9,7 +9,7 @@
                                             <label class="form-label">Telefon Numarası</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">+90</span>
-                                                <input type="phone" aria-label="phone" class="form-control" required>
+                                                <input type="phone" name="phone_number" aria-label="phone" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
@@ -18,7 +18,7 @@
                                             <label class="form-label">e-posta</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">@</span>
-                                                <input type="text" aria-label="phone" class="form-control" required>
+                                                <input type="email" name="email" aria-label="phone" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>

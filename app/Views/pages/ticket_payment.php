@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <?php echo $paymentContent; ?>
+    <?php print_r($paymentContent) ?>
     <?php echo $paymentStatus; ?>
     <div id="iyzipay-checkout-form" class="responsive"></div>
 </body>

@@ -3,7 +3,7 @@
     <div class="card-body">
         <h3 class="h6 mb-4">Koltuk Numarası <?php echo $passenger['seat_number'] ?>(<?php echo $passenger['gender'] === 'female' ? 'Kadın' : 'Erkek' ?>)</h3>
 
-
+        <input type="hidden" name="seat_number[<?php echo $index; ?>]" value="<?php echo $passenger['seat_number']; ?>">
         <div class="row">
             <div class="col-lg-6">
                 <div class="mb-3">
@@ -25,7 +25,7 @@
             <div class="col-lg-6">
                 <div class="mb-3">
                     <label class="form-label">Cinsiyet</label>
-                    <input type="text" class="form-control" name="passenger_gender[<?php echo $index; ?>]" required value="<?php echo $passenger['gender'] === 'female' ? 'Kadın' : 'Erkek' ?>" disabled>
+                    <input type="text" class="form-control" name="passenger_gender[<?php echo $index; ?>]" readonly value="<?php echo $passenger['gender'] ?>">
                 </div>
             </div>
             <div class="col-lg-6">

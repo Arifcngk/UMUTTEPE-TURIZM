@@ -5,13 +5,9 @@
 
 <head>
     <?php include "app/Views/partials/_head.php" ?>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="public/assets/css/passenger_info.css" rel="stylesheet" />
     <link href="public/assets/css/style.css" rel="stylesheet" />
-
-
-
 </head>
 <!-- head son -->
 
@@ -41,22 +37,23 @@
                     <!-- Left side -->
                     <div class="col-lg-8">
                         <!-- İletişim Bilgieri -->
-                        <form action="">
+                        <form action="ticketpayment" method="post" accept-charset="utf-8">
                             <?php include "app/Views/partials/passenger_info/contact_info.php" ?>
                             <?php foreach ($passengers as $index => $passenger) {
                                 include "app/Views/partials/passenger_info/passenger_info.php";
-                            }
-                            ?>
+                            } ?>
+                            <!-- Rota ID'sini gizli bir giriş alanı olarak ekleyin -->
+                            <input type="hidden" name="route_id" value="<?php echo $route['route_id']; ?>">
                             <div class="row pb-5">
                                 <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                                    <h2 class="total"><?php echo $totalPrice; ?> ₺</h2>
+                                    <h2 class="total font-weight-bold" style="font-weight: 700;"><?php echo $totalPrice; ?> ₺</h2>
                                 </div>
                                 <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                                    <button type="submit" class="btn btn-dark w-100">Tutarı Onayla</button>
+                                    <button type="submit" class="btn btn-dark w-100 p-3">Tutarı Onayla</button>
                                 </div>
                             </div>
-
                         </form>
+
                         <!-- Yolcu Bilgiileri -->
                     </div>
                     <!-- Right side -->
