@@ -10,7 +10,7 @@
                        
                         <span><?php echo count($tickets['sold']) ?></span> <!-- Number -->
                     </h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                        
                         <span><?php echo count($tickets['cancelled']) ?></span> <!-- Number -->
                     </h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                        
                         <span><?php echo $user['balance'].'₺'?></span> <!-- Number -->
                     </h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                        
                         <span><?php echo $user['type'] ?></span> <!-- Number -->
                     </h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                    
                 </div>
             </div>
         </div>

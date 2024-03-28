@@ -23,8 +23,6 @@ class PaymentController extends BaseController
             return redirect()->to('/')->with('message', $message);
         }
 
-        return 
-
         $phoneNumber = $this->request->getPost('phone_number');
         $email = $this->request->getPost('email');
 
