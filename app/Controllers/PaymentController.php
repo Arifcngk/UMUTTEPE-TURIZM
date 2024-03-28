@@ -9,6 +9,8 @@ use App\Controllers\AuthController;
 use App\Models\SeatModel;
 use App\Models\TicketModel;
 use App\Models\PassengerModel;
+use App\Models\UserModel;
+
 class PaymentController extends BaseController
 {
     public function index()
@@ -64,6 +66,7 @@ class PaymentController extends BaseController
 
         // Rota fiyatını güncellemek için her bir yolcu için geçerli indirimi ve oranı hesaplayın
         $totalPrice = 0;
+        $ıtems = [];
         foreach ($passengerInfo as $passenger) {
             $discountId = $passenger['discount'];
 
@@ -80,6 +83,13 @@ class PaymentController extends BaseController
             // Yolcu için geçerli indirim oranını hesaplayın
             $rate = $fare['rate'];
 
+            $ıtems += [
+                'id' => 868,
+                'name' => $routeId . " numaralı seferde " . $passenger['seat_number'] . " numaralı koltuk",
+                'category' => $fare['fare_name'],
+                'price' => $price * $fare['rate']
+            ];
+
             // Yolculuk fiyatını, her bir yolcu için alınan indirim oranıyla çarpın
             $totalPrice += $price * $rate;
         }
@@ -93,64 +103,117 @@ class PaymentController extends BaseController
         ];
 
         session()->set('paymentInfo', $paymentInfo);
-
         $iyzico = new Iyzico();
         $user = session()->get('user');
-        $payment = $iyzico->setForm([
-            'conversationID' => '123456789',
-            'price' => 180.0,
-            'paidPrice' => $totalPrice,
-            'basketID' => 'SPT123456',
-        ])
-            ->setBuyer([
-                'id' => $user['id'],
-                'name' => $user['first_name'],
-                'surname' => $user['last_name'],
-                'phone' => $user['phone_number'],
-                'email' => $user['email'],
-                'identity' => $user['tc_id'],
-                'address' => 'Amasya',
-                'ip' => $this->request->getIPAddress(),
-                'city' => 'İstanbul',
-                'country' => 'Türkiye',
+        if ($user['balance'] < $totalPrice) {
+            $netPrice = $totalPrice - $user['balance'];
+            $payment = $iyzico->setForm([
+                'conversationID' => '123456789',
+                'price' => 180.0,
+                'paidPrice' => $netPrice,
+                'basketID' => 'SPT123456',
             ])
-            ->setShipping([
-                'name' => 'Veli Kısabacak',
-                'city' => 'Ankara',
-                'country' => 'Türkiye',
-                'address' => 'Kargonun gideceği adres Ankara',
-            ])
-            ->setBilling([
-                'name' => 'Veli Kısabacak',
-                'city' => 'Ankara',
-                'country' => 'Türkiye',
-                'address' => 'Kargonun gideceği adres Ankara',
-            ])
-            ->setItems([
-                [
-                    'id' => 8749,
-                    'name' => 'Kırmızı Ayakkabı',
-                    'category' => 'Erkek Ayakkabı',
-                    'price' => 60.0,
-                ],
-                [
-                    'id' => 8750,
-                    'name' => 'Siyah Ayakkabı',
-                    'category' => 'Erkek Ayakkabı',
-                    'price' => 60.0,
-                ],
-                [
-                    'id' => 8751,
-                    'name' => 'Mavi Ayakkabı',
-                    'category' => 'Erkek Ayakkabı',
-                    'price' => 60.0,
-                ],
-            ])
-            ->paymentForm();
-        return view('pages/ticket_payment', [
-            'paymentContent' => $payment->getCheckoutFormContent(),
-            'paymentStatus' => $payment->getStatus()
-        ]);
+                ->setBuyer([
+                    'id' => $user['id'],
+                    'name' => $user['first_name'],
+                    'surname' => $user['last_name'],
+                    'phone' => $user['phone_number'],
+                    'email' => $user['email'],
+                    'identity' => $user['tc_id'],
+                    'address' => isset($user['address']) ? $user['address'] : 'Adres Bulunamadı',
+                    'ip' => $this->request->getIPAddress(),
+                    'city' => 'Şehir Bulunamadı',
+                    'country' => 'Türkiye',
+                ])
+                ->setShipping([
+                    'name' => $user['first_name'] . ' ' .  $user['last_name'],
+                    'city' => 'Şehir Bulunamadı',
+                    'country' => 'Türkiye',
+                    'address' => isset($user['address']) ? $user['address'] : 'Adres Bulunamadı',
+                ])
+                ->setBilling([
+                    'name' => $user['first_name'] . ' ' . $user['last_name'],
+                    'city' => 'Şehir Bulunamadı',
+                    'country' => 'Türkiye',
+                    'address' => isset($user['address']) ? $user['address'] : 'Adres Bulunamadı',
+                ])
+                ->setItems([
+                    [
+                        'id' => 8749,
+                        'name' => 'Kırmızı Ayakkabı',
+                        'category' => 'Erkek Ayakkabı',
+                        'price' => 60.0,
+                    ],
+                    [
+                        'id' => 8750,
+                        'name' => 'Siyah Ayakkabı',
+                        'category' => 'Erkek Ayakkabı',
+                        'price' => 60.0,
+                    ],
+                    [
+                        'id' => 8751,
+                        'name' => 'Mavi Ayakkabı',
+                        'category' => 'Erkek Ayakkabı',
+                        'price' => 60.0,
+                    ]
+                ])
+                ->paymentForm();
+            return view('pages/ticket_payment', [
+                'paymentContent' => $payment->getCheckoutFormContent(),
+                'paymentStatus' => $payment->getStatus()
+            ]);
+        }
+        else {
+            $routeId = $paymentInfo['route_id'];
+            $ticketModel = new TicketModel();
+            $seatModel = new SeatModel();
+            $user['balance'] -= $totalPrice;
+            // SeatModel kullanarak koltuk bilgilerini kaydet
+            foreach ($paymentInfo['passenger_info'] as $passenger) {
+
+                $passengerModel = new PassengerModel();
+
+                $passengerData = [
+                    'first_name' => $passenger['name'],
+                    'last_name' => $passenger['surname'],
+                    'tc_id' => $passenger['id_number'],
+                    'fare_id' => $passenger['discount']
+                ];
+
+                $passengerModel->insert($passengerData);
+                $passengerId = $passengerModel->getInsertID();
+                // Koltuk bilgisini al
+                $seatNumber = $passenger['seat_number'];
+
+                // İlgili koltuğu bul
+                $seatId = $seatModel->where('route_id', $routeId)
+                    ->where('seat_number', $seatNumber)
+                    ->first()['id'];
+
+                $seatData = [
+                    'status' => 'sold',
+                    'gender' => $passenger['gender']
+                ];
+
+                $seatModel->update($seatId, $seatData);
+
+                $ticketData = [
+                    'route_id' => $routeId,
+                    'user_id' => $user['id'], // Örneğin, kullanıcı kimliğini alarak kaydedebilirsiniz
+                    'seat_number' => $passenger['seat_number'], // Birden fazla koltuk numarası olabilir, bunları virgülle ayırarak kaydedebilirsiniz
+                    'created_at' => date('Y-m-d H:i:s'), // Şu anki tarih ve saat
+                    'passenger_id' => $passengerId
+                    // Diğer alanları ekleyebilirsiniz
+                ];
+                $ticketModel->insert($ticketData);
+            }
+
+            session()->remove('payment_info');
+            $userModel = new UserModel();
+            session()->set('user', $user);
+            $userModel->update($user['id'], $user);
+            return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Bilet satın alma işlemleri başarılı, tüm tutar bakiyenizden karşılandı !']);
+        }
     }
 
     public function callback()
@@ -165,6 +228,10 @@ class PaymentController extends BaseController
         if ($paymentStatus === 'SUCCESS') {
             $paymentInfo = session()->get('paymentInfo');
             $user = session()->get('user');
+            $userModel = new UserModel();
+            $user['balance'] = 0;
+            $userModel->update($user['id'], $user);
+            session()->set('user', $user);
             $routeId = $paymentInfo['route_id'];
             $ticketModel = new TicketModel();
             $seatModel = new SeatModel();
@@ -190,12 +257,12 @@ class PaymentController extends BaseController
                 $seatId = $seatModel->where('route_id', $routeId)
                     ->where('seat_number', $seatNumber)
                     ->first()['id'];
-                
+
                 $seatData = [
                     'status' => 'sold',
                     'gender' => $passenger['gender']
                 ];
-                
+
                 $seatModel->update($seatId, $seatData);
 
                 $ticketData = [
@@ -208,7 +275,6 @@ class PaymentController extends BaseController
                 ];
                 $ticketModel->insert($ticketData);
             }
-
             session()->remove('payment_info');
             return redirect()->to('/')->with('message', ['type' => 'success', 'text' => 'Bilet satın alma işlemleri başarılı']);
         } else {

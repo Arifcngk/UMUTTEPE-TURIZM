@@ -81,7 +81,7 @@ class Iyzico {
             $basketItem->setId($value['id']);
             $basketItem->setName($value['name']);
             $basketItem->setCategory1($value['category']);
-            $basketItem->setItemType(\Iyzipay\Model\BasketItemType::PHYSICAL);
+            $basketItem->setItemType(\Iyzipay\Model\BasketItemType::VIRTUAL);
             $basketItem->setPrice($value['price']);
             array_push($this->basketItems, $basketItem);
         }
