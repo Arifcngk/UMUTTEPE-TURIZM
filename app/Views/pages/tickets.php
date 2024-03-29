@@ -93,11 +93,11 @@
             filter: drop-shadow(0 0 0.75rem #008080);
         }
 
-        .seat.booked {
+        .seat.reserved {
             background-image: url('public/assets/img/seat_booked.png');
         }
 
-        .seat.booked:is(:hover, :focus-visible) {
+        .seat.reserved:is(:hover, :focus-visible) {
             filter: drop-shadow(0 0 0.75rem #ffef00);
         }
 
@@ -344,8 +344,8 @@
                         case 'sold':
                             colorClass = 'sold ' + seat.gender;
                             break;
-                        case 'booked':
-                            colorClass = 'booked';
+                        case 'reserved':
+                            colorClass = 'reserved ' + seat.gender;
                             break;
                     }
 

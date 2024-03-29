@@ -34,7 +34,15 @@
                     <div id="mapContainer"></div>
                     <hr>
                 </div>
-                <div id="seatMap"></div>
+                <div class="trivia" style="display: flex; align-items: center; justify-content: center;">
+                <div class="seat sold"></div>
+                <div class="seat reserved"></div>
+                <div class="seat empty"></div>
+                </div>
+                <div class="bus" style="display: flex;">
+                    <img src="public/assets/img/bus-front.png" alt="bus front">
+                    <div style="width: 100%; padding: 4px; border: 2px solid #ccc; border-left: none;" id="seatMap"></div>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="selectedSeats">

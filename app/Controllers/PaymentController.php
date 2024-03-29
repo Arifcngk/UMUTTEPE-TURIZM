@@ -92,7 +92,7 @@ class PaymentController extends BaseController
             ];
 
             // Yolculuk fiyatını, her bir yolcu için alınan indirim oranıyla çarpın
-            $totalPrice += $price * $rate;
+            $totalPrice += $passenger['status'] == 'sold' ? $price * $rate : 0;
         }
 
         $paymentInfo = [
@@ -192,7 +192,7 @@ class PaymentController extends BaseController
                     ->first()['id'];
 
                 $seatData = [
-                    'status' => 'sold',
+                    'status' => $passenger['status'],
                     'gender' => $passenger['gender']
                 ];
 
@@ -203,7 +203,8 @@ class PaymentController extends BaseController
                     'user_id' => $user['id'], // Örneğin, kullanıcı kimliğini alarak kaydedebilirsiniz
                     'seat_number' => $passenger['seat_number'], // Birden fazla koltuk numarası olabilir, bunları virgülle ayırarak kaydedebilirsiniz
                     'created_at' => date('Y-m-d H:i:s'), // Şu anki tarih ve saat
-                    'passenger_id' => $passengerId
+                    'passenger_id' => $passengerId,
+                    'status' => $passenger['status']
                     // Diğer alanları ekleyebilirsiniz
                 ];
                 $ticketModel->insert($ticketData);
