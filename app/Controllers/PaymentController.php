@@ -32,6 +32,7 @@ class PaymentController extends BaseController
         $passengerInfo = [];
         foreach ($this->request->getPost('passenger_name') as $index => $passengerName) {
             $passengerInfo[$index]['name'] = $passengerName;
+            $passengerInfo[$index]['status'] = isset($this->request->getPost('status')[$index]) ? 'reserved' : 'sold';
             $passengerInfo[$index]['seat_number'] = $this->request->getPost('seat_number')[$index];
             $passengerInfo[$index]['surname'] = $this->request->getPost('passenger_surname')[$index];
             $passengerInfo[$index]['gender'] = $this->request->getPost('passenger_gender')[$index];
