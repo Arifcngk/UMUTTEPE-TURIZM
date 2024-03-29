@@ -19,10 +19,10 @@
             <div class="card bg-c-yellow order-card">
                 <div class="card-block">
                 <i class="fa fa-refresh f-left"></i>
-                    <h6 class="m-b-20 " style="text-align: center;" >İdade Edilen Biletler</h6>
+                    <h6 class="m-b-20 " style="text-align: center;" >Rezerve Edilen Biletler</h6>
                     <h2 class="text-right">
                        
-                        <span><?php echo count($tickets['cancelled']) ?></span> <!-- Number -->
+                        <span><?php echo count($tickets['reserved']) ?></span> <!-- Number -->
                     </h2>
                     
                 </div>
