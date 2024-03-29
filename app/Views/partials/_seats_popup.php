@@ -34,10 +34,27 @@
                     <div id="mapContainer"></div>
                     <hr>
                 </div>
-                <div class="trivia" style="display: flex; align-items: center; justify-content: center;">
-                <div class="seat sold"></div>
-                <div class="seat reserved"></div>
-                <div class="seat empty"></div>
+                <div class="trivia m-4" style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+                    <div class="trivia-block d-flex align-items-center justify-content-center">
+                        <div class="seat sold"></div>
+                        <h6>Satın Alınamaz</h6>
+                    </div>
+                    <div class="trivia-block d-flex align-items-center justify-content-center">
+                        <div class="seat empty"></div>
+                        <h6>Uygun Koltuk</h6>
+                    </div>
+                    <div class="trivia-block d-flex align-items-center justify-content-center">
+                        <div class="seat reserved"></div>
+                        <h6>Rezerve Koltuk</h6>
+                    </div>
+                    <div class="trivia-block d-flex align-items-center justify-content-center">
+                        <div class="seat sold female"></div>
+                        <h6>Kadın Yolcu</h6>
+                    </div>
+                    <div class="trivia-block d-flex align-items-center justify-content-center">
+                        <div class="seat sold male"></div>
+                        <h6>Erkek Yolcu</h6>
+                    </div>
                 </div>
                 <div class="bus" style="display: flex;">
                     <img src="public/assets/img/bus-front.png" alt="bus front">
